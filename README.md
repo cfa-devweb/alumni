@@ -23,7 +23,8 @@
 
 *PS: Ne pas oublier de recréer un fichier .env, pour ce faire copier coller les 3 ligne de commande dans le terminal et appuyer sur entrée*
 
-```cp .env.example .env
+```
+cp .env.example .env
 
 php artisan key:generate
 
