@@ -33,7 +33,7 @@ php artisan config:cache
 
 #### Step 6. Lancer les commandes suivantes dans l'ordre
 
-`composer install` 
+`composer install`  
 `npm install`
 
 #### Step 7. Lancer un serveur local
