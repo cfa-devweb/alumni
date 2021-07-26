@@ -1,0 +1,25 @@
+
+// special color CCI
+$blue-dark-cci:     hsl(231,73%,14%); // bleu navbar
+$orange-cci:        hsl(22,77%,55%); // orange
+$rose-cci:          hsl(331,76%,53%); // rose cci
+$blue-cyan:         hsl(189, 99%, 42%); // blue cci
+$red:               hsl(0, 100%, 50%); // change color default for class is-danger
+
+$family-sans-serif: "Open Sans","Helvetica","sans serif";
+
+$primary: $blue-cyan;
+$danger: $red; 
+
+
+// creer une classe specifique
+$info: $blue-dark-cci;
+$warning: $orange-cci;
+$rose: $rose-cci;
+
+
+@import "~bulma/bulma.sass";
+
+.mycustomclass{
+    color:$red !important;
+} 
