@@ -11,6 +11,7 @@
 #### Step 2. Allez dans votre dossier creer via la commande précédente
 `cd <nom du dossier>`
 
+
 *PS: Ne pas oublier de recréer un fichier .env, pour ce faire copier coller les 3 ligne de commande dans le terminal windows et appuyer sur entrée*
 
 ```
@@ -30,12 +31,16 @@ php artisan key:generate
 
 php artisan config:cache
 ```
+
 #### Step 3. Lancer les commandes suivantes dans l'ordre
+
 
 `composer install`  
 `npm install`
 
+
 #### Step 4. Lancer un serveur local
+
 
 `php artisan serve`
 
