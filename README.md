@@ -64,4 +64,9 @@ php artisan config:cache
 
 `npm run watch`
 
+#### Vous trouverez dans /public/ un dossier images
+
+<p> Mettre toutes les images, logos dans ce dossier </p>
+
+#### Les pages :
 
