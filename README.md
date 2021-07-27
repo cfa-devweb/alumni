@@ -11,7 +11,17 @@
 #### Step 2. Allez dans votre dossier creer via la commande précédente
 `cd <nom du dossier>`
 
-*PS: Ne pas oublier de recréer un fichier .env, pour ce faire copier coller les 3 ligne de commande dans le terminal et appuyer sur entrée*
+*PS: Ne pas oublier de recréer un fichier .env, pour ce faire copier coller les 3 ligne de commande dans le terminal windows et appuyer sur entrée*
+
+```
+copy .env.example .env
+
+php artisan key:generate
+
+php artisan config:cache
+```
+
+*PS: Pour les autres termnaux copier coller les 3 ligne de commande suivante et appuyer sur entrée*
 
 ```
 cp .env.example .env
@@ -20,7 +30,6 @@ php artisan key:generate
 
 php artisan config:cache
 ```
-
 #### Step 3. Lancer les commandes suivantes dans l'ordre
 
 `composer install`  
