@@ -86,8 +86,8 @@ Créer les pages dans /ressources/views/
 @endsection
 ```
 
-  * <p>@extends('/partials/layout')    => Ajoute le head/header/footer</p>
+   <p>@extends('/partials/layout')    => Ajoute le head/header/footer</p>
     
-  * <p>@section('content')             => Le contenu de la page HTML</p>
+   <p>@section('content')             => Le contenu de la page HTML</p>
 
 
