@@ -16,10 +16,10 @@ class Members extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->string('last_name');
+                -> constrained()
+                -> onUpdate('cascade')
+                -> onDelete('cascade');
+            $table-> string('last_name');
             $table -> string('first_name');
             $table -> tinyText('avatar');
             $table -> foreignId('promotion_year_id')
@@ -33,7 +33,7 @@ class Members extends Migration
             $table -> string('city') -> nullable();
             $table -> boolean('worker') -> nullable();
             $table -> boolean('certificate') -> nullable();
-            $table->timestamps();
+            $table-> timestamps();
         });
     }
 

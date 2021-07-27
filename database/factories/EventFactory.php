@@ -22,15 +22,15 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'organizer' => $this -> faker -> name(),
-            'title' => $this -> faker -> sentence(),
-            'content' => $this -> faker -> paragraph(),
-            'adress' => $this -> faker -> address(),
-            'city' => $this -> faker -> city(),
-            'start_time' => $this -> faker -> time(),
-            'end_time' => $this -> faker -> time(),
-            'event_date' => $this -> faker -> date(),
-            'end_event_date' => $this -> faker -> date()
+            'organizer'         => $this -> faker -> name(),
+            'title'             => $this -> faker -> sentence(),
+            'content'           => $this -> faker -> paragraph(),
+            'adress'            => $this -> faker -> address(),
+            'city'              => $this -> faker -> city(),
+            'start_time'        => $this -> faker -> time(),
+            'end_time'          => $this -> faker -> time(),
+            'event_date'        => $this -> faker -> date(),
+            'end_event_date'    => $this -> faker -> date()
         ];
     }
 }

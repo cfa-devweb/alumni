@@ -24,7 +24,7 @@ class InscriptionEventFactory extends Factory
     public function definition()
     {
         return [
-            'event_id' => Event::all('id') -> random(),
+            'event_id'  => Event::all('id') -> random(),
             'member_id' => Member::all('id') -> random()
         ];
     }

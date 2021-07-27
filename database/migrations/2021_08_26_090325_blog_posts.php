@@ -16,9 +16,9 @@ class BlogPosts extends Migration
         Schema::create('blog_posts', function (Blueprint $table )
         {
             $table -> id();
-            $table -> foreignId('member_id') -> constrained()
+            $table -> foreignId('user_id') -> constrained()
                 -> onDelete('cascade')
-                ->onUpdate('cascade');
+                -> onUpdate('cascade');
             $table -> string('title');
             $table -> text('content');
             $table -> foreignId('categorie_id') -> constrained()

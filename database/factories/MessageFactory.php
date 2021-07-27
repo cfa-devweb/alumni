@@ -24,8 +24,8 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            'member_id' => Member::all('id') -> random(),
-            'group_id' => Group::all('id') -> random()
+            'member_id'     => Member::all('id') -> random(),
+            'group_id'      => Group::all('id') -> random()
         ];
     }
 }

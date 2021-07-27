@@ -17,16 +17,12 @@ class Promotion_year extends Model
      * @var array
      */
     protected $fillable = [
-        'year_id',
+        'year',
         'promotion_id'
     ];
 
-    public function year()
-    {
-        return $this -> belongsToMany(Year::class);
-    }
     public function promotion()
     {
-        return $this -> belongsToMany(Promotion::class);
+        return $this -> belongsTo(Promotion::class);
     }
 }
