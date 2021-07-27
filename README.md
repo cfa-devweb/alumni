@@ -8,7 +8,7 @@
 #### Step 1. Commencer par cloner ce repository en copiant cette commande
 `git clone https://github.com/cfa-devweb/alumni.git`
 
-#### Step 2. Allez dans votre dossier creer via la commande précédente
+#### Step 2. Allez dans votre dossier crée via la commande précédente en utilisant 
 `cd <nom du dossier>`
 
 
