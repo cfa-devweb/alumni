@@ -72,14 +72,15 @@ php artisan config:cache
 
 Créer les pages dans /ressources/views/ 
 
-*Ne pas oublier d'ajouter un '.blade.php'  *
+*Ne pas oublier d'ajouter un .blade.php*
 
 ##### Commencer le code par : 
 
-`@extends('/partials/layout')
+```
+@extends('/partials/layout')
 
 @section('content')
     // code ici ....
 @endsection
-`
+```
 
