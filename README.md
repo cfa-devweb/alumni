@@ -74,7 +74,7 @@ php artisan config:cache
 
 Créer les pages dans /ressources/views/ 
 
-*Ps: Ne pas oublier d'ajouter le .blade.php*
+*Ps: Ne pas oublier d'ajouter le ".blade.php"*
 
 ##### Commencer le code par : 
 
