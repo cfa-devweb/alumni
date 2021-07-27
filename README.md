@@ -74,11 +74,13 @@ php artisan config:cache
 ## Convention de nommage
 *Tout est en anglais*
 
-- table en bdd = snake_case et au pluriel
-- les controllers = nom de la table + Controller au singulier et CamelCase `e.g: MaTableController.php`
+- table en bdd = snake_case, au pluriel et en lowercase
+- les controllers = nom de la table + Controller au singulier et PascalCase `e.g: MaTableController.php`
+- les models = nom de la table au singulier en PascalCase 
+- nom des clefs étrangéres : nom de latble reference singulier + _id snake_case
 
 *PS: Tout les controllers sont déja créer, faut juste les remplir.     
-Les relations sont déja faite dans `app/models/monModel`
+Les relations sont déja établie dans `app/models/MonModel`
 *
 
 ## Bonne pratique.
