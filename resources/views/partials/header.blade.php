@@ -1,10 +1,14 @@
 <body>
+    <div class="columns is-centered">
+        <figure class="image is-128x128 is-centered">
+            <img src="{{asset('images/logocci.png')}}" alt="logo" class="img-size-50 mr-3 img-circle">
+        </figure>
+    </div>
     <nav class="navbar is-info content" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            <a class="navbar-item" href=" ">
+                Accueil
             </a>
-
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -12,20 +16,14 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item">
-                    Home
+                    Actualités
                 </a>
-
-                <a class="navbar-item">
-                    Documentation
-                </a>
-
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        More
+                        Promotions
                     </a>
 
                     <div class="navbar-dropdown">
@@ -44,18 +42,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
-                </div>
+                <a class="navbar-item">
+                    Profils
+                </a>
             </div>
         </div>
     </nav>
