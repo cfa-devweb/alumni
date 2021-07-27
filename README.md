@@ -64,9 +64,9 @@ php artisan config:cache
 
 `npm run watch`
 
-#### creer ou recréer un jeu de donnée
+#### creer ou recréer les tables
 
-`php artisan migrate:fresh --seed`
+`php artisan migrate:fresh`
 
 *PS: pour créer de la donnée rendez vous dans le fichier `/database/seeders/DatabaseSeeder.php` et décommenter les lignes que vous souhaitez dans la méthode `run`*
 > Disclaimer: Certains factory on besoin d'autre table pour fonctionner donc pour ce faire verifier le model correspondant `app/models/table.php`
