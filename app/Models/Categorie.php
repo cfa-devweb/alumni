@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Categorie extends Model
 {
     use HasFactory;
 
-    protected $table = 'groups';
+    protected $table = 'categories';
 
     /**
      * The attributes that are mass assignable.
@@ -17,15 +17,11 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'promotion_year_id',
+        'name',
     ];
 
-    public function messages()
+    public function BlogPost()
     {
-        return $this -> hasMany(Message::class);
-    }
-    public function promotion()
-    {
-        return $this -> hasOne(Promotion_year::class);
+        return $this -> hasMany(Blog_post::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Group;
+use App\Models\Promotion_year;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GroupFactory extends Factory
@@ -22,7 +23,7 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'promotion_year_id' => Promotion_year::all('id') -> random()
         ];
     }
 }

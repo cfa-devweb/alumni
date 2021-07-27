@@ -11,16 +11,6 @@
 #### Step 2. Allez dans votre dossier creer via la commande précédente
 `cd <nom du dossier>`
 
-#### Step 3. Installer laravel ui en copiant la commande ci dessous
-`composer require laravel/ui`
-
-#### Step 4. Desinstalle bootstrap
-`npm uninstall bootstrap`
-
-#### Step 5. Install bulma
-
-`npm install bulma` 
-
 *PS: Ne pas oublier de recréer un fichier .env, pour ce faire copier coller les 3 ligne de commande dans le terminal et appuyer sur entrée*
 
 ```
@@ -31,12 +21,12 @@ php artisan key:generate
 php artisan config:cache
 ```
 
-#### Step 6. Lancer les commandes suivantes dans l'ordre
+#### Step 4. Lancer les commandes suivantes dans l'ordre
 
 `composer install`  
 `npm install`
 
-#### Step 7. Lancer un serveur local
+#### Step 5. Lancer un serveur local
 
 `php artisan serve`
 

@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Promotion_year;
+use App\Models\Event;
+use App\Models\InscriptionEvent;
+use App\Models\Member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PromotionYearFactory extends Factory
+class InscriptionEventFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Promotion_year::class;
+    protected $model = InscriptionEvent::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +24,8 @@ class PromotionYearFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'event_id' => Event::all('id') -> random(),
+            'member_id' => Member::all('id') -> random()
         ];
     }
 }

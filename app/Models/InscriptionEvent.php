@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class InscriptionEvent extends Model
 {
     use HasFactory;
 
-    protected $table = 'groups';
+    protected $table = 'inscription_events';
 
     /**
      * The attributes that are mass assignable.
@@ -17,15 +17,12 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'promotion_year_id',
+        'event_id',
+        'member_id'
     ];
 
-    public function messages()
+    public function event()
     {
-        return $this -> hasMany(Message::class);
-    }
-    public function promotion()
-    {
-        return $this -> hasOne(Promotion_year::class);
+        return $this -> belongsTo(Event::class);
     }
 }

@@ -15,7 +15,7 @@ class Years extends Migration
     {
         Schema::create('years', function (Blueprint $table) {
             $table->id();
-            $table->date('year');
+            $table->year('year');
             $table->timestamps();
         });
     }

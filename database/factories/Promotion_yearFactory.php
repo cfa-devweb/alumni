@@ -2,19 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
-use App\Models\Member;
-use App\Models\message;
+use App\Models\Promotion;
+use App\Models\Promotion_year;
+use App\Models\Year;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MessageFactory extends Factory
+class Promotion_yearFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = message::class;
+    protected $model = Promotion_year::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +24,8 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            'member_id' => Member::all('id') -> random(),
-            'group_id' => Group::all('id') -> random()
+            'year_id' => Year::all('id') -> random(),
+            'promotion_id' => Promotion::all('id') -> random()
         ];
     }
 }
