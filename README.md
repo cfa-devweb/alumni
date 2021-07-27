@@ -76,7 +76,7 @@ Créer les pages dans /ressources/views/
 
 *Ps: Ne pas oublier d'ajouter le ".blade.php"*
 
-##### Commencer le code par : 
+##### Dans chacune de vos pages, ajouter le code suivant : 
 
 ```
 @extends('/partials/layout')
