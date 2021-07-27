@@ -64,6 +64,23 @@ php artisan config:cache
 
 `npm run watch`
 
+#### creer ou recréer un jeu de donnée
+
+`php artisan migrate:fresh --seed`
+
+*PS: pour créer de la donnée rendez vous dans le fichier `/database/seeders/DatabaseSeeder.php` et décommenter les lignes que vous souhaitez dans la méthode `run`*
+> Disclaimer: Certains factory on besoin d'autre table pour fonctionner donc pour ce faire verifier le model correspondant `app/models/table.php`
+
+## Convention de nommage
+*Tout est en anglais*
+
+- table en bdd = snake_case et au pluriel
+- les controllers = nom de la table + Controller au singulier et CamelCase `e.g: MaTableController.php`
+
+*PS: Tout les controllers sont déja créer, faut juste les remplir.     
+Les relations sont déja faite dans `app/models/monModel`
+*
+
 ## Bonne pratique.
 
 #### Vous trouverez dans /public/ un dossier images
