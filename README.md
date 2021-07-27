@@ -70,3 +70,16 @@ php artisan config:cache
 
 #### Les pages :
 
+Créer les pages dans /ressources/views/ 
+
+*Ne pas oublier d'ajouter un '.blade.php'  *
+
+##### Commencer le code par : 
+
+`@extends('/partials/layout')
+
+@section('content')
+    // code ici ....
+@endsection
+`
+
