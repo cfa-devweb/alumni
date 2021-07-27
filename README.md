@@ -64,6 +64,8 @@ php artisan config:cache
 
 `npm run watch`
 
+## Bonne pratique.
+
 #### Vous trouverez dans /public/ un dossier images
 
 <p> Mettre toutes les images, logos dans ce dossier </p>
@@ -72,7 +74,7 @@ php artisan config:cache
 
 Créer les pages dans /ressources/views/ 
 
-*Ne pas oublier d'ajouter un .blade.php*
+*Ps: Ne pas oublier d'ajouter le .blade.php*
 
 ##### Commencer le code par : 
 
@@ -83,4 +85,5 @@ Créer les pages dans /ressources/views/
     // code ici ....
 @endsection
 ```
-
+@extends('/partials/layout')    => Ajoute le head/header/footer,
+@section('content')             => Le contenu de la page HTML.
