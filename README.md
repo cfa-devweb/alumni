@@ -21,7 +21,7 @@ php artisan key:generate
 php artisan config:cache
 ```
 
-*PS: Pour les autres termnaux copier coller les 3 ligne de commande suivante et appuyer sur entrée*
+*PS: Pour les autres terminaux copier coller les 3 ligne de commande suivante et appuyer sur entrée*
 
 ```
 cp .env.example .env
