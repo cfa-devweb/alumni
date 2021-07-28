@@ -23,10 +23,10 @@ class ReportsFactory extends Factory
     public function definition()
     {
         return [
-            'content'           => $this -> faker -> paragraphs(),
+            'content'           => $this -> faker -> paragraph(6),
             'from_member_id'    => Member::all('id') -> random(),
             'to_member_id'      => Member::all('id') -> random(),
-            'visibility'        => $this -> faker -> boolean() 
+            'visibility'        => $this -> faker -> boolean(100) 
         ];
     }
 }

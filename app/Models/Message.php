@@ -18,16 +18,19 @@ class Message extends Model
      */
     protected $fillable = [
         'content',
-        'member_id',
+        'from_member_id',
         'group_id',
         'visibility'
     ];
 
     public function member()
     {
-        return $this -> belongsTo(Member::class);
+        return $this -> belongsTo(Member::class,'from_member_id');
     }
-
+    public function toMember()
+    {
+        return $this -> belongsTo(Member::class,'to_id');
+    }
     public function group()
     {
         return $this -> belongsTo(Group::class);

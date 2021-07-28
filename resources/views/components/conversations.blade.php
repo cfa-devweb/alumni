@@ -10,7 +10,7 @@
                     {{ $item ->content }}
                 </div>
                 <div class="is-flex is-align-items-flex-start is-justify-content-flex-end">
-                    <p> {{ $item ->member ->first_name }} </p>
+                    <p> {{ $item ->from_member_id ->first_name }} </p>
                     <figure class="image is-64x64 m-0 mx-2">
                         <img src=" {{ asset('images/avatar.png') }} ">
                     </figure>

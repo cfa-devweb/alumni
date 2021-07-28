@@ -31,7 +31,7 @@ class EventFactory extends Factory
             'end_time'          => $this -> faker -> time(),
             'event_date'        => $this -> faker -> date(),
             'end_event_date'    => $this -> faker -> date(),
-            'visibility'        => $this -> faker -> boolean()    
+            'visibility'        => $this -> faker -> boolean(100)    
         ];
     }
 }

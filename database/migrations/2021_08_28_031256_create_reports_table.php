@@ -18,10 +18,16 @@ class CreateReportsTable extends Migration
             $table -> text('content');
             $table -> foreignId('from_member_id')
                 -> references('id')
-                -> on('members');
+                -> on('members')
+                -> constrained()
+                -> onDelete('cascade')
+                -> onUpdate('cascade');
             $table -> foreignId('to_member_id')
                 -> references('id')
-                -> on('members');
+                -> on('members')
+                -> constrained()
+                -> onDelete('cascade')
+                -> onUpdate('cascade');
             $table -> boolean('visibility');
             $table -> timestamps();
         });

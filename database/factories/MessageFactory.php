@@ -28,7 +28,7 @@ class MessageFactory extends Factory
             'from_member_id'     => Member::all('id') -> random(),
             'to_id'              => Group::all('id') -> random(),
             'type_message'  => $this -> faker -> randomElement(array('group','member')),
-            'visibility'    => $this -> faker -> boolean()  
+            'visibility'    => $this -> faker -> boolean(100)  
         ];
     }
 }
