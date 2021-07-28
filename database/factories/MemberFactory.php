@@ -27,6 +27,7 @@ class MemberFactory extends Factory
             'user_id'           => User::all('id')->random(),
             'last_name'         => $this -> faker -> lastName(),
             'first_name'        => $this -> faker -> firstName(),
+            'birth_date'        => $this -> faker -> date(),
             'avatar'            => $this -> faker -> imageUrl(),
             'description'       => $this -> faker -> paragraph(),
             'business'          => $this -> faker -> company(),
