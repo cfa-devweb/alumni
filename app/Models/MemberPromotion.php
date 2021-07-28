@@ -15,8 +15,6 @@ class MemberPromotion extends Model
         'member_id',
         'promotion_year_id'
     ];
-
-
     public function member()
     {
         return $this -> hasMany(Member::class);

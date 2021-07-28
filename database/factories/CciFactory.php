@@ -2,19 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Member;
-use App\Models\Promotion;
-use App\Models\MemberPromotion;
+use App\Models\Cci;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MemberPromotionFactory extends Factory
+class CciFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = MemberPromotion::class;
+    protected $model = Cci::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +22,9 @@ class MemberPromotionFactory extends Factory
     public function definition()
     {
         return [
-            'member_id'         => Member::all('id') -> random(),
-            'promotion_year_id' => Promotion::all('id') -> random(),
+            'last_name' => $this -> faker -> lastName(),
+            'first_name' => $this -> faker -> firstName(),
+            'birth_date' => $this -> faker -> date()
         ];
     }
 }
