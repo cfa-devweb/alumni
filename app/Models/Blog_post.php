@@ -20,7 +20,8 @@ class Blog_post extends Model
         'title',
         'member_id',
         'content',
-        'categorie_id'
+        'categorie_id',
+        'visibility'
     ];
 
     public function categories()

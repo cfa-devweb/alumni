@@ -25,6 +25,7 @@ class Events extends Migration
             $table -> time('end_time');
             $table -> date('event_date');
             $table -> date('end_event_date') -> nullable();
+            $table -> boolean('visibility');
             $table -> timestamps();
         });
     }

@@ -30,7 +30,8 @@ class EventFactory extends Factory
             'start_time'        => $this -> faker -> time(),
             'end_time'          => $this -> faker -> time(),
             'event_date'        => $this -> faker -> date(),
-            'end_event_date'    => $this -> faker -> date()
+            'end_event_date'    => $this -> faker -> date(),
+            'visibility'        => $this -> faker -> boolean()    
         ];
     }
 }

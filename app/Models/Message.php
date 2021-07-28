@@ -19,7 +19,8 @@ class Message extends Model
     protected $fillable = [
         'content',
         'member_id',
-        'group_id'
+        'group_id',
+        'visibility'
     ];
 
     public function member()

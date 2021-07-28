@@ -28,7 +28,6 @@ class Member extends Model
         'country',
         'city',
         'worker',
-        'certificate'
     ];
 
     // Peut avoir plusieurs

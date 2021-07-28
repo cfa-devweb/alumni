@@ -42,7 +42,7 @@
                         </a>
                     </div>
                 </div>
-                <a class="navbar-item">
+                <a class="navbar-item" href=" {{ route('message') }} ">
                     Profils
                 </a>
             </div>

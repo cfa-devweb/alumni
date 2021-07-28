@@ -26,7 +26,8 @@ class Event extends Model
         'start_time',
         'end_time',
         'event_date',
-        'end_event_date'
+        'end_event_date',
+        'visibility'
     ];
 
     public function inscription()

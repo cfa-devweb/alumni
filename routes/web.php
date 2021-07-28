@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('accueil');
 });
+
+
+Route::get('/profils', [MessageController::class,'show']) -> name('message');
+
