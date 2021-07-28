@@ -21,14 +21,12 @@ class Member extends Model
         'last_name',
         'first_name',
         'avatar',
-        'promotion_year_id',
         'cv',
         'description',
         'business',
         'country',
         'city',
         'worker',
-        'certificate'
     ];
 
     // Peut avoir plusieurs

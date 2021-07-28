@@ -28,12 +28,10 @@ class MemberFactory extends Factory
             'last_name'         => $this -> faker -> lastName(),
             'first_name'        => $this -> faker -> firstName(),
             'avatar'            => $this -> faker -> imageUrl(),
-            'promotion_year_id' => Promotion_year::all('id') ->random(),
             'description'       => $this -> faker -> paragraph(),
             'business'          => $this -> faker -> company(),
             'city'              => $this -> faker -> city(),
             'worker'            => $this -> faker -> boolean(),
-            'certificate'       => $this -> faker -> boolean()
         ];
     }
 }

@@ -82,7 +82,6 @@
                         </div>
                     </div>
                 </div>
-
                 <a class="navbar-item">
                     Profils
                 </a>

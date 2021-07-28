@@ -29,6 +29,7 @@ class Blog_postFactory extends Factory
             'title' => $this -> faker -> sentence(),
             'content' => $this -> faker -> paragraph(6),
             'categorie_id' => Categorie::all('id') -> random(),
+            'visibility'  => $this -> faker -> boolean(100)
         ];
     }
 }

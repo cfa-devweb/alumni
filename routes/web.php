@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,7 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('dashboard');
 });
+
+
+Route::get('/profils', [MessageController::class,'show']) -> name('message');
+

@@ -14,14 +14,22 @@ class Messages extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('member_id') ->constrained()
+            $table -> id();
+            $table -> text('content');
+            $table -> foreignId('from_member_id') 
+                -> references('id')
+                -> on('members')
+                -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table->foreignId('group_id') ->constrained()
+            $table -> integer('to_id');
+            $table -> string('type_message');
+            $table -> boolean('visibility');
+            $table->index('to_id') 
+                ->constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table->timestamps();
+            $table -> timestamps();
         });
     }
 
