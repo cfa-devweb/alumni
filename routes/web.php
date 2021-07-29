@@ -46,8 +46,11 @@ Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 
+// Route::get('/dashboard', function () {
+//     return view('formPost');
+// });
 Route::get('/dashboard', function () {
-    return view('formPost');
+    return view('dashboard');
 });
 
 Route::get('actualites', [BlogPostController::class, 'index']);
