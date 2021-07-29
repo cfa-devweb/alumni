@@ -30,13 +30,14 @@
 
 
     </div>
+
     <div class="nav is-flex">
         <figure class="logo pt-5">
             <img src="{{asset('images/logocci.jpg')}}" height="89" width="210">
         </figure>
         <nav class="navbar-menu content" role="navigation" aria-label="main navigation">
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -54,6 +55,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">Promotions</a>
                         <div class="navbar-dropdown">
+
 
                             <div class="nested navbar-item dropdown">
                                 <div class="dropdown-trigger">
