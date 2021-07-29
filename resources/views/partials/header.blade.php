@@ -26,9 +26,6 @@
         </div>
     </section>
 
-
-
-
     </div>
     <div class="nav is-flex">
         <figure class="logo pt-5">
