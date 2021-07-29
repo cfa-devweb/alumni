@@ -1,31 +1,74 @@
-
 // special color CCI
-$blue-dark-cci:     hsl(231,73%,14%); // bleu navbar
-$orange-cci:        hsl(22,77%,55%); // orange
-$rose-cci:          hsl(331,76%,53%); // rose cci
-$blue-cyan:         hsl(189, 99%, 42%); // blue cci
-$red:               hsl(0, 100%, 50%); // change color default for class is-danger
+$blue-dark-cci: hsl(231, 73%, 14%); // bleu navbar
+$orange-cci: hsl(23, 78%, 53%); // orange
+$red: hsl(0, 100%, 50%); // change color default for class is-danger
 
-$family-sans-serif: "Open Sans","Helvetica","sans serif";
+$family-sans-serif: "Open Sans",
+"Helvetica",
+"sans serif";
 
-$primary: $blue-cyan;
-$danger: $red; 
+$primary: $blue-dark-cci;
+$danger: $red;
 
 
 // creer une classe specifique
-$info: $blue-dark-cci;
 $warning: $orange-cci;
-$rose: $rose-cci;
 
 
 @import "~bulma/bulma.sass";
 
-.mycustomclass{
-    color:$red !important;
-} 
 
 // Font-Awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
+
+
+// navbar dropdown hover //
+
+.nested.dropdown {
+    &:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        top: -15px;
+        margin-left: 100%;
+    }
+
+    .dropdown-trigger {
+        button::after {
+            content: '⦠'
+        }
+
+        button {
+            padding: 0px 0px;
+            border: 0px;
+            font-size: 14px;
+            font-weight: 400;
+            height: 2em;
+        }
+    }
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-direction: row;
+}
+
+.navbar-link,
+.navbar-item {
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 2;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+

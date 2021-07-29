@@ -20,15 +20,14 @@ class Member extends Model
         'user_id',
         'last_name',
         'first_name',
+        'birth_date',
         'avatar',
-        'promotion_year_id',
         'cv',
         'description',
         'business',
         'country',
         'city',
         'worker',
-        'certificate'
     ];
 
     // Peut avoir plusieurs

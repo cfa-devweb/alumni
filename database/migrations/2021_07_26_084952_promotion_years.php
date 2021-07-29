@@ -15,13 +15,11 @@ class PromotionYears extends Migration
     {
         Schema::create('promotion_years', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('year_id') ->constrained()
+            $table-> year('year');
+            $table-> foreignId('promotion_id') ->constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table->foreignId('promotion_id') ->constrained()
-                -> onDelete('cascade')
-                -> onUpdate('cascade');
-            $table->timestamps();
+            $table-> timestamps();
         });
     }
 

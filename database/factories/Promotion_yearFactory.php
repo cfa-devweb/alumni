@@ -24,8 +24,8 @@ class Promotion_yearFactory extends Factory
     public function definition()
     {
         return [
-            'year_id' => Year::all('id') -> random(),
-            'promotion_id' => Promotion::all('id') -> random()
+            'year'          => $this -> faker -> year(),
+            'promotion_id'  => Promotion::all('id') -> random()
         ];
     }
 }

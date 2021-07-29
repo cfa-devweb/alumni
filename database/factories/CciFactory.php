@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Year;
+use App\Models\Cci;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class YearFactory extends Factory
+class CciFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Year::class;
+    protected $model = Cci::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,9 @@ class YearFactory extends Factory
     public function definition()
     {
         return [
-            'year' => $this -> faker -> year()
+            'last_name' => $this -> faker -> lastName(),
+            'first_name' => $this -> faker -> firstName(),
+            'birth_date' => $this -> faker -> date()
         ];
     }
 }

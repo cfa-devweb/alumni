@@ -24,16 +24,15 @@ class MemberFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::all('id')->random(),
-            'last_name' => $this -> faker -> lastName(),
-            'first_name' => $this -> faker -> firstName(),
-            'avatar' => $this -> faker -> imageUrl(),
-            'promotion_year_id' => Promotion_year::all('id') ->random(),
-            'description' => $this -> faker -> paragraph(),
-            'business' => $this -> faker -> company(),
-            'city' => $this -> faker -> city(),
-            'worker' => $this -> faker -> boolean(),
-            'certificate' => $this -> faker -> boolean()
+            'user_id'           => User::all('id')->random(),
+            'last_name'         => $this -> faker -> lastName(),
+            'first_name'        => $this -> faker -> firstName(),
+            'birth_date'        => $this -> faker -> date(),
+            'avatar'            => $this -> faker -> imageUrl(),
+            'description'       => $this -> faker -> paragraph(),
+            'business'          => $this -> faker -> company(),
+            'city'              => $this -> faker -> city(),
+            'worker'            => $this -> faker -> boolean(),
         ];
     }
 }

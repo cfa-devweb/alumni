@@ -17,10 +17,10 @@ class InscriptionEvents extends Migration
             $table -> id();
             $table -> foreignId('event_id') -> constrained()
                 -> onDelete('cascade')
-                ->onUpdate('cascade');
+                -> onUpdate('cascade');
             $table -> foreignId('member_id') -> constrained()
                 -> onDelete('cascade')
-                ->onUpdate('cascade');
+                -> onUpdate('cascade');
             $table -> timestamps();
         });
     }

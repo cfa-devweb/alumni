@@ -2,19 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Event;
-use App\Models\InscriptionEvent;
 use App\Models\Member;
+use App\Models\Reports;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class InscriptionEventFactory extends Factory
+class ReportsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = InscriptionEvent::class;
+    protected $model = Reports::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +23,10 @@ class InscriptionEventFactory extends Factory
     public function definition()
     {
         return [
-            'event_id'  => Event::all('id') -> random(),
-            'member_id' => Member::all('id') -> random()
+            'content'           => $this -> faker -> paragraph(6),
+            'from_member_id'    => Member::all('id') -> random(),
+            'to_member_id'      => Member::all('id') -> random(),
+            'visibility'        => $this -> faker -> boolean(100) 
         ];
     }
 }

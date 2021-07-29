@@ -1,6 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MemberController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +21,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('accueil');
+    return view('home');
 });
+
+Route::get('dashboard', function () {
+    return view('dashboard');
+});
+
 
 Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/profils', [MessageController::class,'show']) -> name('message');
+
+Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');

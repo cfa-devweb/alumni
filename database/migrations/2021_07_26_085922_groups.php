@@ -14,11 +14,11 @@ class Groups extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('promotion_year_id') ->constrained()
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->timestamps();
+            $table-> id();
+            $table-> foreignId('promotion_year_id') ->constrained()
+                -> onDelete('cascade')
+                -> onUpdate('cascade');
+            $table-> timestamps();
         });
     }
 

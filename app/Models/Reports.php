@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Year extends Model
+class Reports extends Model
 {
     use HasFactory;
 
-    protected $table = 'years';
+    protected $table = 'reports';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'year',
-
+        'content',
+        'from_member_id',
+        'to_member_id',
+        'visibility'
     ];
 }
