@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -9,14 +10,18 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert is-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     {{ __('You are logged in!') }}
+                    <form action="{{route ('logout') }}"method="POST" >
+                    <button class="button is-primary">Deconnexion</button>
+                    </form>          
                 </div>
-            </div>
+                </div>
+                
         </div>
     </div>
 </div>
