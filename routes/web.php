@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard/create-post', function () {
     return view('formPost');
 });
