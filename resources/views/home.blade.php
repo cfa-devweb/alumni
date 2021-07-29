@@ -14,7 +14,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     {{ __('You are logged in!') }}
                     <form action="{{route ('logout') }}"method="POST" >
                     <button class="button is-primary">Deconnexion</button>
@@ -26,4 +26,3 @@
     </div>
 </div>
 @endsection
-

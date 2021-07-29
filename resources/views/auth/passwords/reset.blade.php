@@ -1,4 +1,5 @@
-@extends('views/partials/layout')
+@extends('../../partials/layout')
+
 
 @section('content')
 <div class="container">
