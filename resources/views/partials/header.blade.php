@@ -17,7 +17,7 @@
             </div>
             <div class="column is-flex is-one-thirth p-0">
                 <span class="column icon-text is-flex is-align-items-center">
-                    <span>Accéder au site de la CCI-NC  test</span>
+                    <span>Accéder au site de la CCI-NC</span>
                 </span>
                 <figure class="column is-flex is-align-items-center logo is-4by2">
                     <img class="p-2" src="{{asset('images/logo-cci.svg')}}" height="73" width="157">
@@ -46,7 +46,7 @@
                     <a class="navbar-item">
                         Accueil
                     </a>
-                    <a class="navbar-item">
+                    <a href="{{'/actualites'}}" class="navbar-item">
                         Actualités
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
