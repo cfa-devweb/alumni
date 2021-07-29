@@ -32,7 +32,6 @@ Route::get('dashboard', function () {
 
 Auth::routes();
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
@@ -43,7 +42,8 @@ Route::get('/dashboard', function () {
     return view('formPost');
 });
 
+Route::get('actualites', [BlogPostController::class, 'index']);
 
-Route::get('/profils', [MessageController::class,'show']) -> name('message');
+Route::get('actualites/{id}', [BlogPostController::class, 'show']);
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
