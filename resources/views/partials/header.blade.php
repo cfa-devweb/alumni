@@ -34,11 +34,7 @@
         </figure>
         <nav class="navbar-menu content" role="navigation" aria-label="main navigation">
 
-<<<<<<< HEAD
 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-=======
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
->>>>>>> 607e667945f17bfc365b5f0501d60bdc47a0fb8f
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
