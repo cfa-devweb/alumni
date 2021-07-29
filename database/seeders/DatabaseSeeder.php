@@ -26,18 +26,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Cci::factory(10)                -> create();
-        // \App\Models\User::factory(10)   -> create();
-        // Promotion::factory(10)          -> create();
-        // Promotion_year::factory(10)     -> create();
-        // Group::factory(10)              -> create();
-        // Event::factory(10)              -> create();
-        // Categorie::factory(10)          -> create();
-        // Member::factory(10)             -> create();
-        // Message::factory(10)            -> create();
-        // Reports::factory(10)            -> create();
-        // MemberPromotion::factory(10)    -> create();
-        // InscriptionEvent::factory(10)   -> create();
-        // Blog_post::factory(10)          -> create();
+        Cci::factory(10)                -> create();
+        \App\Models\User::factory(10)   -> create();
+        Promotion::factory(10)          -> create();
+        Promotion_year::factory(10)     -> create();
+        Group::factory(10)              -> create();
+        Event::factory(10)              -> create();
+        Categorie::factory(10)          -> create();
+        Member::factory(10)             -> create();
+        Message::factory(10)            -> create();
+        Reports::factory(10)            -> create();
+        MemberPromotion::factory(10)    -> create();
+        InscriptionEvent::factory(10)   -> create();
+        Blog_post::factory(10)          -> create();
     }
 }
