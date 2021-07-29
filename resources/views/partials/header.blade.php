@@ -25,7 +25,7 @@
             </div>
         </div>
     </section>
-<!-- test -->
+
     </div>
 
     <div class="nav is-flex">
@@ -34,7 +34,7 @@
         </figure>
         <nav class="navbar-menu content" role="navigation" aria-label="main navigation">
 
-role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -65,7 +65,7 @@ role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{'/members'}}" class="dropdown-item">
                                             2021
                                         </a>
                                         <a class="dropdown-item">
