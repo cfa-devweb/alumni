@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BlogPosts extends Migration
+class MemberPromotions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class BlogPosts extends Migration
      */
     public function up()
     {
-        Schema::create('blog_posts', function (Blueprint $table )
-        {
+        Schema::create('member_promotions', function(Blueprint $table){
             $table -> id();
-            $table -> foreignId('user_id') -> constrained()
+            $table -> foreignId('member_id')
+                -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table -> string('title');
-            $table -> boolean('sticky_post');
-            $table -> text('content');
-            $table -> foreignId('categorie_id') -> constrained()
+            $table -> foreignId('promotion_year_id')
+                -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table -> boolean('visibility');
             $table -> timestamps();
         });
     }
@@ -37,6 +34,6 @@ class BlogPosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_posts');
+        Schema::dropIfExists('member_promotions');
     }
 }

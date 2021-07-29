@@ -58,6 +58,17 @@ php artisan config:cache
 
 `php artisan migrate:fresh`
 
+> PS: si vous avez une erreur pendant la migration modifier votre .env veuillez inscrire les informations suivantes sur les lignes 10 a 15 comme suit :
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=alumni  //le nom de la base de donnée
+DB_USERNAME=root
+DB_PASSWORD=secret // inscriver votre mot de passe, par défault secret
+```
+Ensuite tapez la commande suivante `php artisan config:cache`
+
 #### Lancer un serveur local
 
 `php artisan serve`

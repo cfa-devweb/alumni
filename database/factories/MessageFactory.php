@@ -24,8 +24,11 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            'member_id'     => Member::all('id') -> random(),
-            'group_id'      => Group::all('id') -> random()
+            'content'            => $this -> faker -> sentence(),
+            'from_member_id'     => Member::all('id') -> random(),
+            'to_id'              => Group::all('id') -> random(),
+            'type_message'  => $this -> faker -> randomElement(array('group','member')),
+            'visibility'    => $this -> faker -> boolean(100)  
         ];
     }
 }
