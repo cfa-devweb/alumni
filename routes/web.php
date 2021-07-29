@@ -29,10 +29,20 @@ Route::get('dashboard', function () {
 });
 
 
+
 Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/profils', [MessageController::class,'show']) -> name('message');
+
+Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+
+Route::get('/dashboard', function () {
+    return view('formPost');
+});
+
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
