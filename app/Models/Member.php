@@ -20,6 +20,7 @@ class Member extends Model
         'user_id',
         'last_name',
         'first_name',
+        'birth_date',
         'avatar',
         'cv',
         'description',

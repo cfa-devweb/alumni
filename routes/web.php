@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MemberController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +26,18 @@ Route::get('dashboard', function () {
 });
 
 
+Route::get('/dashboard', function () {
+    return view('formPost');
+});
+
+
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
+
 
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
+
+Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+
 
