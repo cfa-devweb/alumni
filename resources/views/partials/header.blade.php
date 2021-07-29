@@ -7,7 +7,7 @@
     </div>
     <nav class="navbar is-info content" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href=" ">
+            <a class="navbar-item" href=" {{ ('/') }}">
                 Accueil
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -38,7 +38,7 @@
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                 <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{ ('/members') }}" class="dropdown-item">
                                         2021
                                     </a>
                                     <a class="dropdown-item">
