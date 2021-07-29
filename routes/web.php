@@ -33,5 +33,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
+
+Route::get('actualites', [BlogPostController::class, 'index']);
+
+Route::get('actualites/{id}', [BlogPostController::class, 'show']);
+
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+
 
