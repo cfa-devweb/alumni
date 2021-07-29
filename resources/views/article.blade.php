@@ -14,10 +14,6 @@
             border-radius: 50%;
         }
 
-        .hero {
-            margin-bottom: 5rem;
-        }
-
         .hero-body {
             background-image: url();
             background-position: center;
