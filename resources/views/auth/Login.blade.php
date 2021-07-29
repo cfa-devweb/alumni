@@ -4,9 +4,9 @@
 <div class="content is-large">
     <div class="row justify-content-center">
         <div class="col-md-8">
-       <h1 class="title has-text-centered">Se connecter</h1>
-            <div class="card">
-                
+     
+            <div class="card py-4">
+            <h1 class="title has-text-centered">Se connecter</h1>
 
                 <div class="content has-text-centered">
                     <form method="POST" action="{{ route('login') }}">
@@ -44,7 +44,7 @@
 
                         <div class="form-group row mb-4">
                             <div class="col-md-18 offset-md-4">
-                                <a type="submit" class="button is-large is-success">
+                                <a type="submit" class="button is-large is-primary">
                                     {{ __('Se connecter') }}
                                  </a>
                             </div>
