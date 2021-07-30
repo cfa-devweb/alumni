@@ -63,6 +63,10 @@
                         </div>
                     </div>
                 </div>
+            <br>
+                <div style="text-align:end;">
+                    <a class="button is-dark is-right" href="<?php echo url("actualites") ?>">Retour</a>
+                </div>
             </div>
         </section>
     </div>
