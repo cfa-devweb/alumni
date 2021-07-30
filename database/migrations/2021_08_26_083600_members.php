@@ -22,7 +22,7 @@ class Members extends Migration
             $table-> string('last_name');
             $table -> string('first_name');
             $table -> date('birth_date');
-            $table -> string('avatar');
+            $table -> binary('avatar');
             $table -> string('cv') -> nullable();
             $table -> text('description') -> nullable();
             $table -> string('business') -> nullable();
