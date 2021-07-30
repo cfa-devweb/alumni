@@ -22,6 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/dashboard/create-post', function () {
+    return view('formPost');
+});
+
 require __DIR__.'/auth.php';
   
 
@@ -37,3 +41,4 @@ Route::get('/members', [MemberController::class, 'index']) ->name('promotion.mem
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
+
