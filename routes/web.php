@@ -1,14 +1,6 @@
 <?php
 
-
-use Illuminate\Support\Facades\Auth;
-
-use App\Http\Controllers\BlogPostController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\MemberController;
-
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21,40 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Auth::routes();
-Route::get('auth/register', function () {return view('register');});
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
-
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-});
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/profils', [MessageController::class,'show']) -> name('message');
-
-Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
-
-// Route::get('/dashboard', function () {
-//     return view('formPost');
-// });
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('actualites', [BlogPostController::class, 'index']);
-
-Route::get('actualites/{id}', [BlogPostController::class, 'show']);
-
-Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+require __DIR__.'/auth.php';

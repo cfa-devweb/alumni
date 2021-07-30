@@ -112,8 +112,11 @@
                     <a class="navbar-item">
                         Profils
                     </a>
-                    <a class="navbar-item">
-                        Tableau de Bord
+                    <a class="navbar-item" href=" {{ route('login') }} ">
+                        login
+                    </a>
+                    <a class="navbar-item" href=" {{ route('register') }} ">
+                        register
                     </a>
              </div>
                 
