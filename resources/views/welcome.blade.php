@@ -2,5 +2,7 @@
 
 
 @section('content')
-    <p>This is my body content.</p>
+
+<p>Bienvenue sur l'accueil !!</p>
+
 @endsection

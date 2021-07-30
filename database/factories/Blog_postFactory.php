@@ -28,7 +28,9 @@ class Blog_postFactory extends Factory
             'user_id' => User::all('id') ->random(),
             'title' => $this -> faker -> sentence(),
             'content' => $this -> faker -> paragraph(6),
+            'sticky_post' => $this -> faker -> boolean(),
             'categorie_id' => Categorie::all('id') -> random(),
+            'visibility'  => $this -> faker -> boolean(100)
         ];
     }
 }

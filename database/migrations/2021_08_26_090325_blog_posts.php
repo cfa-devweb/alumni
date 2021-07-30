@@ -20,10 +20,12 @@ class BlogPosts extends Migration
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
             $table -> string('title');
+            $table -> boolean('sticky_post');
             $table -> text('content');
             $table -> foreignId('categorie_id') -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
+            $table -> boolean('visibility');
             $table -> timestamps();
         });
     }
