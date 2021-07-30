@@ -112,9 +112,21 @@
                     <a class="navbar-item">
                         Profils
                     </a>
-                    <a class="navbar-item">
-                        Tableau de Bord
+                    <a class="navbar-item" href=" {{ route('login') }} ">
+                        login
                     </a>
+                    <a class="navbar-item" href=" {{ route('register') }} ">
+                        register
+                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                    </form>
              </div>
                 
             </div>

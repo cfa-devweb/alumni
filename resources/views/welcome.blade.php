@@ -3,6 +3,6 @@
 
 @section('content')
 
-<p>Vous ete connecté !!!</p>
+<p>Bienvenue sur l'accueil !!</p>
 
 @endsection
