@@ -2,7 +2,7 @@
 
     <section class="hero is-light">
         <div class="columns">
-            <div class="column">vide</div>
+            <div class="column"></div>
             <div class="column is-flex">
                 <span class="icon-text column is-flex is-align-items-center">
                     <span class="icon">
