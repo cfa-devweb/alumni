@@ -5,24 +5,34 @@
 
 <div class="container">
     <div class="field">
-    <label class="label">Titre</label>
+    <label class="label">Titre*</label>
     <div class="control">
-        <input class="input" type="text" placeholder="Votre titre ici.">
+        <input class="input" type="text" name="title" placeholder="Votre titre ici.">
     </div>
     </div>
 
     <div class="field">
-    <label class="label">Sous-titre</label>
-    <div class="control">
-        <input class="input" type="text" placeholder="Votre sous-titre ici.">
-    </div>
-    </div>
-
-    <div class="field">
-    <label class="label">Contenu de votre post</label>
+    <label class="label">Contenu de votre actualité*</label>
     <div class="control">
         <textarea class="textarea" placeholder="Votre contenu ici"></textarea>
     </div>
+    </div>
+
+    <div class="columns is-multiline">
+        <div class="select">
+            <select>
+                <option>Selectionner la catégorie*</option>
+                <option name="categorie_id" value=""></option>
+            </select>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="sticky_post">
+            Mettre à la une
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="visibility">
+            Archiver
+        </label>
     </div>
 
     <div class="file has-name is-right">

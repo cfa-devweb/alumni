@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/create-post', function () {
     return view('formPost');
-});
+})/*->middleware(['auth'])->name('createPost')*/;
 
 require __DIR__.'/auth.php';
   

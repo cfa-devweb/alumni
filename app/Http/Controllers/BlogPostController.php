@@ -33,4 +33,9 @@ class BlogPostController extends Controller
         $category = $blog_post->category;
         return view('article')->with(['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
     }
+
+    public function create()
+    {
+        $blog_posts = 
+    }
 }
