@@ -34,15 +34,16 @@
         </figure>
         <nav class="navbar-menu content" role="navigation" aria-label="main navigation">
 
-<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
-
+ 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
+
                     <a href="{{'/'}}" class="navbar-item">
                         Accueil
                     </a>
