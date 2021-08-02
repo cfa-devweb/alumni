@@ -5,10 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\DashboardController;
->>>>>>> c57be8b1a0d674f6afd3f4d5d719642811c72073
 
 /*
 |--------------------------------------------------------------------------
