@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     <div class="columns is-flex">
         <div class="column is-3">
@@ -36,12 +37,9 @@
                 </div>
             </nav>
         </div>
-        <div class="column">
-            <div class="buttons">
-                <button class="button is-primary">Ajouter une actualité</button>
-            </div>
+  
 
-            <table>
+            <table class="table">
                 <div class="container">
                     <table class="table is-striped is-fullwidth">
                         <thead class="table has-background-primary">
@@ -49,25 +47,43 @@
                                 <th class="has-text-light"><abbr title="Creator">Créateur</abbr></th>
                                 <th class="has-text-light"><abbr title="title">Titres</abbr></th>
                                 <th class="has-text-light"><abbr title="dateCreat">Date de création</abbr></th>
-                                <th class="has-text-light"><abbr title="action">Actions</abbr></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>nom</td>
-                                <td>titre_post</td>
+                                <td>@Mark</td>
+                                <td>Titre1</td>
                                 <td>29/07/2021</td>
-                                <td>
-                                    <div class="buttons">
-                                        <button class="button is-primary" name="btnEdit">Modifier</button>
-                                        <button class="button is-warning" name="btnArchive">Archiver</button>
-                                    </div>
-                                </td>
+                                <tr>
+                                <td>@Jacob</td>
+                                <td>Throton</td>
+                                <td>29/07/2021</td>
+                                <tr>
+                                <td>@Larry</td>
+                                <td>TheBird</td>
+                                <td>29/07/2021</td>
+                                <tr>
+
+                              
                             </tr>
+                            <td>
+                                    <div class="buttons">
+                                        <button class="button is-primary" name="btnEdit">Revenir aux actualités en cours</button>
+                                    
+                                    </div>
+                            </td>
+
+                           
                         </tbody>
                     </table>
                 </div>
             </table>
         </div>
-        
-        @endsection
+
+
+
+
+
+
+@endsection

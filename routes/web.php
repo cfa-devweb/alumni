@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BlogPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +24,12 @@ Route::get('/', function () {
 // route pour le profil
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
+
+Route::get('/dashboard/dashboard_archive', function () {
+    return view('dashboard_archive');
+})->name('dashboard_archive');
+
 
 Route::get('/dashboard/create-post', function () {
     return view('formPost');
