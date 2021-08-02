@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,7 @@ Route::get('/dashboard/create-post', function () {
 });
 
 require __DIR__.'/auth.php';
-  
+
 
 
 
@@ -45,4 +47,6 @@ Route::get('/members', [MemberController::class, 'index']) ->name('promotion.mem
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
+
+Route::get('dashboard', [DashboardController::class, 'index']);
 
