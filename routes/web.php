@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,10 @@ Route::get('/dashboard/create-post', function () {
 });
 
 require __DIR__.'/auth.php';
+
   
 //Route::get('register', [PromotionController::class,'index']);
+
 
 
 // route pour l'application
@@ -42,7 +45,13 @@ Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 
+
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
 
+Route::get('formPost', [BlogPostController::class, 'create']);
+
+// Route::resource('formPost', [BlogPostController::class, 'store']);
+
+Route::get('dashboard', [DashboardController::class, 'index']);

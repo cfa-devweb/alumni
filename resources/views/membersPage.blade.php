@@ -2,32 +2,15 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CListe membres</title>
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-</head>
-
 <style>
     .box {
         background: var(--card-bg);
     }
 
-    .button {
-        margin: 5px;
-    }
-
-
-    /* Card start*/
     .card {
-        overflow: hidden;
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
         background: ghostwhite;      
         height: 70%;
     }
@@ -35,13 +18,6 @@
     .card.large {
         border-radius: 5px;
     }
-
-    .is-text-overflow {
-    flex: 1;
-    overflow-y: auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 
     .overflow-visible {
         white-space: initial;
@@ -62,7 +38,7 @@
             <div id="app" class="row columns is-multiline">
                 @foreach ($members as $rows)
                 <div class="card column is-3 mx-5">
-                    <div class="card large has-background-grey-lighter ">
+                    <div class="card large has-background-grey-lighter">
                         <div class="card-image ">
                             <figure class="image is-16by9">
                                 <img src="{{$rows->avatar}}" alt="Placeholder image alt=" Image">
