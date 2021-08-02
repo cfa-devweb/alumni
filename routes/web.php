@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +32,7 @@ Route::get('/dashboard/create-post', function () {
 });
 
 require __DIR__.'/auth.php';
-  
+
 
 
 
@@ -48,4 +52,4 @@ Route::get('formPost', [BlogPostController::class, 'create']);
 
 // Route::resource('formPost', [BlogPostController::class, 'store']);
 
-Route::get('editPost', [BlogPostController::class, 'edit']);
+Route::get('dashboard', [DashboardController::class, 'index']);
