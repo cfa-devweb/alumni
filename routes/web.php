@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BlogPostController;
 
 /*
 |--------------------------------------------------------------------------

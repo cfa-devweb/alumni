@@ -43,7 +43,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
-                    <a class="navbar-item">
+                    <a href="{{'/'}}" class="navbar-item">
                         Accueil
                     </a>
                     <a href="{{'/actualites'}}" class="navbar-item">
