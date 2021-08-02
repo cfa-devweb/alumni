@@ -51,8 +51,11 @@
                                 <div class="control mx-6 ">
                                     <div class="select">
                                         <select name='promotion_year'>
-                                                    <option>Année de la promotion</option>
-                                                    <option>With options</option>
+                                        @foreach ($promotionYear as $data)
+                                            <option value="{{$data->id}}" {{ ($data->id == $promotionYear->data_id) ? 'selected=selected' : '' }}>
+                                                {{$data->name}}
+                                            </option>
+                                        @endforeach 
                                                 </select>
                                     </div>
                                 </div>  
@@ -62,9 +65,12 @@
                                 <div class="control ">
                                     <div class="select">
                                         <select name='promotion' >
-                                                    <option>Promotion</option>
-                                                    <option>With options</option>
-                                                </select>
+                                        @foreach ($promotions as $data)
+                                            <option value="{{$data->id}}" {{ ($data->id == $promotions->data_id) ? 'selected=selected' : '' }}>
+                                                {{$data->name}}
+                                            </option>
+                                        @endforeach                                              
+                                        </select>
                                     </div>
                                 </div>  
                             </div>

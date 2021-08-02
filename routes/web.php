@@ -33,6 +33,8 @@ Route::get('/dashboard/create-post', function () {
 
 require __DIR__.'/auth.php';
 
+  
+//Route::get('register', [PromotionController::class,'index']);
 
 
 
