@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="columns is-flex">
+    <div class="columns is-flex my-6">
         <div class="column is-3">
             <nav class="panel">
                 <p class="panel-heading">
@@ -53,10 +53,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($actualites as $actualite)
                             <tr>
-                                <td>nom</td>
-                                <td>titre_post</td>
-                                <td>29/07/2021</td>
+                                <td>{{ $actualite->username}}</td>
+                                <td>{{ $actualite->title }}</td>
+                                <td>{{ \Carbon\Carbon::parse($actualite->created_at)-> locale('fr') -> format('Y/m/d') }}
+                                </td>
                                 <td>
                                     <div class="buttons">
                                         <button class="button is-primary" name="btnEdit">Modifier</button>
@@ -64,10 +66,17 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </table>
         </div>
+<<<<<<< HEAD
         
         @endsection
+=======
+    </div>
+</div>
+@endsection
+>>>>>>> c57be8b1a0d674f6afd3f4d5d719642811c72073

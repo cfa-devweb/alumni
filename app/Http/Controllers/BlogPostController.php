@@ -33,4 +33,47 @@ class BlogPostController extends Controller
         $category = $blog_post->category;
         return view('article')->with(['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
     }
+
+    public function create() 
+    {
+        return view('formPost');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'sticky_post' => 'required',
+            'visibility' => 'required'
+        ]);
+
+        $blog_post = new Blog_post([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'sticky_post' => $request->get('sticky_post'),
+            'content' => $request->get('content'),
+            'categorie_id' => $request->get('categorie_id'),
+            'visibility' => $request->get('visibility')
+        ]);
+
+        $blog_post->save();
+        return redirect('/actualites')->with('success', 'Article crée !');
+    }
+
+    public function edit($id)
+    {
+        $blog_post = Blog_post::findOrFail($id);
+        return view('editPost', compact('blog_post'));
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+
+    }
 }

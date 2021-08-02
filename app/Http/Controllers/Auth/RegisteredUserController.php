@@ -70,13 +70,14 @@ class RegisteredUserController extends Controller
             //'worker' => $request->worker,
             
         ]); 
+        
         $promotion = Promotion::create([
             
             'name' => $request->promotion,
             
         ]); 
         
-        $promotionYear = Promotion_year::create([
+        /*$promotionYear = Promotion_year::create([
             'year'=>$request->year,
             'promotion_id'=>$promotion->id
             
@@ -86,20 +87,20 @@ class RegisteredUserController extends Controller
             'member_id' => $member->user_id,
             'promotion_year_id' => $promotionYear->id,
             
-        ]); 
+        ]); */
         
        
         event(new Registered($user));
         event(new Registered($member));
         event(new Registered($promotion));
-        event(new Registered($memberPromotion));
-        event(new Registered($promotionYear));
+        //event(new Registered($memberPromotion));
+        //event(new Registered($promotionYear));
 
         $user->save();
         $member->save();
-        $promotion->save();
-        $memberPromotion->save();
-        $promotionYear->save();
+       // $promotion->save();
+       // $memberPromotion->save();
+       // $promotionYear->save();
 
         Auth::login($user);
 
