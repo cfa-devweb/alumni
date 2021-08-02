@@ -4,8 +4,8 @@
                         <span class="icon is-small">
                             <i class="fas fa-home"></i>
                         </span>
-                        <span>15 Rue de Verdun</span>
-                        <span>Nouméa 98800, Nouvelle-Calédonie</span>
+                        <span>14 Rue de Verdun</span>
+                        <span>BP M3 Nouméa 98800,<br> Nouvelle-Calédonie</span>
                 </div>
                 
                 <div class="column is-one-fifth is-offset-2 adresse" > 
@@ -18,7 +18,7 @@
                         <span class="icon is-small">
                             <i class="fas fa-phone"></i>
                         </span>
-                        <span>(+687) 24 31 00</span>   
+                        <span>(+687) 24 31 45</span>   
                     </span>
                 </div>
                
