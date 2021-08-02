@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,13 @@ Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 
+
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
 
+Route::get('formPost', [BlogPostController::class, 'create']);
+
+// Route::resource('formPost', [BlogPostController::class, 'store']);
+
+Route::get('editPost', [BlogPostController::class, 'edit']);

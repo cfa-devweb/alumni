@@ -62,6 +62,11 @@
 
                         </div>
                     </div>
+                    <footer class="card-footer">
+                        <span class="card-footer-item">Visibilité : {!! $blog_post->visibility === 1 ? "&#10004;" : "&#10006;" !!}</span>
+                        <a href="<?php echo url("editPost/{$blog_post->id}") ?>" class="card-footer-item">Modifier</a>
+                        <a href="#" class="card-footer-item">Supprimer</a>
+                    </footer>
                 </div>
             <br>
                 <div style="text-align:end;">
