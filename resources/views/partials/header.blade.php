@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-item" href=" {{ ('/profilMembre') }}">
+                    <a class="navbar-item" href=" {{ route('message') }} ">
                         Profils
                     </a>
                     <a class="navbar-item" href=" {{ route('login') }} ">
