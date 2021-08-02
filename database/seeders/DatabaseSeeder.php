@@ -40,3 +40,4 @@ class DatabaseSeeder extends Seeder
         Blog_post::factory(10)          -> create();
     }
 }
+

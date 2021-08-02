@@ -2,8 +2,9 @@
 
 @section('content')
 
+
 <div class="container">
-    <div class="columns is-flex my-6">
+    <div class="columns is-flex">
         <div class="column is-3">
             <nav class="panel">
                 <p class="panel-heading">
@@ -36,12 +37,9 @@
                 </div>
             </nav>
         </div>
-        <div class="column">
-            <div class="buttons">
-                <button class="button is-primary">Ajouter une actualité</button>
-            </div>
+  
 
-            <table>
+            <table class="table">
                 <div class="container">
                     <table class="table is-striped is-fullwidth">
                         <thead class="table has-background-primary">
@@ -49,34 +47,43 @@
                                 <th class="has-text-light"><abbr title="Creator">Créateur</abbr></th>
                                 <th class="has-text-light"><abbr title="title">Titres</abbr></th>
                                 <th class="has-text-light"><abbr title="dateCreat">Date de création</abbr></th>
-                                <th class="has-text-light"><abbr title="action">Actions</abbr></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($actualites as $actualite)
                             <tr>
-                                <td>{{ $actualite->username}}</td>
-                                <td>{{ $actualite->title }}</td>
-                                <td>{{ \Carbon\Carbon::parse($actualite->created_at)-> locale('fr') -> format('Y/m/d') }}
-                                </td>
-                                <td>
-                                    <div class="buttons">
-                                        <button class="button is-primary" name="btnEdit">Modifier</button>
-                                        <button class="button is-warning" name="btnArchive">Archiver</button>
-                                    </div>
-                                </td>
+                                <td>@Mark</td>
+                                <td>Titre1</td>
+                                <td>29/07/2021</td>
+                                <tr>
+                                <td>@Jacob</td>
+                                <td>Throton</td>
+                                <td>29/07/2021</td>
+                                <tr>
+                                <td>@Larry</td>
+                                <td>TheBird</td>
+                                <td>29/07/2021</td>
+                                <tr>
+
+                              
                             </tr>
-                            @endforeach
+                            <td>
+                                    <div class="buttons">
+                                        <button class="button is-primary" name="btnEdit">Revenir aux actualités en cours</button>
+                                    
+                                    </div>
+                            </td>
+
+                           
                         </tbody>
                     </table>
                 </div>
             </table>
         </div>
-<<<<<<< HEAD
-        
-        @endsection
-=======
-    </div>
-</div>
+
+
+
+
+
+
 @endsection
->>>>>>> c57be8b1a0d674f6afd3f4d5d719642811c72073

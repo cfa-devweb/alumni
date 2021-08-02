@@ -5,7 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+<<<<<<< HEAD
+=======
 use App\Http\Controllers\DashboardController;
+>>>>>>> c57be8b1a0d674f6afd3f4d5d719642811c72073
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,12 @@ Route::get('/', function () {
 // route pour le profil
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
+
+Route::get('/dashboard/dashboard_archive', function () {
+    return view('dashboard_archive');
+})->name('dashboard_archive');
+
 
 Route::get('/dashboard/create-post', function () {
     return view('formPost');
