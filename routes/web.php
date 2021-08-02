@@ -30,6 +30,10 @@ Route::get('/dashboard/create-post', function () {
     return view('formPost');
 });
 
+Route::get('/dashboard/signalement', function () {
+    return view('reports');
+});
+
 require __DIR__.'/auth.php';
   
 
