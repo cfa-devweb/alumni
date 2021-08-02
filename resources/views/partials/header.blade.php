@@ -119,6 +119,9 @@
                     <a class="navbar-item" href=" {{ route('register') }} ">
                         register
                     </a>
+                    <a href="{{ '/dashboard' }} " class="navbar-item">
+                        Tableau de Bord
+                    </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 

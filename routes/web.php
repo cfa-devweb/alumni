@@ -63,4 +63,6 @@ Route::get('formPost', [BlogPostController::class, 'create']);
 
 // Route::resource('formPost', [BlogPostController::class, 'store']);
 
+// Routes Dashbord
+
 Route::get('dashboard', [DashboardController::class, 'index']);
