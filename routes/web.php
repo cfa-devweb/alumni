@@ -29,3 +29,5 @@ Route::get('dashboard', function () {
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+
+Route::get('/profil',function(){return view ('profil');});
