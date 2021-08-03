@@ -24,6 +24,7 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
-        "bulma": "^0.9.3"
+        "bulma": "^0.9.3",
+        "bulma-popover": "^1.0.3"
     }
 }

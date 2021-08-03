@@ -2,20 +2,25 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog_post;
-use App\Models\Categorie;
 use App\Models\Cci;
+use App\Models\User;
 use App\Models\Event;
 use App\Models\Group;
-use App\Models\InscriptionEvent;
 use App\Models\Member;
-use App\Models\MemberPromotion;
 use App\Models\Message;
-use App\Models\Promotion;
-use App\Models\Promotion_year;
 use App\Models\Reports;
+use App\Models\Blog_post;
+use App\Models\Categorie;
+use App\Models\Promotion;
+use Illuminate\Support\Str;
+use App\Models\Promotion_year;
+use App\Models\MemberPromotion;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\InscriptionEvent;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -38,5 +43,22 @@ class DatabaseSeeder extends Seeder
         MemberPromotion::factory(10)    -> create();
         InscriptionEvent::factory(10)   -> create();
         Blog_post::factory(10)          -> create();
+
+        DB::table('users') -> insert([
+            'name'              => 'admin',
+            'email'             => 'admin@admin.com',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('admin'), // password
+            'remember_token'    => Str::random(10),
+        ]); 
+
+        DB::table('users') -> insert([
+            'name'              => 'admin',
+            'email'             => 'admin@admin.com',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('admin'), // password
+            'remember_token'    => Str::random(10),
+        ]); 
     }
 }
+

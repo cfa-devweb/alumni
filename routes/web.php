@@ -40,9 +40,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
-Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+Route::get('/members', [MemberController::class, 'index']);
+
+Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
 
+Route::get('/profilMembre',  [MemberController::class, 'show'])->name('profil');
