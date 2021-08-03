@@ -4,38 +4,7 @@
 
 <div class="container">
     <div class="columns is-flex my-6">
-        <div class="column is-3">
-            <nav class="panel">
-                <p class="panel-heading">
-                    Repositories
-                </p>
-                <div class="panel-block">
-                    <p class="control has-icons-left">
-                        <input class="input" type="text" placeholder="Search">
-                        <span class="icon is-left">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </span>
-                    </p>
-                </div>
-                <a class="panel-block is-active">
-                    Actualités en cours
-                </a>
-                <a class="panel-block">
-                    Actualités passées
-                </a>
-                <a class="panel-block">
-                    Signalements en cours
-                </a>
-                <a class="panel-block">
-                    Signalements traités
-                </a>
-                <div class="panel-block">
-                    <button class="button is-link is-outlined is-fullwidth">
-                        Reset all filters
-                    </button>
-                </div>
-            </nav>
-        </div>
+        @include('/partials/sideBarDashboard')
         <div class="column">
             <div class="buttons">
                 <button class="button is-primary">Ajouter une actualité</button>
