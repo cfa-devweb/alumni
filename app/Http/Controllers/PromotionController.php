@@ -11,17 +11,14 @@ class PromotionController extends Controller
 {    
     
     
-    public function index()
-    {    
+    public function index(){    
         
         $promotions = DB::table('promotions')
             ->select('*')
             ->get(); 
        
+        return view('./partials/header' ,['promotions'=>$promotions]);
        
-        
-        return view('partials/header' ,['promotions'=>$promotions]);
-       dd($promotions);
 
     }
 

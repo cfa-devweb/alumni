@@ -24,6 +24,8 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+
     public function create()
     {    
         $promotions = DB::table('promotions')
@@ -66,7 +68,7 @@ class RegisteredUserController extends Controller
             //'worker'=>['boolean','0']
 
             //validate for promotion
-            //'promotion'=>['required', 'string', 'max:255'],
+            'promotion'=>['required', 'string', 'max:255'],
         ]);
 
 
@@ -90,7 +92,7 @@ class RegisteredUserController extends Controller
         ]); 
         
         
-        /*$promotion = Promotion::create([
+        $promotion = Promotion::create([
             
             'name' => $request->promotion,
             
@@ -98,7 +100,7 @@ class RegisteredUserController extends Controller
         
 
 
-        $promotionYear = Promotion_year::create([
+        /*$promotionYear = Promotion_year::create([
             'year'=>$request->year,
             'promotion_id'=>$promotion->id
             
@@ -113,13 +115,13 @@ class RegisteredUserController extends Controller
        
         event(new Registered($user));
         event(new Registered($member));
-        //event(new Registered($promotion));
+        event(new Registered($promotion));
         //event(new Registered($memberPromotion));
         //event(new Registered($promotionYear));
 
         $user->save();
         $member->save();
-       // $promotion->save();
+        $promotion->save();
        // $memberPromotion->save();
        // $promotionYear->save();
 
