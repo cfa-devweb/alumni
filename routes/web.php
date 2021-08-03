@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\VerifMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +46,13 @@ Route::get('/members', [MemberController::class, 'index']) ->name('promotion.mem
 Route::get('actualites', [BlogPostController::class, 'index']);
 
 Route::get('actualites/{id}', [BlogPostController::class, 'show']);
+
+
+// Route vers la vérification avant inscription 
+Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
+Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
+
+
+
+
 
