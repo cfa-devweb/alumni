@@ -9,6 +9,28 @@ use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+
+    public function index()
+    {
+        
+       
+        $conversations = Message:: with(['member','toMember'])
+            -> where('type_message','member')
+            -> where( function($query)
+            {
+                $query -> where('to_id',Auth::user()-> id)
+                    -> orWhere('from_member_id','<>',Auth::user() -> id);
+                
+            }) ->get();
+
+            dd($conversations);
+        $messages_group = Message::with(['member','group'])
+            -> where('from_member_id','=',Auth::user()-> id) 
+            -> orWhere('to_id','=',Auth::user()-> id)
+            -> where('type_message','=','group')->get();
+        return view('messages',['conversations' => $conversations,'messageGroup' => $messages_group]);
+    }
+
     /*
     *
     * From_member_id = l'id du membre 
@@ -17,9 +39,8 @@ class MessageController extends Controller
     */
     public function show()
     {
+        $messages = Message::with(['member','toMember'])-> where('from_member_id','=',Auth::user()-> id)->get();
         
-        $messages = Message::with(['member','toMember'])->where('type_message','=','member') -> where('from_member_id','=',Auth::user()-> id)->get();
-        dd($messages);
-        return view('message',['messages' => $messages]);
+        return view('profils',['messages' => $messages]);
     }
 }

@@ -24,7 +24,7 @@ use App\Http\Controllers\DashboardarchiveController;
 // route pour l'accueil
 Route::get('/', function () {
     return view('home');
-})->name('welcome');
+})-> name('home');
 
 // route pour le profil
 Route::get('/dashboard', function () {
@@ -54,7 +54,8 @@ require __DIR__.'/auth.php';
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/messages/{id}', [MessageController::class,'create']) -> name('sendMessage');
-Route::get('/messages', [MessageController::class,'show']) -> name('message');
+Route::get('/messages', [MessageController::class,'index']) -> name('message');
+Route::get('/conversations', [MessageController::class,'show']) -> name('conversations');
 
 
 // routes pour les posts d'actualité

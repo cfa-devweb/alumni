@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <a class="navbar-item" href=" {{ route('message') }} ">
-                        Profils
+                        messages
                     </a>
                     <a class="navbar-item" href=" {{ route('login') }} ">
                         login

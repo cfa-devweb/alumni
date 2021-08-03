@@ -21,8 +21,8 @@ class Members extends Migration
                 -> onDelete('cascade');
             $table-> string('last_name');
             $table -> string('first_name');
-            $table -> date('birth_date') -> nullable() ;
-            $table -> string('avatar')  ;
+            $table -> date('birth_date');
+            $table -> binary('avatar') -> nullable();
             $table -> string('cv') -> nullable();
             $table -> text('description') -> nullable();
             $table -> string('business') -> nullable();
