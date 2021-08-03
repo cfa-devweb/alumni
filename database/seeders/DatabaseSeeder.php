@@ -15,8 +15,7 @@ use App\Models\Promotion;
 use App\Models\Promotion_year;
 use App\Models\Reports;
 use Illuminate\Database\Seeder;
-
-
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -41,3 +40,4 @@ class DatabaseSeeder extends Seeder
         Blog_post::factory(10)          -> create();
     }
 }
+

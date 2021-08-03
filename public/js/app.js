@@ -1,1 +1,35 @@
-(()=>{var r,e={80:()=>{},425:()=>{}},o={};function n(r){var t=o[r];if(void 0!==t)return t.exports;var a=o[r]={exports:{}};return e[r](a,a.exports,n),a.exports}n.m=e,r=[],n.O=(e,o,t,a)=>{if(!o){var v=1/0;for(p=0;p<r.length;p++){for(var[o,t,a]=r[p],i=!0,l=0;l<o.length;l++)(!1&a||v>=a)&&Object.keys(n.O).every((r=>n.O[r](o[l])))?o.splice(l--,1):(i=!1,a<v&&(v=a));if(i){r.splice(p--,1);var f=t();void 0!==f&&(e=f)}}return e}a=a||0;for(var p=r.length;p>0&&r[p-1][2]>a;p--)r[p]=r[p-1];r[p]=[o,t,a]},n.o=(r,e)=>Object.prototype.hasOwnProperty.call(r,e),(()=>{var r={773:0,170:0};n.O.j=e=>0===r[e];var e=(e,o)=>{var t,a,[v,i,l]=o,f=0;for(t in i)n.o(i,t)&&(n.m[t]=i[t]);if(l)var p=l(n);for(e&&e(o);f<v.length;f++)a=v[f],n.o(r,a)&&r[a]&&r[a][0](),r[v[f]]=0;return n.O(p)},o=self.webpackChunk=self.webpackChunk||[];o.forEach(e.bind(null,0)),o.push=e.bind(null,o.push.bind(o))})(),n.O(void 0,[170],(()=>n(80)));var t=n.O(void 0,[170],(()=>n(425)));t=n.O(t)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n22 │ @import \"~@fortawesome/fontawesome-free/scss/fontawesome\";\r\n   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   ╵\n  resources\\sass\\app.scss 22:9  root stylesheet\n    at processResult (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\webpack\\lib\\NormalModule.js:703:19)\n    at C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\webpack\\lib\\NormalModule.js:809:5\n    at C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\sass-loader\\dist\\index.js:54:7\n    at Function.call$2 (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\sass\\sass.dart.js:93603:16)\n    at _render_closure1.call$2 (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\sass\\sass.dart.js:81980:12)\n    at _RootZone.runBinary$3$3 (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\sass\\sass.dart.js:27536:18)\n    at _FutureListener.handleError$1 (C:\\Users\\Stagiaire\\workspace\\alumni\\node_modules\\sass\\sass.dart.js:26085:19)");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	__webpack_modules__["./resources/js/app.js"]();
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./resources/sass/app.scss"]();
+/******/ 	
+/******/ })()
+;

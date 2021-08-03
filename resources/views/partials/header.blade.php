@@ -2,7 +2,7 @@
 
     <section class="hero is-light">
         <div class="columns">
-            <div class="column">vide</div>
+            <div class="column"></div>
             <div class="column is-flex">
                 <span class="icon-text column is-flex is-align-items-center">
                     <span class="icon">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </section>
-<!-- test -->
+
     </div>
 
     <div class="nav is-flex">
@@ -40,13 +40,14 @@
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
-
+ 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
-                    <a class="navbar-item">
+
+                    <a href="{{'/'}}" class="navbar-item">
                         Accueil
                     </a>
-                    <a class="navbar-item">
+                    <a href="{{'/actualites'}}" class="navbar-item">
                         Actualités
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -65,7 +66,7 @@
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{'/members'}}" class="dropdown-item">
                                             2021
                                         </a>
                                         <a class="dropdown-item">
@@ -112,9 +113,24 @@
                     <a class="navbar-item">
                         Profils
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" href=" {{ route('login') }} ">
+                        login
+                    </a>
+                    <a class="navbar-item" href=" {{ route('register') }} ">
+                        register
+                    </a>
+                    <a href="{{ '/dashboard' }} " class="navbar-item">
                         Tableau de Bord
                     </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                    </form>
              </div>
                 
             </div>
