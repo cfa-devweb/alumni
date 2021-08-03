@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

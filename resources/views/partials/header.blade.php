@@ -127,11 +127,6 @@
                         </x-dropdown-link>
                     </form>
                 </div>
-
             </div>
-
-
         </nav>
-
-
     </div>
