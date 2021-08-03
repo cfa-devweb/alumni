@@ -52,7 +52,7 @@ Route::get('/dashboard/signalement', function () {
 require __DIR__.'/auth.php';
 
   
-Route::get('header', [PromotionController::class,'index']);
+Route::get('./partials/header', [PromotionController::class,'index']);
 
 
 
