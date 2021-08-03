@@ -37,12 +37,7 @@ class RegisteredUserController extends Controller
 
     }
 
-    public function show()
-    {
-       
-
-        
-    }
+    
         
     
     

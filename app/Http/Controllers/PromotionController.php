@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {    
     
     
-    public function create()
+    public function index()
     {    
-        $promotions = [];
+        
         $promotions = DB::table('promotions')
             ->select('*')
             ->get(); 
        
        
         
-        return view('header' ,['promotions'=>$promotions]);
-
+        return view('partials/header' ,['promotions'=>$promotions]);
+       dd($promotions);
 
     }
 
