@@ -52,13 +52,19 @@ class DatabaseSeeder extends Seeder
             'remember_token'    => Str::random(10),
         ]); 
 
-        DB::table('users') -> insert([
-            'name'              => 'admin',
-            'email'             => 'admin@admin.com',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('admin'), // password
-            'remember_token'    => Str::random(10),
-        ]); 
     }
 }
+
+      // créer un user par défault pour dev
+      //DB::table('users') -> insert([
+        //'name'              => 'admin',
+        //'email'             => 'admin@admin.com',
+        //'email_verified_at' => now(),
+        //'password'          => Hash::make('admin'), // password
+        //'remember_token'    => Str::random(10),
+      //]); 
+    }
+}
+  
+
 

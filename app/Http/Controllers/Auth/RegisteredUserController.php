@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use image;
 use App\Models\User;
 use App\Models\Member;
 use App\Models\Promotion;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Promotion_year;
 use App\Models\MemberPromotion;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,10 +25,22 @@ class RegisteredUserController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {
-        return view('auth.register');
+    {    
+        $promotions = DB::table('promotions')
+            ->select('*')
+            ->get(); 
+       
+       
+        
+        return view('auth.register' ,['promotions'=>$promotions]);
+
+
     }
 
+    
+        
+    
+    
     /**
      * Handle an incoming registration request.
      *
@@ -40,42 +54,50 @@ class RegisteredUserController extends Controller
         $request->validate([
             //validate for user
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email||max:255|unique:users',
+            'email_verified_at' => 'datetime',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
 
             //validate for member
             'last_name' => ['required', 'string', 'max:255'],
-            //'avatar' => [ 'mimes:jpg,jpeg,png','dimensions:min_width=100,min_height=200','max:300'],
+            'birth_date'=>['required','date'],
+            'avatar' => [ 'image'],
             'description' => ['string','max:500'],
-            //'worker'=>['boolean']
+            //'worker'=>['boolean','0']
 
             //validate for promotion
             //'promotion'=>['required', 'string', 'max:255'],
         ]);
 
 
-        $user = User::create([
+        $user = User::create([ 
             'name' => $request->name,
             'email' => $request->email,
+            'email_verified_at' => 'datetime',
             'password' => Hash::make($request->password),
         ]);
 
         
         $member = Member::create([
-            'first_name' => $user->name,
+            'first_name' => $user->name, 
             'last_name' => $request->last_name,
             'user_id' => $user->id,
-            //'avatar' => $request->avatar,
+            'birth_date' =>$request->birth_date,
+            'avatar' => !empty($filename) ? $filename : 'avatar.png',
             'description' => $request->description,
             //'worker' => $request->worker,
             
         ]); 
-        $promotion = Promotion::create([
+        
+        
+        /*$promotion = Promotion::create([
             
             'name' => $request->promotion,
             
         ]); 
         
+
+
         $promotionYear = Promotion_year::create([
             'year'=>$request->year,
             'promotion_id'=>$promotion->id
@@ -86,20 +108,20 @@ class RegisteredUserController extends Controller
             'member_id' => $member->user_id,
             'promotion_year_id' => $promotionYear->id,
             
-        ]); 
+        ]);*/
         
        
         event(new Registered($user));
         event(new Registered($member));
-        event(new Registered($promotion));
-        event(new Registered($memberPromotion));
-        event(new Registered($promotionYear));
+        //event(new Registered($promotion));
+        //event(new Registered($memberPromotion));
+        //event(new Registered($promotionYear));
 
         $user->save();
         $member->save();
-        $promotion->save();
-        $memberPromotion->save();
-        $promotionYear->save();
+       // $promotion->save();
+       // $memberPromotion->save();
+       // $promotionYear->save();
 
         Auth::login($user);
 
@@ -108,4 +130,9 @@ class RegisteredUserController extends Controller
         
         
     }
+   
+    
+
+    
+    
 }
