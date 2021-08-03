@@ -18,7 +18,7 @@ class Blog_post extends Model
      */
     protected $fillable = [
         'title',
-        'member_id',
+        'user_id',
         'content',
         'sticky_post',
         'categorie_id',
