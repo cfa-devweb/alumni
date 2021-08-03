@@ -3,10 +3,10 @@
 @section('content')
 
 <br><br>
-<h1 class="title">Ajouter un nouvel article :</h1>
+<h1 class="title">Modifier l'article :</h1>
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="notification is-danger">
         <strong>Oops !</strong> Il y a eu des problèmes avec votre input...<br><br>
         <ul>
             @foreach ($errors->all() as $error)
@@ -16,63 +16,52 @@
     </div>
 @endif
 
-<form method="post" action="{{ route('actualites.store') }}">
+<form method="post" action="{{ route('actualites.update', $blog_post->id) }}">
 
-    @csrf <!-- {{ csrf_field() }} -->
-
+    @csrf
+    @method('PUT')
+    
     <fieldset>
         <div class="container">
 
             <div class="field">
                 <label class="label" for="user_id">ID Utilisateur</label>
                 <div class="control">
-                    <input class="input" type="number" placeholder="Votre ID utilisateur." name="user_id" id="user_id">
+                    <input class="input" type="number" placeholder="Votre ID utilisateur." name="user_id" id="user_id" value="{{ $blog_post->user_id }}">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label" for="title">Titre</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Votre titre ici." name="title" id="title">
+                    <input class="input" type="text" placeholder="Votre titre ici." name="title" id="title" value="{{ $blog_post->title }}">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label" for="categorie_id">ID Catégorie</label>
                 <div class="control">
-                    <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id">
+                    <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id" value="{{ $blog_post->categorie_id }}">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label" for="content">Contenu de votre post</label>
                 <div class="control">
-                    <textarea class="textarea" type="text" placeholder="Votre contenu ici" name="content" id="content"></textarea>
+                    <textarea class="textarea" type="text" placeholder="Votre contenu ici" name="content" id="content">{{ $blog_post->content }}</textarea>
                 </div>
             </div><br>
 
-            <div class="control">
+            <div class="checkbox">
                 <label class="label" for="visibility">Visibilité : Afficher l'article sur la page des actualités ?</label>
-                <label class="radio">
-                    <input type="radio" name="visibility" value=1>
+                    <input type="checkbox" name="visibility" value="{{ $blog_post->visibility }}">
                     Oui
-                </label>
-                <label class="radio">
-                    <input type="radio" name="visibility" value=0>
-                    Non
-                </label>
-            </div><br>
+            </div><br><br>
 
-            <div class="control">
+            <div class="checkbox">
                 <label class="label" for="sticky_post">Mettre l'article à la une ?</label>
-                <label class="radio">
-                    <input type="radio" name="sticky_post" value=1>
+                    <input type="checkbox" name="sticky_post" value="{{ $blog_post->sticky_post }}">
                     Oui
-                </label>
-                <label class="radio">
-                    <input type="radio" name="sticky_post" value=0>
-                    Non
-                </label>
             </div><br><br>
 
             <!-- <div class="file has-name is-right">

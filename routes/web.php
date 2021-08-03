@@ -27,9 +27,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/create-post', function () {
+/* Route::get('/dashboard/create-post', function () {
     return view('formPost');
-});
+}); */
 
 require __DIR__.'/auth.php';
 
@@ -43,13 +43,13 @@ Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 
-
-Route::get('actualites', [BlogPostController::class, 'index']);
-
-Route::get('actualites/{id}', [BlogPostController::class, 'show']);
-
-Route::get('formPost', [BlogPostController::class, 'create']);
-
-// Route::resource('formPost', [BlogPostController::class, 'store']);
+// routes pour les posts d'actualité
+Route::get('actualites', [BlogPostController::class, 'index']) -> name('actualites.index');
+Route::get('actualites/article={id}', [BlogPostController::class, 'show']) -> name('actualites.show');
+Route::get('/dashboard/create-post', [BlogPostController::class, 'create']) -> name('actualites.create');
+Route::post('actualites', [BlogPostController::class, 'store']) -> name('actualites.store');
+Route::get('actualites/post={id}/edit', [BlogPostController::class, 'edit']) -> name('actualites.edit');
+Route::put('actualites/post={id}', [BlogPostController::class, 'update']) -> name('actualites.update');
+Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
 
 Route::get('dashboard', [DashboardController::class, 'index']);
