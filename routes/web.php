@@ -27,7 +27,12 @@ Route::get('/', function () {
 // route pour le profil
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
+
+Route::get('/dashboard/dashboard_archive', function () {
+    return view('dashboard_archive');
+})->name('dashboard_archive');
+
 
 Route::get('/dashboard/create-post', function () {
     return view('formPost');
@@ -36,6 +41,10 @@ Route::get('/dashboard/create-post', function () {
 //     return view('dashboardArchive');
 // });
 
+
+Route::get('/dashboard/signalement', function () {
+    return view('reports');
+});
 
 require __DIR__.'/auth.php';
 
@@ -59,6 +68,8 @@ Route::get('actualites/{id}', [BlogPostController::class, 'show']);
 Route::get('formPost', [BlogPostController::class, 'create']);
 
 // Route::resource('formPost', [BlogPostController::class, 'store']);
+
+// Routes Dashbord
 
 Route::get('dashboard', [DashboardController::class, 'index']);
 
