@@ -3,8 +3,14 @@
 @section('content')
 <div class="columns is-flex my-6">
 
-    <!-- Sidebar     -->
-    @include("/partials/sideBarDashboard")
+<div class="container">
+    <div class="columns is-flex my-6">
+        @include('/partials/sideBarDashboard')
+        <div class="column">
+            <div class="buttons">
+                <button class="button is-primary">Ajouter une actualité</button>
+            </div>
+
 
     <div class="column">
         <div class="buttons">
