@@ -19,11 +19,22 @@ class MessageController extends Controller
             -> where( function($query)
             {
                 $query -> where('to_id',Auth::user()-> id)
-                    -> orWhere('from_member_id','<>',Auth::user() -> id);
+                    -> orWhere('from_member_id',Auth::user() -> id);
                 
             }) ->get();
-
-            dd($conversations);
+            $from =[];
+            $to = [];
+            foreach ($conversations as $item) {
+                if($item -> from_member_id != Auth::id())
+                {
+                    $from[] = $item;
+                }
+                else
+                {
+                    $to[] = $item;
+                }
+            }
+            dd($to);
         $messages_group = Message::with(['member','group'])
             -> where('from_member_id','=',Auth::user()-> id) 
             -> orWhere('to_id','=',Auth::user()-> id)
