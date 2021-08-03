@@ -40,7 +40,7 @@
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
- 
+
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
 
@@ -52,17 +52,15 @@
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">Promotions</a>
-                        <div class="navbar-dropdown">
 
+                        <div class="navbar-dropdown">
 
                             <div class="nested navbar-item dropdown">
                                 <div class="dropdown-trigger">
-                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                        <span>BTS Développeur Logiciel / Web</span>
-                                        <span class="icon is-small">
-                                            <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
-                                        </span>
-                                    </button>
+                                    @foreach ($promotions as $data)
+                                    <a class="dropdown-item">{{$data->name}}</a>
+                                    <hr>
+                                    @endforeach
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
@@ -86,9 +84,7 @@
                                 <div class="dropdown-trigger">
                                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                                         <span>BAC A SABLE</span>
-                                        <span class="icon is-small">
-                                            <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
-                                        </span>
+                                        <span class="icon is-small"></span>
                                     </button>
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
@@ -125,14 +121,13 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
-             </div>
-                
+                </div>
+
             </div>
 
 
