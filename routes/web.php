@@ -61,7 +61,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
-Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+Route::get('/members', [MemberController::class, 'index']);
+
+Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
 // routes pour les posts d'actualité
 Route::get('actualites', [BlogPostController::class, 'index']) -> name('actualites.index');
@@ -75,5 +77,5 @@ Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name
 // Routes Dashbord
 
 Route::get('dashboard', [DashboardController::class, 'index']);
-
 Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
+

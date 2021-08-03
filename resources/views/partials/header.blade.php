@@ -44,7 +44,7 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
 
-                    <a href="{{'/'}}" class="navbar-item">
+                    <a href="{{ route('profil') }}" class="navbar-item">
                         Accueil
                     </a>
                     <a href="{{'/actualites'}}" class="navbar-item">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-item">
+                    <a class="navbar-item" href=" {{ ('/profilMembre') }}">
                         Profils
                     </a>
                     <a class="navbar-item" href=" {{ route('login') }} ">
