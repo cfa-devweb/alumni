@@ -40,7 +40,7 @@
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
- 
+
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
 
@@ -125,18 +125,12 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
-             </div>
-                
+                </div>
             </div>
-
-
         </nav>
-
-
     </div>
