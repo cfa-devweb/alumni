@@ -6,6 +6,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\DashboardarchiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,10 @@ Route::get('/dashboard/dashboard_archive', function () {
 Route::get('/dashboard/create-post', function () {
     return view('formPost');
 });
+// Route::get('/dashboard/dashboardArchive', function () {
+//     return view('dashboardArchive');
+// });
+
 
 Route::get('/dashboard/signalement', function () {
     return view('reports');
@@ -66,3 +72,5 @@ Route::get('formPost', [BlogPostController::class, 'create']);
 // Routes Dashbord
 
 Route::get('dashboard', [DashboardController::class, 'index']);
+
+Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
