@@ -75,7 +75,6 @@ Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
 
+Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
-
-Route::view('/profil', 'profil');
