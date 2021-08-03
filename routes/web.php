@@ -6,6 +6,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\DashboardarchiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +27,31 @@ Route::get('/', function () {
 // route pour le profil
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
+
+Route::get('/dashboard/dashboard_archive', function () {
+    return view('dashboard_archive');
+})->name('dashboard_archive');
+
 
 /* Route::get('/dashboard/create-post', function () {
     return view('formPost');
 }); */
 
+// Route::get('/dashboard/dashboardArchive', function () {
+//     return view('dashboardArchive');
+// });
+
+
+Route::get('/dashboard/signalement', function () {
+    return view('reports');
+});
+
+
 require __DIR__.'/auth.php';
 
+  
+//Route::get('register', [PromotionController::class,'index']);
 
 
 
@@ -52,4 +71,8 @@ Route::get('actualites/post={id}/edit', [BlogPostController::class, 'edit']) -> 
 Route::put('actualites/post={id}', [BlogPostController::class, 'update']) -> name('actualites.update');
 Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
 
+// Routes Dashbord
+
 Route::get('dashboard', [DashboardController::class, 'index']);
+
+Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');

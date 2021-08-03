@@ -38,5 +38,15 @@ class DatabaseSeeder extends Seeder
         MemberPromotion::factory(10)    -> create();
         InscriptionEvent::factory(10)   -> create();
         Blog_post::factory(10)          -> create();
+      // créer un user par défault pour dev
+      //DB::table('users') -> insert([
+        //'name'              => 'admin',
+        //'email'             => 'admin@admin.com',
+        //'email_verified_at' => now(),
+        //'password'          => Hash::make('admin'), // password
+        //'remember_token'    => Str::random(10),
+      //]); 
     }
 }
+  
+
