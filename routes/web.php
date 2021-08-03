@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\VerifMemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
@@ -75,6 +76,11 @@ Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
 
+// Route vers la vérification avant inscription 
+Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
+Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
+
 Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
+
