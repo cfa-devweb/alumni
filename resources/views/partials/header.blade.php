@@ -57,11 +57,8 @@
 
                             <div class="nested navbar-item dropdown">
                                 <div class="dropdown-trigger">
-                                    @foreach ($promotions as $data)
-                                    <a class="dropdown-item">{{$data->name}}</a>
-                                    <hr>
-                                    @endforeach
-                                </div>
+                                   
+                                </div> 
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
                                         <a href="{{'/members'}}" class="dropdown-item">
