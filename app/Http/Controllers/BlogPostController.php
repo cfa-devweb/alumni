@@ -33,4 +33,70 @@ class BlogPostController extends Controller
         $category = $blog_post->category;
         return view('article')->with(['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
     }
+
+    public function create() 
+    {
+        return view('formPost');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'categorie_id' => 'required',
+            'sticky_post' => 'required',
+            'visibility' => 'required'
+        ]);
+
+        $blog_post = Blog_post::create([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'sticky_post' => $request->get('sticky_post'),
+            'content' => $request->get('content'),
+            'categorie_id' => $request->get('categorie_id'),
+            'visibility' => $request->get('visibility')
+        ]);
+
+        $blog_post->save();
+        return redirect('/actualites/article='.$blog_post->id)->with('success', 'Nouvel article crée avec succès !');
+    }
+
+    public function edit($id)
+    {
+        $blog_post = Blog_post::findOrFail($id);
+        return view('editPost', compact('blog_post'));
+    }
+
+    public function update(Request $request, Blog_post $blog_post)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'categorie_id' => 'required',
+            'sticky_post' => 'required',
+            'visibility' => 'required'
+        ]);
+
+        $blog_post->update([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'sticky_post' => $request->get('sticky_post'),
+            'content' => $request->get('content'),
+            'categorie_id' => $request->get('categorie_id'),
+            'visibility' => $request->get('visibility')
+        ]);
+
+        $blog_post->save();
+        return redirect('/actualites/article='.$blog_post->id)->with('success', 'Article édité avec succès !');
+    }
+
+    public function destroy(Blog_post $id)
+    {
+        $id->delete();
+
+        return redirect('/actualites')->with('success', 'Post supprimé avec succès !');
+    }
 }

@@ -1,14 +1,14 @@
-        <footer class="footer columns grey-dark">
+        <footer class="site-footer columns mt-4 mb-4   has-background-primary has-text-white ">
                 <div class="column is-one-fifth is-offset-1 adresse">
                     <span class="icon-text">
                         <span class="icon is-small">
                             <i class="fas fa-home"></i>
                         </span>
-                        <span>15 Rue de Verdun</span>
-                        <span>Nouméa 98800, Nouvelle-Calédonie</span>
+                        <span>14 Rue de Verdun</span>
+                        <span>BP M3 Nouméa 98800,<br> Nouvelle-Calédonie</span>
                 </div>
                 
-                <div class="column is-one-fifth is-offset-4 adresse" > 
+                <div class="column is-one-fifth is-offset-2 adresse" > 
                     <span class="icon-text">
                         <span class="icon is-small">
                             <i class="far fa-envelope"></i>
@@ -18,7 +18,7 @@
                         <span class="icon is-small">
                             <i class="fas fa-phone"></i>
                         </span>
-                        <span>(+687) 24 31 00</span>   
+                        <span>(+687) 24 31 45</span>   
                     </span>
                 </div>
                
@@ -31,10 +31,10 @@
                 is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
             </div> -->
           
-            <div class=" column is-4  socialNetwork">
+            <div class=" column is-5 is-offset-2 socialNetwork">
                 <span class=" icon-text">
-                    <figure class="image is-1 is-48x48">
-                        <img src="{{asset('images/logocci.jpg')}}">
+                    <figure class="logo pt-10 ">
+                        <img src="{{asset('images/logo-cci-blanc.svg')}}" height="75" width="100">
                     </figure>
                 </span>
             </div>

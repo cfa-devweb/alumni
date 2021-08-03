@@ -2,50 +2,25 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CListe membres</title>
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-</head>
-
 <style>
     .box {
         background: var(--card-bg);
     }
 
-    .button {
-        margin: 5px;
-    }
-
-
-    /* Card start*/
     .card {
-        overflow: hidden;
-        background: ghostwhite;      
-        height: 70%;
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
     }
 
     .card.large {
         border-radius: 5px;
     }
 
-    .is-text-overflow {
-    flex: 1;
-    overflow-y: auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
     .overflow-visible {
         white-space: initial;
-}
+    }
+
 </style>
 
 <body>
@@ -56,19 +31,28 @@
 
                 <div class="column has-text-centered">
                     <h1 class="title">PROMOTION</h1><br>
+
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
+
+                    <button class="button is-link is-rounded"><i class="fas fa-comments m-1"
+                            aria-hidden="true"></i>Envoyer un message à la promo</button>
                 </div>
             </div>
 
-            <div id="app" class="row columns is-multiline">
+            <div id="app" class="row columns is-multiline is-centered">
                 @foreach ($members as $rows)
-                <div class="card column is-3 mx-5">
-                    <div class="card large has-background-grey-lighter ">
+                <div class="card column is-3 m-5">
+                    <div class="card large has-background-grey-lighter">
                         <div class="card-image ">
                             <figure class="image is-16by9">
                                 <img src="{{$rows->avatar}}" alt="Placeholder image alt=" Image">
                             </figure>
                         </div>
-                        <div class="card-content overflow-visible">
+                        <div class="card-content" style="height:250px">
                             <div class="media">
                                 <div class="media-content">
                                     <p class="title is-4 no-padding">{{$rows->last_name}} {{$rows->first_name}}</p>
@@ -81,22 +65,22 @@
                                 {{$rows->description}}
                                 <div class="background-icon"><span class="icon-twitter"></span></div>
                             </div>
-                            <footer class="card-footer">
-                            <div class="level-left">
-                                <a class="level-item" aria-label="reply">
-                                    <span class="icon is-small">
-                                        <i class="fas fa-comments" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                                <a class="level-item" aria-label="retweet">
-                                    <span class="icon is-small">
-                                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                                    </span>
-                                </a>
+
+                            <div>
+                                <button class="button is-link is-small m-1"><i class="fas fa-comments m-1"
+                                        aria-hidden="true"></i>Envoyer un message</button>
+                                <button class="button is-danger is-small m-1"><i
+                                        class="fas fa-exclamation-triangle is-large m-1" aria-hidden="true"></i>Signaler
+                                    ce membre</button>
+                                <form action="{{ route ('members.destroy') }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="button is-danger is-small m-1">Supprimer ce
+                                        membre</button>
                             </div>
-                        </footer>
+
                         </div>
-                        
+
                     </div>
                 </div>
                 @endforeach

@@ -2,7 +2,7 @@
 
     <section class="hero is-light">
         <div class="columns">
-            <div class="column">vide</div>
+            <div class="column"></div>
             <div class="column is-flex">
                 <span class="icon-text column is-flex is-align-items-center">
                     <span class="icon">
@@ -34,7 +34,7 @@
         </figure>
         <nav class="navbar-menu content" role="navigation" aria-label="main navigation">
 
-<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -43,7 +43,8 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
-                    <a class="navbar-item">
+
+                    <a href="" class="navbar-item">
                         Accueil
                     </a>
                     <a href="{{'/actualites'}}" class="navbar-item">
@@ -51,18 +52,16 @@
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">Promotions</a>
-                        <div class="navbar-dropdown">
 
+                        <div class="navbar-dropdown">
 
                             <div class="nested navbar-item dropdown">
                                 <div class="dropdown-trigger">
-                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                        <span>BTS Développeur Logiciel / Web</span>
-                                        <span class="icon is-small">
-                                            <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
-                                        </span>
-                                    </button>
-                                </div>
+                                    @foreach (\App\Models\Promotion::all() as $data)
+                                    <a class="dropdown-item">{{$data->name}}</a>
+                                    <hr>
+                                    @endforeach
+                                </div> 
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
                                         <a href="{{'/members'}}" class="dropdown-item">
@@ -85,9 +84,7 @@
                                 <div class="dropdown-trigger">
                                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                                         <span>BAC A SABLE</span>
-                                        <span class="icon is-small">
-                                            <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
-                                        </span>
+                                        <span class="icon is-small"></span>
                                     </button>
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
@@ -109,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-item">
+                    <a class="navbar-item" href=" {{ ('/profilMembre') }}">
                         Profils
                     </a>
                     <a class="navbar-item" href=" {{ route('login') }} ">
@@ -118,21 +115,18 @@
                     <a class="navbar-item" href=" {{ route('register') }} ">
                         register
                     </a>
+                    <a href="{{ '/dashboard' }} " class="navbar-item">
+                        Tableau de Bord
+                    </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
-             </div>
-                
+                </div>
             </div>
-
-
         </nav>
-
-
     </div>

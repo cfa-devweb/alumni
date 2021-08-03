@@ -9,11 +9,11 @@
             <!--<div class="card">-->
                 <div class="title">{{ __("S'inscrire") }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="field is-horizontal is-justify-content-space-between">
                             <div class="control has-icons-left">
-                                <label for="name" class="">{{ __('Name') }}</label>
+                                <label for="name" class="">{{ __('Nom') }}</label>
                                 <input id="name" type="text" class="input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-user mt-6"></i>
@@ -24,24 +24,23 @@
                                     </span>
                                 @enderror
                             </div>
+                            
                             <div class="file">
-                                <label class="file-label">
-                                <input class="file-input" type="file" name="avatar">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            ajouter un avatar
-                                        </span>
-                                    </span>
-                                </label>
+                                <label for="avatar" class="file-label">{{ __('Avatar') }}</label>    
+                                    <div class="file-cta mx_6">                                              
+                                        <input id="avatar" type="file" class="control   @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}"  autocomplete="avatar" autofocus>
+                                        @error('avatar')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>      
                             </div>
                         </div>
                         <div class="field is-horizontal is-justify-content-space-between">
                             <div class="control has-icons-left">
-                                <label for="name" class="">{{ __('Prenom') }}</label>
-                                <input id="last_name" type="text" class="input" name="last_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <label for="name" class="">{{ __('Prénom') }}</label>
+                                <input id="last_name" type="text" class="input" name="last_name" value="" required autocomplete="name" autofocus>
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-user mt-6"></i>
                                 </span>                                
@@ -50,10 +49,12 @@
                             <div class="field ">
                                 <div class="control mx-6 ">
                                     <div class="select">
-                                        <select name='promotion_year'>
-                                                    <option>Année de la promotion</option>
-                                                    <option>With options</option>
-                                                </select>
+                                        <select name='promotion'>
+                                            <option value="">promotions</option>                                     
+                                            @foreach ($promotions as $data)                                            
+                                            <option value={{$data->id}}>{{$data->name}}</option>  
+                                            @endforeach                                          
+                                        </select>
                                     </div>
                                 </div>  
                             </div>
@@ -61,18 +62,28 @@
                             <div class="field ">
                                 <div class="control ">
                                     <div class="select">
-                                        <select name='promotion' >
-                                                    <option>Promotion</option>
-                                                    <option>With options</option>
-                                                </select>
+                                        <select name='promotion_year' >                                       
+                                        <option value="" ></option>
+                                            <option value="" ></option>                                                                                    
+                                        </select>
                                     </div>
                                 </div>  
                             </div>
                         </div>
+                          
 
-                        <div class="field is-horizontal is-justify-content-space-between">                         
+                        <div class="field is-horizontal is-justify-content-space-between"> 
+
+                             <div class="control has-icons-left">
+                                <label for="name" class="">{{ __('Date de naissance') }}</label>
+                                <input id="birth_date" type="date" class="input" name="birth_date" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user mt-6"></i>
+                                </span>                                
+                            </div> 
+
                             <div class="control has-icons-left">
-                                <label for="email" class="">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="">{{ __(' Addresse E-Mail') }}</label>
                                 <input id="email" type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-envelope  mt-6"></i>
@@ -97,10 +108,11 @@
                             </div>
                             
                         </div>
+                        
                         <div class="field is-horizontal is-justify-content-space-between">
                             <div class="field  ">
                                 <div class="control has-icons-left">
-                                <label for="password" class="">{{ __('Password') }}</label>
+                                <label for="password" class="">{{ __('Mot de passe') }}</label>
                                     <input id="password" type="password" class="input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-key  mt-6"></i>
@@ -112,7 +124,7 @@
                                     @enderror
                                 </div>
                                 <div class="control has-icons-left">
-                                    <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
+                                    <label for="password-confirm" class="">{{ __('Confirmé votre mot de passe') }}</label>
                                     <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-key  mt-6"></i>
