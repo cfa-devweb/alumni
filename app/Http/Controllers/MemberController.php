@@ -1,4 +1,4 @@
-<?php
+
 
 namespace App\Http\Controllers;
 
@@ -15,6 +15,20 @@ class MemberController extends Controller
 
         return view('membersPage', ['members' => $members]);
     }
-    
+
+    public function show($id, Member $member) 
+    {
+        $members = Member::with('user')->where('member.id', '=', $id)->get();
+
+        return view('profil', ['members' => $members]);
+    }
+
+    // public function destroy(Member $member)
+    // {
+    //     $member->delete();
+
+    //     return redirect()->back()
+    //                     ->with('success','Ce membre a bien été effacé');
+    // }    
 }
 
