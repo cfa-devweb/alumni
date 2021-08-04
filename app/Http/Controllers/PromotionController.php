@@ -9,28 +9,15 @@ use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {    
-    
-    
-    public function index(){    
-        
-        $promotions = DB::table('promotions')
-            ->select('*')
-            ->get(); 
+    public function index()
+    {    
+        $promotions = Promotion::all(); 
        
-        return view('./partials/header' ,['promotions'=>$promotions]);
-       
-
+        return view('partials.membersPage' ,['promotions' => $promotions]);
     }
 
     public function show(Promotion $promotion)
     {
-        $promotion = DB::table('promotions')
-            ->select('*')
-            ->where('id', $promotion->promotion_id)
-            ->get(); 
-
-        return view('promotion.show', compact('promotions'));
-
-        
+        return view('promotion.show', compact('promotions'));  
     }
 }
