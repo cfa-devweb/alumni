@@ -41,7 +41,7 @@ Route::get('/dashboard/dashboard_archive', function () {
 
 
 Route::get('/reports', [ReportController::class,'index']);
-
+Route::delete('/reports/{report}', [ReportController::class,'destroy']);
 
 require __DIR__.'/auth.php';
 

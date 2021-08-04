@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,18 +15,12 @@ class ReportController extends Controller
         ->select('*')
         ->get(); 
         
-        return view('reports', compact('reports'));
+        return view('reports.index', compact('reports'));
     }
 
-    public function show(reports $reports)
-    {
-        $reports = DB::table('reports')
-            ->select('*')
-            ->where('id', $reports->reports_id)
-            ->get(); 
-
-        return view('', compact('reports'));
-
-        
+    public function destroy(Report $report)
+    { 
+        $report->delete();
+        return redirect()->back();
     }
 }
