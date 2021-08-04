@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MemberPromotions extends Migration
+class CreateMemberPromotionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,11 @@ class MemberPromotions extends Migration
     public function up()
     {
         Schema::create('member_promotions', function(Blueprint $table){
-            $table -> id();
-            $table -> foreignId('member_id')
-                -> constrained()
-                -> onDelete('cascade')
-                -> onUpdate('cascade');
-            $table -> foreignId('promotions_id')
-                -> constrained()
-                -> onDelete('cascade')
-                -> onUpdate('cascade');
-            $table -> timestamps();
+            $table->id();
+            $table->timestamps();
+
+            $table->foreignId('member_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('promotion_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

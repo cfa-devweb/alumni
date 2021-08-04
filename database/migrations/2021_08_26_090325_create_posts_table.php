@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table)
+        {
             $table->id();
+            $table->string('title');
+            $table->boolean('promoted');
+            $table->boolean('visible');
             $table->text('content');
-            $table->softDeletes();
             $table->timestamps();
 
-            $table->foreignId('from_member_id')->constrained('members')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('to_member_id')->constrained('members')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -31,6 +34,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('posts');
     }
 }

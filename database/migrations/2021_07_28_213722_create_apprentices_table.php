@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Conversation extends Migration
+class CreateApprenticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class Conversation extends Migration
      */
     public function up()
     {
-        Schema::create('conversations', function(Blueprint $table){
-            $table -> id();
-    
-            $table -> timestamps();
+        Schema::create('apprentices', function (Blueprint $table) {
+            $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('birth_date');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class Conversation extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('apprentices');
     }
 }

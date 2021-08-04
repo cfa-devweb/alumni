@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cci extends Migration
+class CreatePromotionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class Cci extends Migration
      */
     public function up()
     {
-        Schema::create('cci', function(Blueprint $table) {
-            $table -> id();
-            $table -> string('first_name');
-            $table -> string('last_name');
-            $table -> date('birth_date');
-            $table -> timestamps();
+        Schema::create('promotions', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->year('year');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class Cci extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cci');
+        Schema::dropIfExists('promotions');
     }
 }
