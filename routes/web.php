@@ -23,8 +23,8 @@ use App\Http\Controllers\DashboardarchiveController;
 */
 // route pour l'accueil
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('welcome');
 
 // route pour le profil
 Route::get('/dashboard', function () {

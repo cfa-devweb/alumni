@@ -44,7 +44,8 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
 
-                    <a href="" class="navbar-item">
+                    <a href="{{ route('welcome') }}" class="navbar-item">
+
                         Accueil
                     </a>
                     <a href="{{'/actualites'}}" class="navbar-item">
