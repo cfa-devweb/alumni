@@ -9,28 +9,22 @@ use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {    
-    
-    
-    public function index(){    
-        
-        $promotions = DB::table('promotions')
-            ->select('*')
-            ->get(); 
+    public function index()
+    {       
+        $promotions = Promotion::all();
        
-        return view('./partials/header' ,['promotions'=>$promotions]);
-       
-
+        return view('promotions.index', compact('promotions'));
     }
 
-    public function show(Promotion $promotion)
+    public function create()
     {
-        $promotion = DB::table('promotions')
-            ->select('*')
-            ->where('id', $promotion->promotion_id)
-            ->get(); 
+        return view('promotions.create', compact('promotions'));
+    }
 
-        return view('promotion.show', compact('promotions'));
+    public function edit($id)
+    {
+        $promotion = Promotion::findOrFail($id);
 
-        
+        return view('promotions.edit', compact('promotions'));
     }
 }
