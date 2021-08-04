@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="post" action="{{ route('actualites.update', $blog_post->id) }}">
+<form method="post" action="{{ route('actualites.update', $post->id) }}">
 
     @csrf
     @method('PUT')
@@ -27,40 +27,40 @@
             <!-- <div class="field">
                 <label class="label" for="user_id">ID Utilisateur</label>
                 <div class="control">
-                    <input class="input" type="number" placeholder="Votre ID utilisateur." name="user_id" id="user_id" value="{{ $blog_post->user_id }}">
+                    <input class="input" type="number" placeholder="Votre ID utilisateur." name="user_id" id="user_id" value="{{ $post->user_id }}">
                 </div>
             </div> -->
 
             <div class="field">
                 <label class="label" for="title">Titre</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Votre titre ici." name="title" id="title" value="{{ $blog_post->title }}">
+                    <input class="input" type="text" placeholder="Votre titre ici." name="title" id="title" value="{{ $post->title }}">
                 </div>
             </div>
 
             <!-- <div class="field">
                 <label class="label" for="categorie_id">ID Catégorie</label>
                 <div class="control">
-                    <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id" value="{{ $blog_post->categorie_id }}">
+                    <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id" value="{{ $post->categorie_id }}">
                 </div>
             </div> -->
 
             <div class="field">
                 <label class="label" for="content">Contenu de votre post</label>
                 <div class="control">
-                    <textarea class="textarea" type="text" placeholder="Votre contenu ici" name="content" id="content">{{ $blog_post->content }}</textarea>
+                    <textarea class="textarea" type="text" placeholder="Votre contenu ici" name="content" id="content">{{ $post->content }}</textarea>
                 </div>
             </div><br>
 
             <div class="checkbox">
                 <label class="label" for="visibility">Visibilité : Afficher l'article sur la page des actualités ?</label>
-                    <input type="checkbox" name="visibility" value="{{ $blog_post->visibility }}">
+                    <input type="checkbox" name="visibility" value="{{ $post->visibility }}">
                     Oui
             </div><br><br>
 
             <div class="checkbox">
                 <label class="label" for="sticky_post">Mettre l'article à la une ?</label>
-                    <input type="checkbox" name="sticky_post" value="{{ $blog_post->sticky_post }}">
+                    <input type="checkbox" name="sticky_post" value="{{ $post->sticky_post }}">
                     Oui
             </div><br><br>
 

@@ -17,7 +17,7 @@
     <div class="container">
         <br>
         <div class="row columns is-multiline">
-          @foreach ($blog_posts as $blog_post)
+          @foreach ($posts as $post)
             <hr>
            
                 <div class="column post is-4">
@@ -29,11 +29,11 @@
                                 </figure>
                             </div>
                             <div class="card-content">
-                                <h3 class="heading post-category">{{ $blog_post->category }}</h3>
-                                <h2 class="title post-title">{{ $blog_post->title }}</h2>
-                                <p class="post-excerpt">{{ \Illuminate\Support\Str::limit($blog_post->content, $limit=120, $end='...') }}</p>
+                                <h3 class="heading post-category">{{ $post->category->name }}</h3>
+                                <h2 class="title post-title">{{ $post->title }}</h2>
+                                <p class="post-excerpt">{{ \Illuminate\Support\Str::limit($post->content, $limit=120, $end='...') }}</p>
                                 <br>
-                                <a href="{{ route('actualites.show', $blog_post->id) }}" class="button is-primary">Lire plus...</a>
+                                <a href="{{ route('actualites.show', $post->id) }}" class="button is-primary">Lire plus...</a>
                             </div>
                         </article>
                     </div> 
