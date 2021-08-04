@@ -10,14 +10,21 @@ use App\Http\Controllers\Controller;
 class PromotionController extends Controller
 {    
     public function index()
-    {    
-        $promotions = Promotion::all(); 
+    {       
+        $promotions = Promotion::all();
        
-        return view('partials.membersPage' ,['promotions' => $promotions]);
+        return view('promotions.index', compact('promotions'));
     }
 
-    public function show(Promotion $promotion)
+    public function create()
     {
-        return view('promotion.show', compact('promotions'));  
+        return view('promotions.create', compact('promotions'));
+    }
+
+    public function edit($id)
+    {
+        $promotion = Promotion::findOrFail($id);
+
+        return view('promotions.edit', compact('promotions'));
     }
 }
