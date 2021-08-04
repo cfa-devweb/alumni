@@ -62,13 +62,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
 
 // routes pour les posts d'actualité
-Route::get('actualites', [PostController::class, 'index']) -> name('actualites.index');
-Route::get('actualites/{post}', [PostController::class, 'show']) -> name('actualites.show');
-Route::get('/dashboard/create-post', [PostController::class, 'create']) -> name('actualites.create');
-Route::post('actualites', [PostController::class, 'store']) -> name('actualites.store');
-Route::get('actualites/{post}/edit', [PostController::class, 'edit']) -> name('actualites.edit');
-Route::put('actualites/{post}', [PostController::class, 'update']) -> name('actualites.update');
-Route::delete('actualites/{post}', [PostController::class, 'destroy']) -> name('actualites.destroy');
+
+Route::resource('articles', PostController::class)->parameters([
+    'articles' => 'post'
+]);
+
+/* Route::get('articles', [PostController::class, 'index']) -> name('articles.index');
+Route::post('articles', [PostController::class, 'store']) -> name('articles.store');
+Route::get('articles/create', [PostController::class, 'create']) -> name('articles.create');
+Route::get('articles/{post}', [PostController::class, 'show']) -> name('articles.show');
+Route::put('articles/{post}', [PostController::class, 'update']) -> name('articles.update');
+Route::delete('articles/{post}', [PostController::class, 'destroy']) -> name('articles.destroy');
+Route::get('articles/{post}/edit', [PostController::class, 'edit']) -> name('articles.edit'); */
 
 // Routes Dashbord
 
