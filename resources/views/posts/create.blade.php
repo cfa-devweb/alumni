@@ -6,7 +6,7 @@
 <h1 class="title">Ajouter un nouvel article :</h1>
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="notification is-danger">
         <strong>Oops !</strong> Il y a eu des problèmes avec votre input...<br><br>
         <ul>
             @foreach ($errors->all() as $error)
@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="post" action="{{ route('actualites.store') }}">
+<form method="post" action="{{ route('articles.store') }}">
 
     @csrf <!-- {{ csrf_field() }} -->
 

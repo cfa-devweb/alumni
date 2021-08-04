@@ -44,11 +44,11 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
 
-                    <a href="{{ route('welcome') }}" class="navbar-item">
+                    <a href="{{ route('home') }}" class="navbar-item">
 
                         Accueil
                     </a>
-                    <a href="{{'/actualites'}}" class="navbar-item">
+                    <a href="{{ route('articles.index') }}" class="navbar-item">
                         Actualités
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">

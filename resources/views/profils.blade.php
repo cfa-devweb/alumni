@@ -1,3 +1,4 @@
+
 @extends('/partials/layout')
 
 @section('content')
@@ -86,6 +87,5 @@
     <button class="button is-link is-light">Cancel</button>
   </div>
 </div>
-
 
 @endsection

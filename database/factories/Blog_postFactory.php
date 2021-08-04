@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Blog_post;
-use App\Models\Categorie;
+use App\Models\Category;
 use App\Models\Member;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,7 +29,7 @@ class Blog_postFactory extends Factory
             'title' => $this -> faker -> sentence(),
             'content' => $this -> faker -> paragraph(6),
             'sticky_post' => $this -> faker -> boolean(),
-            'categorie_id' => Categorie::all('id') -> random(),
+            'categorie_id' => Category::all('id') -> random(),
             'visibility'  => $this -> faker -> boolean(100)
         ];
     }

@@ -11,7 +11,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,12 +24,7 @@ use App\Http\Controllers\DashboardarchiveController;
 // route pour l'accueil
 Route::get('/', function () {
     return view('home');
-})->name('welcome');
-
-// route pour le profil
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+})-> name('home');
 
 Route::get('/dashboard/dashboard_archive', function () {
     return view('dashboard_archive');
@@ -47,41 +41,45 @@ Route::get('/dashboard/dashboard_archive', function () {
 
 
 Route::get('/reports', [ReportController::class,'index']);
-
+Route::delete('/reports/{report}', [ReportController::class,'destroy']);
 
 require __DIR__.'/auth.php';
 
-  
-Route::get('./partials/header', [PromotionController::class,'index']);
-
-
-
-// route pour l'application
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profils', [MessageController::class,'show']) -> name('message');
+Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
+Route::get('/messages', [MessageController::class,'index']) -> name('message');
+Route::get('/conversations/{id}', [MessageController::class,'show']) -> name('conversations');
+
 
 // routes pour les posts d'actualité
-Route::get('actualites', [PostController::class, 'index']) -> name('actualites.index');
-Route::get('actualites/{post}', [PostController::class, 'show']) -> name('actualites.show');
-Route::get('/dashboard/create-post', [PostController::class, 'create']) -> name('actualites.create');
-Route::post('actualites', [PostController::class, 'store']) -> name('actualites.store');
-Route::get('actualites/{post}/edit', [PostController::class, 'edit']) -> name('actualites.edit');
-Route::put('actualites/{post}', [PostController::class, 'update']) -> name('actualites.update');
-Route::delete('actualites/{post}', [PostController::class, 'destroy']) -> name('actualites.destroy');
 
-// Routes Dashbord
+Route::resource('articles', PostController::class)->parameters([
+    'articles' => 'post'
+]);
 
-Route::get('dashboard', [DashboardController::class, 'index']);
-Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
+/* Route::get('articles', [PostController::class, 'index']) -> name('articles.index');
+Route::post('articles', [PostController::class, 'store']) -> name('articles.store');
+Route::get('articles/create', [PostController::class, 'create']) -> name('articles.create');
+Route::get('articles/{post}', [PostController::class, 'show']) -> name('articles.show');
+Route::put('articles/{post}', [PostController::class, 'update']) -> name('articles.update');
+Route::delete('articles/{post}', [PostController::class, 'destroy']) -> name('articles.destroy');
+Route::get('articles/{post}/edit', [PostController::class, 'edit']) -> name('articles.edit'); */
 
 // Route vers la vérification avant inscription 
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
 Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
 
-
 Route::get('/members', [MemberController::class, 'index']);
 Route::get('members/{member}/edit', [MemberController::class, 'edit']);
 Route::put('members/{member}', [PostController::class, 'update']);
 // Route::delete('/membersDelete', [MemberController::class, 'destroy']);
+
+Route::prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('/', DashboardController::class)->name('dashboard');
+    Route::get('/compte', [DashboardController::class, 'user'])->name('user');
+});
+
+// routes Ressource
+Route::resource('promotions', PromotionController::class);
 

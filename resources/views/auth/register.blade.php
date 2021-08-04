@@ -56,10 +56,13 @@
                                             <option value={{$data->id}}>{{$data->name}}</option>  
                                             @endforeach                                          
                                         </select>
+                                        <select name='promotion_year' value=''>
+                                                    <option value=''>Année de la promotion</option>
+                                                    <option value=''>With options</option>
+                                                </select>
                                     </div>
                                 </div>  
                             </div>
-
                             <div class="control has-icons-left">
                                 <label for="name" class="">{{ __('Année de la promotion') }}</label>
                                 <input id="year" type="number" class="input @error('name') is-invalid @enderror" name="year" value="2006" required autocomplete="name" autofocus>
@@ -71,6 +74,15 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            <div class="field ">
+                                <div class="control ">
+                                    <div class="select">
+                                        <select name='promotion'  value=''>
+                                                    <option value="">Promotion</option>
+                                                    <option value="">With options</option>
+                                                </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                           

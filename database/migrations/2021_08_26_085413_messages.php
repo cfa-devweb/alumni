@@ -22,11 +22,10 @@ class Messages extends Migration
                 -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table -> integer('to_id');
             $table -> string('type_message');
             $table -> boolean('visibility');
-            $table->index('to_id') 
-                ->constrained()
+            $table->foreignId('conversation_id')
+                -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
             $table -> timestamps();
