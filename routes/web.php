@@ -45,11 +45,11 @@ Route::get('/members', [MemberController::class, 'index']) ->name('promotion.mem
 
 // routes pour les posts d'actualité
 Route::get('actualites', [BlogPostController::class, 'index']) -> name('actualites.index');
-Route::get('actualites/article={id}', [BlogPostController::class, 'show']) -> name('actualites.show');
+Route::get('actualites/{blog_post}', [BlogPostController::class, 'show']) -> name('actualites.show');
 Route::get('/dashboard/create-post', [BlogPostController::class, 'create']) -> name('actualites.create');
 Route::post('actualites', [BlogPostController::class, 'store']) -> name('actualites.store');
-Route::get('actualites/post={id}/edit', [BlogPostController::class, 'edit']) -> name('actualites.edit');
-Route::put('actualites/post={id}', [BlogPostController::class, 'update']) -> name('actualites.update');
-Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
+Route::get('actualites/{blog_post}/edit', [BlogPostController::class, 'edit']) -> name('actualites.edit');
+Route::put('actualites/{blog_post}', [BlogPostController::class, 'update']) -> name('actualites.update');
+Route::delete('actualites/{blog_post}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
 
 Route::get('dashboard', [DashboardController::class, 'index']);

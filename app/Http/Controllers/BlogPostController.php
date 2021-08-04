@@ -5,33 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
-use App\Models\Blog_post;
+use App\Models\BlogPost;
 use Illuminate\Support\Str;
 
 class BlogPostController extends Controller
 {
     public function index()
     {  
-        $blog_posts = DB::table('blog_posts')
-            ->join('users', 'blog_posts.user_id', '=', 'users.id')
-            ->join('categories', 'blog_posts.categorie_id', '=', 'categories.id')
-            ->select('blog_posts.*', 'users.name AS username', 'categories.name AS category')
-            ->get();
-        return view('actualites', ['blog_posts' => $blog_posts]);
+        $blog_posts = BlogPost::all();
+        return view('actualites', compact('blog_posts'));
     }
 
-    public function show($id, Blog_post $blog_post)
+    public function show(BlogPost $blog_post)
     {
-        $blog_post = DB::table('blog_posts')
-            ->select('blog_posts.*', 'users.name AS username', 'categories.name AS category')
-            ->join('users', 'blog_posts.user_id', '=', 'users.id')
-            ->join('categories', 'blog_posts.categorie_id', '=', 'categories.id')
-            ->where('blog_posts.id', '=', $id)
-            ->first();
-
         $username = $blog_post->username;
         $category = $blog_post->category;
-        return view('article')->with(['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
+        return view('article', ['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
     }
 
     public function create() 
@@ -50,7 +39,7 @@ class BlogPostController extends Controller
             'visibility' => 'required'
         ]);
 
-        $blog_post = Blog_post::create([
+        $blog_post = BlogPost::create([
             'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'sticky_post' => $request->get('sticky_post'),
@@ -60,43 +49,37 @@ class BlogPostController extends Controller
         ]);
 
         $blog_post->save();
-        return redirect('/actualites/article='.$blog_post->id)->with('success', 'Nouvel article crée avec succès !');
+        return redirect('/actualites/'.$blog_post->id)->with('success', 'Nouvel article crée avec succès !');
     }
 
-    public function edit($id)
+    public function edit(BlogPost $blog_post)
     {
-        $blog_post = Blog_post::findOrFail($id);
         return view('editPost', compact('blog_post'));
     }
 
-    public function update(Request $request, Blog_post $blog_post)
-    {
+    public function update(Request $request, BlogPost $blog_post)
+    {   
         $request->validate([
-            'user_id' => 'required',
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'categorie_id' => 'required',
             'sticky_post' => 'required',
             'visibility' => 'required'
         ]);
 
         $blog_post->update([
-            'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'sticky_post' => $request->get('sticky_post'),
             'content' => $request->get('content'),
-            'categorie_id' => $request->get('categorie_id'),
             'visibility' => $request->get('visibility')
         ]);
 
-        $blog_post->save();
-        return redirect('/actualites/article='.$blog_post->id)->with('success', 'Article édité avec succès !');
+        return redirect()->route('actualites.index')->with('success', 'Article édité avec succès !');
     }
 
-    public function destroy(Blog_post $id)
+    public function destroy(BlogPost $blog_post)
     {
-        $id->delete();
+        $blog_post->delete();
 
-        return redirect('/actualites')->with('success', 'Post supprimé avec succès !');
+        return redirect()->route('actualites.index')->with('success', 'Article supprimé avec succès !');
     }
 }

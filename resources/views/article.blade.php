@@ -69,13 +69,13 @@
                         <form class="card-footer-item" action="{{ route('actualites.destroy',$blog_post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')      
-                            <a type="submit" class="btn btn-danger">Supprimer</a>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </footer>
                 </div>
             <br>
                 <div style="text-align:end;">
-                    <a class="button is-dark is-right" href="<?php echo url("actualites") ?>">Retour</a>
+                    <a class="button is-dark is-right" href="{{ route('actualites.index') }}">Retour</a>
                 </div>
             </div>
         </section>
