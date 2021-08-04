@@ -1,32 +1,30 @@
+@extends('/partials/layout')
 
-<div>
-    <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
-    <div class="content">
-        <h2 class="title is-2">discussion avec : {{ $messages[0] ->toMember->last_name }} {{ $messages[0] ->toMember->first_name }} </h2>
-        <div>
+@section('content')
+    <div class="box is-4 columns is-flex-direction-column">
+        <h2 class="title is-2">discussion avec :  </h2>
+        <div class="column is-6">
             @foreach ($messages as $item)
-            
-                <div class="box is-light p-6">
+                @if ($loop ->even)
+                <div class="box is-light p-6 column ">
                     {{ $item ->content }}
                 </div>
                 <div class="is-flex is-align-items-flex-start is-justify-content-flex-end">
                     <p> {{ $item ->member ->first_name }} </p>
-                    <figure class="image is-64x64 m-0 mx-2">
+                    <figure class="image is-32x32 m-0 mx-2">
                         <img src=" {{ asset('images/avatar.png') }} ">
                     </figure>
                     <p> {{ \Carbon\Carbon::parse($item->created_at)-> locale('fr') -> format('Y/m/d') }} </p>
                 </div>
             @endforeach
         </div>
-        <form method="POST" action=" {{ route('sendMessage') }} ">
+        <form method="POST" action=" {{ route('sendMessage', $conversations->id) }} ">
             <div class="field">
                 <div class="control">
-                    <textarea class="textarea" placeholder="Ecrivez votre message...." name="content" id="" cols="30" rows="10"></textarea>
+                    <textarea class="textarea" placeholder="Ecrivez votre message...." name="content" id="content" cols="30" rows="5"></textarea>
                     <button class="button is-primary" type="submit">Envoyer</button>
-                </form>
                 </div>
             </div>
-
+        </form>
     </div>
-   
-</div>
+@endsection

@@ -3,14 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Cci;
-use App\Models\User;
 use App\Models\Event;
-use App\Models\Group;
 use App\Models\Member;
 use App\Models\Message;
 use App\Models\Reports;
-use App\Models\Blog_post;
-use App\Models\Categorie;
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Conversation;
 use App\Models\Promotion;
 use Illuminate\Support\Str;
 use App\Models\MemberPromotion;
@@ -34,14 +33,16 @@ class DatabaseSeeder extends Seeder
 
         Cci::factory(10)                -> create();
         \App\Models\User::factory(10)   -> create();
-        // Group::factory(10)              -> create();
-        Categorie::factory(10)          -> create();
+        Promotion::factory(10)          -> create();
+        Event::factory(10)              -> create();
+        Category::factory(10)          -> create();
         Member::factory(10)             -> create();
-        Message::factory(10)            -> create();
+        Conversation::factory(10)       -> create();
+        Message::factory(30)            -> create();
         Reports::factory(10)            -> create();
         MemberPromotion::factory(10)    -> create();
         InscriptionEvent::factory(10)   -> create();
-        Blog_post::factory(10)          -> create();
+        Post::factory(10)          -> create();
 
         DB::table('users') -> insert(
         [

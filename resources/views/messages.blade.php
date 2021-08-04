@@ -1,27 +1,31 @@
-@extend('layout')
+@extends('/partials/layout')
 
 
 @section('content')
 
-
+<p>Hello profils</p>
 <table class="table">
-
-<thead>
-    <tr>
-        <th><abbr title="Nom"> Nom </abbr></th>
-        <th><abbr title="Prénom"> Prénom </abbr></th>
-        <th><abbr title="Promotion"> Promotion </abbr></th>
-        <th><abbr title="actions"> actions </abbr></th>
-    </tr>
-</thead>
-<tbody>
-    @foreach ($messagesMember as $item)
+    <thead>
         <tr>
-            <td> {{ $item -> }} </td>
-        </tr>
-    @endforeach
-</tbody>
-
+        <th title="Promotion" >Promotion</th>
+        <th title="année">Année</th>
+        <th title="actions" >Actions</th>
+        </tr>   
+    </thead>
+    <tbody>
+        @foreach ($conversations as $item)
+            <tr>
+                <td>
+                    {{ $item ->promotion ->name  }}
+                </td>
+                <td>
+                    {{ $item ->year  }} 
+                </td>    
+                <td>
+                    <button class="button is-primary" > <a href=" {{ route('conversations',$item ->id) }} ">Voir</a> </button>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
 </table>
-
 @endsection

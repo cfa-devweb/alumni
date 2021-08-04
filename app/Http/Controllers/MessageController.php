@@ -4,54 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use App\Models\Message;
+use App\Models\Conversation;
 use Illuminate\Http\Request;
+use App\Models\MemberPromotion;
+use App\Models\ConversationMember;
+use App\Models\Promotion;
+use App\Models\Promotion_year;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
-
     public function index()
     {
-        
-       
-        $conversations = Message:: with(['member','toMember'])
-            -> where('type_message','member')
-            -> where( function($query)
-            {
-                $query -> where('to_id',Auth::user()-> id)
-                    -> orWhere('from_member_id',Auth::user() -> id);
-                
-            }) ->get();
-            $from =[];
-            $to = [];
-            foreach ($conversations as $item) {
-                if($item -> from_member_id != Auth::id())
-                {
-                    $from[] = $item;
-                }
-                else
-                {
-                    $to[] = $item;
-                }
-            }
-            dd($to);
-        $messages_group = Message::with(['member','group'])
-            -> where('from_member_id','=',Auth::user()-> id) 
-            -> orWhere('to_id','=',Auth::user()-> id)
-            -> where('type_message','=','group')->get();
-        return view('messages',['conversations' => $conversations,'messageGroup' => $messages_group]);
+        $namePromotion = Promotion_year::with(['promotion'])->get();   
+        return view('messages',['conversations' => $namePromotion]);
     }
 
     /*
     *
-    * From_member_id = l'id du membre 
-    * to_member_id = l'id de l'user destinataire
+    * $conversations get all conversation
+    * $message get all message for conversation
+    * @param $id int id of promotion_year send by $namePromotion in method index()
     *
     */
-    public function show()
+    public function show($id)
     {
-        $messages = Message::with(['member','toMember'])-> where('from_member_id','=',Auth::user()-> id)->get();
-        
-        return view('profils',['messages' => $messages]);
+        $conversations = Conversation::all() -> where('promotion_year_id',$id);
+        $messages =  Message::with(['member']) -> where('conversation_id',$conversations ->id) ->get();
+       
+        return view('conversations',['messages' => $messages,'conversations'=> $conversations]);
     }
 }

@@ -53,9 +53,9 @@ require __DIR__.'/auth.php';
 // route pour l'application
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/messages/{id}', [MessageController::class,'create']) -> name('sendMessage');
+Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
 Route::get('/messages', [MessageController::class,'index']) -> name('message');
-Route::get('/conversations', [MessageController::class,'show']) -> name('conversations');
+Route::get('/conversations/{id}', [MessageController::class,'show']) -> name('conversations');
 
 
 // routes pour les posts d'actualité

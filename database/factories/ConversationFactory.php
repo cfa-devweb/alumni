@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
+use App\Models\Conversation;
 use App\Models\Promotion_year;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GroupFactory extends Factory
+class ConversationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Group::class;
+    protected $model = Conversation::class;
 
     /**
      * Define the model's default state.
