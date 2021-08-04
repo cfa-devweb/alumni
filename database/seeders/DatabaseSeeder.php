@@ -45,6 +45,11 @@ class DatabaseSeeder extends Seeder
         //'password'          => Hash::make('admin'), // password
         //'remember_token'    => Str::random(10),
       //]); 
+
+      $this->call([
+        CategorieSeeder::class,
+        
+    ]);
     }
 }
   

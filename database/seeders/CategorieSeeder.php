@@ -17,10 +17,11 @@ class CategorieSeeder extends Seeder
     {
         DB::table('categories')->insert([
             
-            'Name' => 'evenenement',
+            'Name' => 'evenement',
             
             
         ]);
+
 
      }
 }

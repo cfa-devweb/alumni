@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategorieController extends Controller
 {
-    public function index()
-    {
-        $data = Categorie::latest()->paginate(5);
-    
-        return view('Categories.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+    public function index(){    
+        
+        $categories = DB::table('categories')
+            ->select('*')
+            ->get();        
+        return view('categories.index',['categories'=>$categories]);      
+
     }
 
     /**
@@ -22,7 +24,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('Categories.create');
+        return view('categories.create');
     }
 
     /**
@@ -34,13 +36,15 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'name' => 'required',
+            'Name' => 'required',
             
         ]);
     
-        Categorie::create($request->all());
+        Categorie::create([
+            'Name' => $request->name
+        ]);
      
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
                         ->with('success','Categorie created successfully.');
     }
 
@@ -55,13 +59,13 @@ class CategorieController extends Controller
     public function update(Request $request, Categorie $Categorie)
     {
         $request->validate([
-            'name' => 'required',
+            'Name' => 'required',
             'description' => 'required',
         ]);
     
         $Categorie->update($request->all());
     
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
                         ->with('success','Categorie updated successfully');
     }
 
@@ -75,7 +79,7 @@ class CategorieController extends Controller
     {
         $Categorie->delete();
     
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
                         ->with('success','Categorie deleted successfully');
     }
 }

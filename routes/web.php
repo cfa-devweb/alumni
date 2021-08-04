@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
@@ -77,3 +78,7 @@ Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name
 Route::get('dashboard', [DashboardController::class, 'index']);
 
 Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
+
+Route::get('categories.index', [CategorieController::class,'index']);
+Route::get('categories.create', [CategorieController::class,'create']);
+Route::resource('categories.store', CategorieController::class);
