@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
@@ -45,9 +46,7 @@ Route::get('/dashboard/dashboard_archive', function () {
 // });
 
 
-Route::get('/dashboard/signalement', function () {
-    return view('reports');
-});
+Route::get('/reports', [ReportController::class,'index']);
 
 
 require __DIR__.'/auth.php';
