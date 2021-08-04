@@ -70,8 +70,10 @@ Route::get('articles/{post}/edit', [PostController::class, 'edit']) -> name('art
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
 Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
 
-Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
-Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
+Route::get('/members', [MemberController::class, 'index']);
+Route::get('members/{member}/edit', [MemberController::class, 'edit']);
+Route::put('members/{member}', [PostController::class, 'update']);
+// Route::delete('/membersDelete', [MemberController::class, 'destroy']);
 
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
