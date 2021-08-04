@@ -14,16 +14,15 @@
     }
 
 
-
 </style>
 
-<div class="container m-6">
-    <div class="tile is-ancestor">
-        <div class="tile is-parent">
-            <article class="tile is-child box has-background-grey-light">
+<div class="container">
+    <div class="columns">
+        <div class="column hero">
+            <article class="has-background-grey-light">
                 <p class="title ">Je suis diplômé du CFA</p>
                 <p class="subtitle">Inscrivez-vous, complétez votre profil,
-                    développez votre réseau, participez aux évènements du réseau</p>
+                    développez votre réseau, participez aux évènements du réseau.</p>
                 <button class="button"><a href=" {{ route('login') }} ">Se connecter</a></button>
                 <button class="button"><a href=" {{ route('register') }} ">S'inscrire</a></button>
             </article>

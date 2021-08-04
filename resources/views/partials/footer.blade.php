@@ -13,7 +13,7 @@
                         <span class="icon is-small">
                             <i class="far fa-envelope"></i>
                         </span>
-                        <span>cci@cci.nc</span>   
+                        <span>cfa@cci.nc</span>   
                     </span><br>
                         <span class="icon is-small">
                             <i class="fas fa-phone"></i>
