@@ -2,15 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InscriptionEvent extends Model
+class Attendee extends Model
 {
-    use HasFactory;
-
-    protected $table = 'inscription_events';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -18,11 +13,14 @@ class InscriptionEvent extends Model
      */
     protected $fillable = [
         'event_id',
-        'member_id'
+        'member_id',
     ];
 
+    /**
+     * Get the event that owns the attendee.
+     */
     public function event()
     {
-        return $this -> belongsTo(Event::class);
+        return $this->belongsTo(Event::class);
     }
 }

@@ -24,6 +24,7 @@ class CreateMembersTable extends Migration
             $table->string('employer')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');

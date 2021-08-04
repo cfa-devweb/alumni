@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->boolean('promoted');
             $table->boolean('visible');
             $table->text('content');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');

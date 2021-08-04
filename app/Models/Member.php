@@ -2,54 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    use HasFactory;
-
-    protected $table = 'members';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'last_name',
         'first_name',
         'birth_date',
         'avatar',
-        'cv',
+        'resume',
         'description',
-        'business',
+        'employer',
         'country',
         'city',
-        'worker',
+        'user_id',
     ];
 
-    // Peut avoir plusieurs
-    public function message()
-    {
-        return $this -> belongsTo(Message::class);
-    }
-    public function inscriptionEvent()
-    {
-        return $this -> hasMany(InscriptionEvent::class);
-    }
-    public function blogPost()
-    {
-        return $this -> hasMany(Blog_post::class);
-    }
-    // N'a que une/un
-    // public function promotion()
-    // {
-    //     return $this -> belongsTo(Promotion_year::class);
-    // }
+    /**
+     * Get the user that owns the member.
+     */
     public function user()
     {
-        return $this -> hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

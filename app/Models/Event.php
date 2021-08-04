@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
-    use HasFactory;
-
-    protected $table = 'events';
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,20 +15,19 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'organizer',
         'title',
         'content',
-        'adress',
+        'address',
         'city',
-        'start_time',
-        'end_time',
-        'event_date',
-        'end_event_date',
-        'visibility'
+        'start_at',
+        'end_at',
     ];
 
-    public function inscription()
+    /**
+     * Get the attendees for the event.
+     */
+    public function attendees()
     {
-        return $this -> hasMany(InscriptionEvent::class);
+        return $this->hasMany(Attendee::class);
     }
 }

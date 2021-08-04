@@ -2,15 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
-
-    protected $table = 'categories';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -20,8 +15,11 @@ class Category extends Model
         'name',
     ];
 
-    public function Post()
+    /**
+     * Get the posts for the category.
+     */
+    public function posts()
     {
-        return $this -> hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
 }

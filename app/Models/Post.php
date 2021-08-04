@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {   
     use HasFactory;
-
-    protected $table = 'blog_posts';
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,21 +18,25 @@ class Post extends Model
      */
     protected $fillable = [
         'title',
-        'user_id',
         'content',
-        'sticky_post',
+        'promoted',
+        'user_id',
         'categorie_id',
-        'visibility'
     ];
 
+    /**
+     * Get the category that owns the post.
+     */
     public function category()
     {
-        return $this -> belongsTo(Category::class, 'categorie_id');
+        return $this->belongsTo(Category::class);
     }
 
+    /**
+     * Get the user that owns the post.
+     */
     public function user()
     {
-        return $this -> belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
-

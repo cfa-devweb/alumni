@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Conversation;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Message extends Model
 {
-    use HasFactory;
-
-    protected $table = 'messages';
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,17 +16,23 @@ class Message extends Model
      */
     protected $fillable = [
         'content',
-        'from_member_id',
+        'member_id',
         'conversation_id',
-        'visibility'
     ];
 
+    /**
+     * Get the member that owns the message.
+     */
     public function member()
     {
-        return $this -> belongsTo(Member::class,'from_member_id');
+        return $this->belongsTo(Member::class);
     }
+
+    /**
+     * Get the conversation that owns the message.
+     */
     public function conversation()
     {
-        return $this -> belongsTo(Conversation::class);
+        return $this->belongsTo(Conversation::class);
     }
 }
