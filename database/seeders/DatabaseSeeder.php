@@ -13,7 +13,6 @@ use App\Models\Blog_post;
 use App\Models\Categorie;
 use App\Models\Promotion;
 use Illuminate\Support\Str;
-use App\Models\Promotion_year;
 use App\Models\MemberPromotion;
 use Illuminate\Database\Seeder;
 use App\Models\InscriptionEvent;
@@ -30,12 +29,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            PromotionsSeeder::class,
+        ]);
+
         Cci::factory(10)                -> create();
         \App\Models\User::factory(10)   -> create();
-        Promotion::factory(10)          -> create();
-        Promotion_year::factory(10)     -> create();
-        Group::factory(10)              -> create();
-        Event::factory(10)              -> create();
+        // Group::factory(10)              -> create();
         Categorie::factory(10)          -> create();
         Member::factory(10)             -> create();
         Message::factory(10)            -> create();
@@ -44,14 +44,14 @@ class DatabaseSeeder extends Seeder
         InscriptionEvent::factory(10)   -> create();
         Blog_post::factory(10)          -> create();
 
-        DB::table('users') -> insert([
+        DB::table('users') -> insert(
+        [
             'name'              => 'admin',
             'email'             => 'admin@admin.com',
             'email_verified_at' => now(),
             'password'          => Hash::make('admin'), // password
             'remember_token'    => Str::random(10),
         ]); 
-
     }
 }
   

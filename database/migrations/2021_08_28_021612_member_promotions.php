@@ -19,7 +19,7 @@ class MemberPromotions extends Migration
                 -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
-            $table -> foreignId('promotion_year_id')
+            $table -> foreignId('promotions_id')
                 -> constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');

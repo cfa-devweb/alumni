@@ -15,7 +15,7 @@ class Groups extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table-> id();
-            $table-> foreignId('promotion_year_id') ->constrained()
+            $table-> foreignId('promotions_id') ->constrained()
                 -> onDelete('cascade')
                 -> onUpdate('cascade');
             $table-> timestamps();

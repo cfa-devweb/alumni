@@ -59,7 +59,6 @@
                                     </div>
                                 </div>  
                             </div>
-
                             <div class="control has-icons-left">
                                 <label for="name" class="">{{ __('Année de la promotion') }}</label>
                                 <input id="year" type="number" class="input @error('name') is-invalid @enderror" name="year" value="2006" required autocomplete="name" autofocus>

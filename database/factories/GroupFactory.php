@@ -23,7 +23,7 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            'promotion_year_id' => Promotion_year::all('id') -> random()
+            'promotions_id' => Promotion::all('id') -> random()
         ];
     }
 }

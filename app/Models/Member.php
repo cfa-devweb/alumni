@@ -44,10 +44,10 @@ class Member extends Model
         return $this -> hasMany(Blog_post::class);
     }
     // N'a que une/un
-    public function promotion()
-    {
-        return $this -> belongsTo(Promotion_year::class);
-    }
+    // public function promotion()
+    // {
+    //     return $this -> belongsTo(Promotion_year::class);
+    // }
     public function user()
     {
         return $this -> belongsTo(User::class);
