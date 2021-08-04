@@ -12,11 +12,11 @@ class Conversation extends Model
     protected $table = 'conversations';
 
     protected $fillable = [
-        'promotion_year_id'
+        'promotion_id'
     ];
 
     public function promotionYear()
     {
-        return $this -> belongsTo(Promotion_year::class);
+        return $this -> belongsTo(Promotion::class);
     }
 }

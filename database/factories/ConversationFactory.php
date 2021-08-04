@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Conversation;
-use App\Models\Promotion_year;
+use App\Models\Promotion;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ConversationFactory extends Factory
@@ -23,7 +23,7 @@ class ConversationFactory extends Factory
     public function definition()
     {
         return [
-            'promotions_id' => Promotion::all('id') -> random()
+            'promotion_id' => Promotion::all('id') -> random()
         ];
     }
 }
