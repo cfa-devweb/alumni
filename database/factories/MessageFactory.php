@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
 use App\Models\Member;
-use App\Models\message;
+use App\Models\Message;
+use App\Models\Conversation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MessageFactory extends Factory
@@ -14,7 +14,7 @@ class MessageFactory extends Factory
      *
      * @var string
      */
-    protected $model = message::class;
+    protected $model = Message::class;
 
     /**
      * Define the model's default state.
@@ -26,8 +26,7 @@ class MessageFactory extends Factory
         return [
             'content'            => $this -> faker -> sentence(),
             'from_member_id'     => Member::all('id') -> random(),
-            'to_id'              => Group::all('id') -> random(),
-            'type_message'  => $this -> faker -> randomElement(array('group','member')),
+            'conversation_id'    => Conversation::all('id') -> random(),
             'visibility'    => $this -> faker -> boolean(100)  
         ];
     }

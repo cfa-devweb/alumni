@@ -56,6 +56,10 @@
                                             <option value={{$data->id}}>{{$data->name}}</option>  
                                             @endforeach                                          
                                         </select>
+                                        <select name='promotion_year' value=''>
+                                                    <option value=''>Année de la promotion</option>
+                                                    <option value=''>With options</option>
+                                                </select>
                                     </div>
                                 </div>  
                             </div>
@@ -70,6 +74,15 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            <div class="field ">
+                                <div class="control ">
+                                    <div class="select">
+                                        <select name='promotion'  value=''>
+                                                    <option value="">Promotion</option>
+                                                    <option value="">With options</option>
+                                                </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                           

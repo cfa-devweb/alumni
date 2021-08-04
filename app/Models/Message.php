@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Conversation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Message extends Model
 {
@@ -19,7 +20,7 @@ class Message extends Model
     protected $fillable = [
         'content',
         'from_member_id',
-        'group_id',
+        'conversation_id',
         'visibility'
     ];
 
@@ -27,12 +28,8 @@ class Message extends Model
     {
         return $this -> belongsTo(Member::class,'from_member_id');
     }
-    public function toMember()
+    public function conversation()
     {
-        return $this -> belongsTo(Member::class,'to_id');
-    }
-    public function group()
-    {
-        return $this -> belongsTo(Group::class);
+        return $this -> belongsTo(Conversation::class);
     }
 }

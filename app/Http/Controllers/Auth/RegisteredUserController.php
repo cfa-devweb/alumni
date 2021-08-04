@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+         
         $request->validate([
             //validate for user
             'name' => 'required|string|max:255',
@@ -69,14 +70,12 @@ class RegisteredUserController extends Controller
             'year' => 'numeric|required|min:2006|max:'.date("Y"),
         ]);
 
-
-        $user = User::create([ 
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'email_verified_at' => 'datetime',
             'password' => Hash::make($request->password),
         ]);
-
         
         $member = Member::create([
             'first_name' => $user->name, 
@@ -87,16 +86,12 @@ class RegisteredUserController extends Controller
             'description' => $request->description,
             //'worker' => $request->worker,
             
-        ]); 
+        ]);
         
         $member->promotion()->associate($request->promotion_id);
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
-    
-
     }
-   
-
 }

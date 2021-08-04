@@ -11,7 +11,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +24,7 @@ use App\Http\Controllers\DashboardarchiveController;
 // route pour l'accueil
 Route::get('/', function () {
     return view('home');
-})->name('welcome');
+})-> name('home');
 
 // route pour le profil
 Route::get('/dashboard', function () {
@@ -51,15 +50,13 @@ Route::get('/reports', [ReportController::class,'index']);
 
 require __DIR__.'/auth.php';
 
-  
-Route::get('./partials/header', [PromotionController::class,'index']);
-
-
-
 // route pour l'application
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profils', [MessageController::class,'show']) -> name('message');
+Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
+Route::get('/messages', [MessageController::class,'index']) -> name('message');
+Route::get('/conversations/{id}', [MessageController::class,'show']) -> name('conversations');
+
 
 // routes pour les posts d'actualité
 Route::get('actualites', [PostController::class, 'index']) -> name('actualites.index');

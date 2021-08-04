@@ -33,7 +33,7 @@ class Member extends Model
     // Peut avoir plusieurs
     public function message()
     {
-        return $this -> hasMany(Message::class);
+        return $this -> belongsTo(Message::class);
     }
     public function inscriptionEvent()
     {
@@ -50,6 +50,6 @@ class Member extends Model
     // }
     public function user()
     {
-        return $this -> belongsTo(User::class);
+        return $this -> hasOne(User::class);
     }
 }
