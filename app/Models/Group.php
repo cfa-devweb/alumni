@@ -17,7 +17,7 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'promotion_year_id',
+        'promotions_id',
     ];
 
     public function messages()
@@ -26,6 +26,6 @@ class Group extends Model
     }
     public function promotion()
     {
-        return $this -> hasOne(Promotion_year::class);
+        return $this -> hasOne(Promotion::class);
     }
 }

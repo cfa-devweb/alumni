@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Member;
-use App\Models\Promotion_year;
+use App\Models\Promotion;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -13,7 +13,7 @@ class MemberPromotion extends Model
 
     protected $fillable =[
         'member_id',
-        'promotion_year_id'
+        'promotions_id'
     ];
     public function member()
     {

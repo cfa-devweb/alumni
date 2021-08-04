@@ -1,28 +1,29 @@
-<?php
 
-namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Promotion_year extends Model
-{
-    use HasFactory;
+// namespace App\Models;
 
-    protected $table = 'promotion_years';
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Model;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'year',
-        'promotion_id'
-    ];
+// class Promotion_year extends Model
+// {
+//     use HasFactory;
 
-    public function promotion()
-    {
-        return $this -> belongsTo(Promotion::class);
-    }
-}
+//     protected $table = 'promotion_years';
+
+//     /**
+//      * The attributes that are mass assignable.
+//      *
+//      * @var array
+//      */
+//     protected $fillable = [
+//         'year',
+//         'promotion_id'
+//     ];
+
+//     public function promotion()
+//     {
+//         return $this -> belongsTo(Promotion::class);
+//     }
+// }

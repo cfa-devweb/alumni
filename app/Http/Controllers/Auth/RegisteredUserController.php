@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Member;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
-use App\Models\Promotion_year;
 use App\Models\MemberPromotion;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
