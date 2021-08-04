@@ -30,8 +30,7 @@ class DatabaseSeeder extends Seeder
         Promotion::factory(10)          -> create();
         Promotion_year::factory(10)     -> create();
         Group::factory(10)              -> create();
-        Event::factory(10)              -> create();
-        Categorie::factory(10)          -> create();
+        Event::factory(10)              -> create();    
         Member::factory(10)             -> create();
         Message::factory(10)            -> create();
         Reports::factory(10)            -> create();

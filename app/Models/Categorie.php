@@ -17,7 +17,7 @@ class Categorie extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'Name',
     ];
 
     public function BlogPost()
