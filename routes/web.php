@@ -27,9 +27,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 // route pour le profil
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
 Route::get('/dashboard/dashboard_archive', function () {
     return view('dashboard_archive');
@@ -70,11 +68,6 @@ Route::post('actualites', [BlogPostController::class, 'store']) -> name('actuali
 Route::get('actualites/{blog_post}/edit', [BlogPostController::class, 'edit']) -> name('actualites.edit');
 Route::put('actualites/{blog_post}', [BlogPostController::class, 'update']) -> name('actualites.update');
 Route::delete('actualites/{blog_post}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
-
-// Routes Dashbord
-
-Route::get('dashboard', [DashboardController::class, 'index']);
-Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
 
 // Route vers la vérification avant inscription 
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
