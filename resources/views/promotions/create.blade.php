@@ -7,7 +7,7 @@
         <input class="input" type="text" name="name">
         <label class="label" for="year">L'année de la promotion à créer</label>
         <input class="input" type="text" name="year" pattern="[0-9]{4}" placeholder="2021">
-        <button type="submit">Ajouter</button>
+        <button class="button is-rounded is-primary" type="submit">Ajouter</button>
     </form>
 </div>
 @endsection
