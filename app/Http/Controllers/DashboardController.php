@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Members;
+use App\Models\User;
 use App\Models\Member;
 use App\Models\BlogPost;
 use App\Models\Category;
@@ -22,6 +23,12 @@ class DashboardController extends Controller
         $members = Member::all(); 
         $promotions = Promotion::all();
 
-        return view('dashboard', compact('actualites', 'categories', 'members', 'promotions'));
+        return view('dashboard.index', compact('actualites', 'categories', 'members', 'promotions'));
     }
-}
+
+    public function user(Request $request)
+    {
+        $user = $request->user();
+        return view('dashboard.user', ['user' => $user]);
+    }
+} 

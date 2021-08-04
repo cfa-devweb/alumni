@@ -26,9 +26,6 @@ Route::get('/', function () {
     return view('home');
 })->name('welcome');
 
-// route pour le profil
-Route::get('/dashboard', DashboardController::class)->name('dashboard');
-
 Route::get('/dashboard/dashboard_archive', function () {
     return view('dashboard_archive');
 })->name('dashboard_archive');
@@ -50,12 +47,6 @@ Route::get('/dashboard/signalement', function () {
 
 require __DIR__.'/auth.php';
 
-  
-Route::get('./partials/header', [PromotionController::class,'index']);
-
-
-
-// route pour l'application
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
@@ -73,7 +64,10 @@ Route::delete('actualites/{blog_post}', [BlogPostController::class, 'destroy']) 
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
 Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
 
-Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
+Route::prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('/', DashboardController::class)->name('dashboard');
+    Route::get('/compte', [DashboardController::class, 'user'])->name('user');
+});
