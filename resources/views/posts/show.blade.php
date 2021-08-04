@@ -74,8 +74,8 @@
                     <footer class="card-footer">
                         <span class="card-footer-item">Visibilité : {!! $post->visibility === 1 ? "&#10004;" : "&#10006;" !!}</span>
                         <span class="card-footer-item">A la une : {!! $post->sticky_post === 1 ? "&#10004;" : "&#10006;" !!}</span>
-                        <a class="card-footer-item" href="{{ route('actualites.edit',$post->id) }}" class="card-footer-item">Modifier</a>
-                        <form class="card-footer-item" action="{{ route('actualites.destroy',$post->id) }}" method="POST">
+                        <a class="card-footer-item" href="{{ route('articles.edit',$post->id) }}" class="card-footer-item">Modifier</a>
+                        <form class="card-footer-item" action="{{ route('articles.destroy',$post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')      
                             <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -84,7 +84,7 @@
                 </div>
             <br>
                 <div style="text-align:end;">
-                    <a class="button is-dark is-right" href="{{ route('actualites.index') }}">Retour</a>
+                    <a class="button is-dark is-right" href="{{ route('articles.index') }}">Retour</a>
                 </div>
             </div>
         </section>
