@@ -26,11 +26,6 @@ Route::get('/', function () {
     return view('home');
 })-> name('home');
 
-// route pour le profil
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::get('/dashboard/dashboard_archive', function () {
     return view('dashboard_archive');
 })->name('dashboard_archive');
@@ -50,7 +45,6 @@ Route::get('/reports', [ReportController::class,'index']);
 
 require __DIR__.'/auth.php';
 
-// route pour l'application
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
@@ -67,18 +61,18 @@ Route::get('actualites/{post}/edit', [PostController::class, 'edit']) -> name('a
 Route::put('actualites/{post}', [PostController::class, 'update']) -> name('actualites.update');
 Route::delete('actualites/{post}', [PostController::class, 'destroy']) -> name('actualites.destroy');
 
-// Routes Dashbord
-
-Route::get('dashboard', [DashboardController::class, 'index']);
-Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
-
 // Route vers la vérification avant inscription 
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
 Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
 
-Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
+Route::prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('/', DashboardController::class)->name('dashboard');
+    Route::get('/compte', [DashboardController::class, 'user'])->name('user');
+});
+
 // routes Ressource
 Route::resource('promotions', PromotionController::class);
+
