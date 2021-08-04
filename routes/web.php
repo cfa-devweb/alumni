@@ -83,3 +83,5 @@ Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
 Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
 Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
+// routes Ressource
+Route::resource('promotions', PromotionController::class);
