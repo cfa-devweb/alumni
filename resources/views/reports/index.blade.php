@@ -55,13 +55,15 @@
                                 <td>{{ $report->content}}</td>
                                 <td>{{ $report->from_member_id}}</td>
                                 <td>{{ \Carbon\Carbon::parse($report->created_at)-> locale('fr') -> format('Y/m/d') }}</td>
-                                <td>{{ $report->to_member_id}}</td>
-                                <td>{{ $report->visibility}}</td>
-                                
                                 <td>
                                     <div class="buttons">
-                                        <button class="button is-primary" name="btnView">View</button>
-                                        <button class="button is-warning" name="btnTraité">Traité</button>
+                                        <button class="button is-primary" name="btnView">View</button>   
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="buttons">
+                                        <button class="button is-warning" name="btnTraité">Supprimé</button>
+                                        
                                     </div>
                                 </td>
                             </tr>
