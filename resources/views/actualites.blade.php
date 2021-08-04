@@ -33,7 +33,7 @@
                                 <h2 class="title post-title">{{ $blog_post->title }}</h2>
                                 <p class="post-excerpt">{{ \Illuminate\Support\Str::limit($blog_post->content, $limit=120, $end='...') }}</p>
                                 <br>
-                                <a href="<?php echo url("actualites/article={$blog_post->id}") ?>" class="button is-primary">Lire plus...</a>
+                                <a href="{{ route('actualites.show', $blog_post->id) }}" class="button is-primary">Lire plus...</a>
                             </div>
                         </article>
                     </div> 

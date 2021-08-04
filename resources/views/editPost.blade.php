@@ -24,12 +24,12 @@
     <fieldset>
         <div class="container">
 
-            <div class="field">
+            <!-- <div class="field">
                 <label class="label" for="user_id">ID Utilisateur</label>
                 <div class="control">
                     <input class="input" type="number" placeholder="Votre ID utilisateur." name="user_id" id="user_id" value="{{ $blog_post->user_id }}">
                 </div>
-            </div>
+            </div> -->
 
             <div class="field">
                 <label class="label" for="title">Titre</label>
@@ -38,12 +38,12 @@
                 </div>
             </div>
 
-            <div class="field">
+            <!-- <div class="field">
                 <label class="label" for="categorie_id">ID Catégorie</label>
                 <div class="control">
                     <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id" value="{{ $blog_post->categorie_id }}">
                 </div>
-            </div>
+            </div> -->
 
             <div class="field">
                 <label class="label" for="content">Contenu de votre post</label>

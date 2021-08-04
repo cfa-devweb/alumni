@@ -47,7 +47,8 @@
                             </div>
                             
                             <div class="field ">
-                                <div class="control mx-6 ">
+                                <label for="name" class="">{{ __('Promotions') }}</label>
+                                <div class="control mx-6 ">                                
                                     <div class="select">
                                         <select name='promotion'>
                                             <option value="">promotions</option>                                     
@@ -59,15 +60,17 @@
                                 </div>  
                             </div>
 
-                            <div class="field ">
-                                <div class="control ">
-                                    <div class="select">
-                                        <select name='promotion_year' >                                       
-                                        <option value="" ></option>
-                                            <option value="" ></option>                                                                                    
-                                        </select>
-                                    </div>
-                                </div>  
+                            <div class="control has-icons-left">
+                                <label for="name" class="">{{ __('Année de la promotion') }}</label>
+                                <input id="year" type="number" class="input @error('name') is-invalid @enderror" name="year" value="2006" required autocomplete="name" autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user mt-6"></i>
+                                </span>
+                                @error('year')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                           
@@ -108,7 +111,7 @@
                             </div>
                             
                         </div>
-                        
+
                         <div class="field is-horizontal is-justify-content-space-between">
                             <div class="field  ">
                                 <div class="control has-icons-left">

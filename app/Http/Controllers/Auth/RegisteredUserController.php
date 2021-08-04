@@ -38,10 +38,6 @@ class RegisteredUserController extends Controller
 
 
     }
-
-    
-        
-    
     
     /**
      * Handle an incoming registration request.
@@ -63,12 +59,15 @@ class RegisteredUserController extends Controller
             //validate for member
             'last_name' => ['required', 'string', 'max:255'],
             'birth_date'=>['required','date'],
-            'avatar' => [ 'image'],
+            //'avatar' => [ 'image'],
             'description' => ['string','max:500'],
             //'worker'=>['boolean','0']
 
             //validate for promotion
             'promotion'=>['required', 'string', 'max:255'],
+
+            //validate for promotionYears
+            'year' => 'numeric|required|min:2006|max:'.date("Y"),
         ]);
 
 
@@ -85,56 +84,20 @@ class RegisteredUserController extends Controller
             'last_name' => $request->last_name,
             'user_id' => $user->id,
             'birth_date' =>$request->birth_date,
-            'avatar' => !empty($filename) ? $filename : 'avatar.png',
+            //'avatar' => !empty($filename) ? $filename : 'avatar.png',
             'description' => $request->description,
             //'worker' => $request->worker,
             
         ]); 
         
-        
-        $promotion = Promotion::create([
-            
-            'name' => $request->promotion,
-            
-        ]); 
-        
-
-
-        /*$promotionYear = Promotion_year::create([
-            'year'=>$request->year,
-            'promotion_id'=>$promotion->id
-            
-        ]); 
-
-        $memberPromotion = MemberPromotion::create([
-            'member_id' => $member->user_id,
-            'promotion_year_id' => $promotionYear->id,
-            
-        ]);*/
-        
-       
-        event(new Registered($user));
-        event(new Registered($member));
-        event(new Registered($promotion));
-        //event(new Registered($memberPromotion));
-        //event(new Registered($promotionYear));
-
-        $user->save();
-        $member->save();
-        $promotion->save();
-       // $memberPromotion->save();
-       // $promotionYear->save();
+        $member->promotion()->associate($request->promotion_id);
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
-        
-        
-        
-    }
-   
     
 
-    
-    
+    }
+   
+
 }
