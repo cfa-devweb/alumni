@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         Reports::factory(10)            -> create();
         MemberPromotion::factory(10)    -> create();
         InscriptionEvent::factory(10)   -> create();
-        Post::factory(10)          -> create();
+        Post::factory(10)               -> create();
 
         DB::table('users') -> insert(
         [
