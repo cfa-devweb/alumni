@@ -6,21 +6,21 @@
             <div class="column is-flex">
                 <span class="icon-text column is-flex is-align-items-center">
                     <span class="icon">
-                        <i class="fab fa-linkedin-in fas fa-lg"></i>
+                        <a href="https://www.linkedin.com/company/ccinc/"><i class="fab fa-linkedin-in fas fa-lg"></i></a>
                     </span>
                 </span>
                 <span class="icon-text column is-flex is-align-items-center">
                     <span class="icon ">
-                        <i class="fab fa-facebook-f fas fa-lg"></i>
+                    <a href="https://www.facebook.com/cciformationalternancenouvellecaledonie/"><i class="fab fa-facebook-f fas fa-lg"></i></a>
                     </span>
                 </span>
             </div>
             <div class="column is-flex is-one-thirth p-0">
                 <span class="column icon-text is-flex is-align-items-center">
-                    <span>Accéder au site de la CCI-NC</span>
+                    <span><a href="https://www.cci.nc/">Accéder au site de la CCI-NC</a></span>
                 </span>
                 <figure class="column is-flex is-align-items-center logo is-4by2">
-                    <img class="p-2" src="{{asset('images/logo-cci.svg')}}" height="73" width="157">
+                    <a href="https://www.cci.nc/"><img class="p-2" src="{{asset('images/logo-cci.svg')}}" height="73" width="157"></a>
                 </figure>
             </div>
         </div>
