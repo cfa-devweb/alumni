@@ -9,12 +9,6 @@ use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {    
-    public function index()
-    {       
-        $promotions = Promotion::all();
-       
-        return view('promotions.index', compact('promotions'));
-    }
 
     public function create()
     {
