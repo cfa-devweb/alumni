@@ -25,7 +25,7 @@ class MemberPromotionFactory extends Factory
     {
         return [
             'member_id'         => Member::all('id') -> random(),
-            'promotion_year_id' => Promotion::all('id') -> random(),
+            'promotions_id' => Promotion::all('id') -> random(),
         ];
     }
 }

@@ -29,6 +29,15 @@
         .article-body {
             text-align: justify;
         }
+
+        .btn-danger {
+            background: none!important;
+            border: none;
+            padding: 0!important;
+            color: #485fc7;
+            cursor: pointer;
+            font-size: 1em;
+        }
     </style>
 
     <div class="container">
@@ -38,8 +47,8 @@
                 <section class="hero is-info is-bold is-small promo-block">
                     <div class="hero-body">
                         <div class="container">
-                            <h1 class="title">{{ $blog_post->title }}</h1>
-                            <span class="tag is-black is-medium is-rounded">{{ $blog_post->category }}</span>
+                            <h1 class="title">{{ $post->title }}</h1>
+                            <span class="tag is-black is-medium is-rounded">{{ $post->category->name }}</span>
                         </div>
                     </div>
                 </section>
@@ -52,21 +61,21 @@
                             </div>
                             <div class="media-content has-text-centered">
                                 <p class="subtitle is-6 article-subtitle"><br>
-                                    <small>Par <a href="#">{{ $blog_post->username }}</a>, le {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $blog_post->created_at)->format('d/m/Y') }}</small>
+                                    <small>Par <a href="#">{{ $post->user->name }}</a>, le {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d/m/Y') }}</small>
                                 </p>
                             </div>
                         </div>
                         <div class="content article-body">
 
-                        {{ $blog_post->content }}
+                        {{ $post->content }}
 
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <span class="card-footer-item">Visibilité : {!! $blog_post->visibility === 1 ? "&#10004;" : "&#10006;" !!}</span>
-                        <span class="card-footer-item">A la une : {!! $blog_post->sticky_post === 1 ? "&#10004;" : "&#10006;" !!}</span>
-                        <a class="card-footer-item" href="{{ route('actualites.edit',$blog_post->id) }}" class="card-footer-item">Modifier</a>
-                        <form class="card-footer-item" action="{{ route('actualites.destroy',$blog_post->id) }}" method="POST">
+                        <span class="card-footer-item">Visibilité : {!! $post->visibility === 1 ? "&#10004;" : "&#10006;" !!}</span>
+                        <span class="card-footer-item">A la une : {!! $post->sticky_post === 1 ? "&#10004;" : "&#10006;" !!}</span>
+                        <a class="card-footer-item" href="{{ route('actualites.edit',$post->id) }}" class="card-footer-item">Modifier</a>
+                        <form class="card-footer-item" action="{{ route('actualites.destroy',$post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')      
                             <button type="submit" class="btn btn-danger">Supprimer</button>

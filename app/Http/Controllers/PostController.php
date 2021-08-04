@@ -5,22 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
-use App\Models\BlogPost;
+use App\Models\Post;
 use Illuminate\Support\Str;
 
-class BlogPostController extends Controller
+class PostController extends Controller
 {
     public function index()
     {  
-        $blog_posts = BlogPost::all();
-        return view('actualites', compact('blog_posts'));
+        $posts = Post::all();
+        return view('actualites', compact('posts'));
     }
 
-    public function show(BlogPost $blog_post)
+    public function show(Post $post)
     {
-        $username = $blog_post->username;
-        $category = $blog_post->category;
-        return view('article', ['blog_post' => $blog_post, 'username' => $username, 'category' => $category]);
+        return view('article', ['post' => $post]);
     }
 
     public function create() 
@@ -39,7 +37,7 @@ class BlogPostController extends Controller
             'visibility' => 'required'
         ]);
 
-        $blog_post = BlogPost::create([
+        $post = Post::create([
             'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'sticky_post' => $request->get('sticky_post'),
@@ -48,16 +46,16 @@ class BlogPostController extends Controller
             'visibility' => $request->get('visibility')
         ]);
 
-        $blog_post->save();
-        return redirect('/actualites/'.$blog_post->id)->with('success', 'Nouvel article crée avec succès !');
+        $post->save();
+        return redirect('/actualites/'.$post->id)->with('success', 'Nouvel article crée avec succès !');
     }
 
-    public function edit(BlogPost $blog_post)
+    public function edit(Post $post)
     {
-        return view('editPost', compact('blog_post'));
+        return view('editPost', compact('post'));
     }
 
-    public function update(Request $request, BlogPost $blog_post)
+    public function update(Request $request, Post $post)
     {   
         $request->validate([
             'title' => 'required|string|max:255',
@@ -66,7 +64,7 @@ class BlogPostController extends Controller
             'visibility' => 'required'
         ]);
 
-        $blog_post->update([
+        $post->update([
             'title' => $request->get('title'),
             'sticky_post' => $request->get('sticky_post'),
             'content' => $request->get('content'),
@@ -76,9 +74,9 @@ class BlogPostController extends Controller
         return redirect()->route('actualites.index')->with('success', 'Article édité avec succès !');
     }
 
-    public function destroy(BlogPost $blog_post)
+    public function destroy(Post $post)
     {
-        $blog_post->delete();
+        $post->delete();
 
         return redirect()->route('actualites.index')->with('success', 'Article supprimé avec succès !');
     }

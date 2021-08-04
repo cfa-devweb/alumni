@@ -9,28 +9,45 @@ use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {    
-    
-    
-    public function index(){    
-        
-        $promotions = DB::table('promotions')
-            ->select('*')
-            ->get(); 
-       
-        return view('./partials/header' ,['promotions'=>$promotions]);
-       
 
+    public function create()
+    {
+        return view('promotions.create');
     }
 
-    public function show(Promotion $promotion)
+    public function show()
     {
-        $promotion = DB::table('promotions')
-            ->select('*')
-            ->where('id', $promotion->promotion_id)
-            ->get(); 
+        //return view('promotions.edit');
+    }
 
-        return view('promotion.show', compact('promotions'));
+    public function edit($id)
+    {
+        $promotion = Promotion::findOrFail($id);
 
-        
+        return view('promotions.edit', compact('promotion'));
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'year' => 'required|max:4',
+        ]);
+
+        $promotion = Promotion::create($validatedData);
+
+        return redirect('/dashboard')->with('success', 'Promotion créée avec succès.');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'year' => 'required|max:4',
+        ]);
+
+        Promotion::whereId($id)->update($validatedData);
+
+        return redirect('/dashboard')->with('success', 'Promotion correctement mise à jour.');
     }
 }

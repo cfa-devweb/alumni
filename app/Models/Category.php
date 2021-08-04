@@ -20,8 +20,8 @@ class Category extends Model
         'name',
     ];
 
-    public function BlogPost()
+    public function Post()
     {
-        return $this -> hasMany(Blog_post::class);
+        return $this -> hasMany(Post::class);
     }
 }

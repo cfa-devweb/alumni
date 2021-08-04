@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Promotion;
+use App\Models\Conversation;
+use App\Models\Promotion_year;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PromotionFactory extends Factory
+class ConversationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Promotion::class;
+    protected $model = Conversation::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +23,7 @@ class PromotionFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this -> faker -> company()
+            'promotions_id' => Promotion::all('id') -> random()
         ];
     }
 }

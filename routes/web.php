@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\VerifMemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ use App\Http\Controllers\DashboardarchiveController;
 // route pour l'accueil
 Route::get('/', function () {
     return view('home');
-})->name('welcome');
+})-> name('home');
 
 Route::get('/dashboard/dashboard_archive', function () {
     return view('dashboard_archive');
@@ -40,25 +40,26 @@ Route::get('/dashboard/dashboard_archive', function () {
 // });
 
 
-Route::get('/dashboard/signalement', function () {
-    return view('reports');
-});
+Route::get('/reports', [ReportController::class,'index']);
 
 
 require __DIR__.'/auth.php';
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profils', [MessageController::class,'show']) -> name('message');
+Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
+Route::get('/messages', [MessageController::class,'index']) -> name('message');
+Route::get('/conversations/{id}', [MessageController::class,'show']) -> name('conversations');
+
 
 // routes pour les posts d'actualité
-Route::get('actualites', [BlogPostController::class, 'index']) -> name('actualites.index');
-Route::get('actualites/{blog_post}', [BlogPostController::class, 'show']) -> name('actualites.show');
-Route::get('/dashboard/create-post', [BlogPostController::class, 'create']) -> name('actualites.create');
-Route::post('actualites', [BlogPostController::class, 'store']) -> name('actualites.store');
-Route::get('actualites/{blog_post}/edit', [BlogPostController::class, 'edit']) -> name('actualites.edit');
-Route::put('actualites/{blog_post}', [BlogPostController::class, 'update']) -> name('actualites.update');
-Route::delete('actualites/{blog_post}', [BlogPostController::class, 'destroy']) -> name('actualites.destroy');
+Route::get('actualites', [PostController::class, 'index']) -> name('actualites.index');
+Route::get('actualites/{post}', [PostController::class, 'show']) -> name('actualites.show');
+Route::get('/dashboard/create-post', [PostController::class, 'create']) -> name('actualites.create');
+Route::post('actualites', [PostController::class, 'store']) -> name('actualites.store');
+Route::get('actualites/{post}/edit', [PostController::class, 'edit']) -> name('actualites.edit');
+Route::put('actualites/{post}', [PostController::class, 'update']) -> name('actualites.update');
+Route::delete('actualites/{post}', [PostController::class, 'destroy']) -> name('actualites.destroy');
 
 // Route vers la vérification avant inscription 
 Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
@@ -71,3 +72,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::get('/compte', [DashboardController::class, 'user'])->name('user');
 });
+
+// routes Ressource
+Route::resource('promotions', PromotionController::class);
+

@@ -50,21 +50,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach ($reports as $report)
                             <tr>
-                                <td>nom/prenom</td>
-                                <td>intitulé</td>
-                                <td>02/08/2021</td>
+                                <td>{{ $report->content}}</td>
+                                <td>{{ $report->from_member_id}}</td>
+                                <td>{{ \Carbon\Carbon::parse($report->created_at)-> locale('fr') -> format('Y/m/d') }}</td>
+                                <td>{{ $report->to_member_id}}</td>
+                                <td>{{ $report->visibility}}</td>
+                                
                                 <td>
                                     <div class="buttons">
-                                        <button class="button is-primary  " name="btnView">View</button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="buttons">                                
-                                        <button class="button is-warning" name="btnArchive">Traité</button>
+                                        <button class="button is-primary" name="btnView">View</button>
+                                        <button class="button is-warning" name="btnTraité">Traité</button>
                                     </div>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
