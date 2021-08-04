@@ -45,6 +45,7 @@
                 <div class="navbar-center">
 
                     <a href="{{ route('welcome') }}" class="navbar-item">
+
                         Accueil
                     </a>
                     <a href="{{'/actualites'}}" class="navbar-item">
@@ -57,7 +58,10 @@
 
                             <div class="nested navbar-item dropdown">
                                 <div class="dropdown-trigger">
-                                   
+                                    @foreach (\App\Models\Promotion::all() as $data)
+                                    <a class="dropdown-item">{{$data->name}}</a>
+                                    <hr>
+                                    @endforeach
                                 </div> 
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\VerifMemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\DashboardarchiveController;
@@ -52,7 +53,7 @@ Route::get('/dashboard/signalement', function () {
 require __DIR__.'/auth.php';
 
   
-Route::get('header', [PromotionController::class,'index']);
+Route::get('./partials/header', [PromotionController::class,'index']);
 
 
 
@@ -60,10 +61,6 @@ Route::get('header', [PromotionController::class,'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/profils', [MessageController::class,'show']) -> name('message');
-
-Route::get('/members', [MemberController::class, 'index']);
-
-Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
 // routes pour les posts d'actualité
 Route::get('actualites', [BlogPostController::class, 'index']) -> name('actualites.index');
@@ -78,4 +75,12 @@ Route::delete('actualites/{id}', [BlogPostController::class, 'destroy']) -> name
 
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboard/dashboardArchive', [DashboardarchiveController::class, 'index'])-> name('archive');
+
+// Route vers la vérification avant inscription 
+Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
+Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
+
+Route::get('/profil', [MemberController::class, 'profile'])->name('profile');
+Route::get('/members', [MemberController::class, 'index']) ->name('promotion.membres');
+Route::delete('/membersDelete', [MemberController::class, 'destroy'])->name('members.destroy');
 
