@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Member;
 use App\Models\Message;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
-use App\Models\MemberPromotion;
-use App\Models\ConversationMember;
-use App\Models\Promotion;
 use Illuminate\Support\Facades\Auth;
 
 class ConversationController extends Controller
 {
     public function index()
     {
-        $namePromotion = Promotion::with(['promotion'])->get();   
-        return view('messages',['conversations' => $namePromotion]);
+        $conversations = Conversation::with(['promotion'])->get();  
+        $messages = Message::with('member')->get(); 
+        
+        return view('conversations.conversations',['conversations' => $messages]);
     }
 
     /*
@@ -28,9 +26,8 @@ class ConversationController extends Controller
     */
     public function show($id)
     {
-        $conversations = Conversation::all() -> where('promotion_year_id',$id);
-        $messages =  Message::with(['member']) -> where('conversation_id',$conversations ->id) ->get();
+        $messages =  Message::with(['member']) -> where('conversation_id',$id) ->get();
        
-        return view('conversations',['messages' => $messages,'conversations'=> $conversations]);
+        return view('conversations',['messages' => $messages]);
     }
 }

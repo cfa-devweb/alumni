@@ -14,6 +14,22 @@ class MessageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('messages')->insert([
+            [
+                'content' => 'Je suis charlie',
+                'conversation_id' => '1',
+                'member_id' => '1'
+            ],
+            [
+                'content' => 'Je suis charlie',
+                'conversation_id' => '3',
+                'member_id' => '1'
+            ],
+            [
+                'content' => 'Je suis charlie',
+                'conversation_id' => '2',
+                'member_id' => '1'
+            ],
+        ]); 
     }
 }
