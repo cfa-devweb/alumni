@@ -14,6 +14,12 @@ class ApprenticeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('apprentices')->insert([
+            [
+                'first_name' => 'Jonathan',
+                'last_name' => 'Delefortrie',
+                'birth_date' => '1986-09-16',
+            ],
+        ]); 
     }
 }
