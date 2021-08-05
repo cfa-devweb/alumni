@@ -1,3 +1,11 @@
+<a href="{{ route('admin.apprentis.index') }}">Apprentis</a>
+<a href="{{ route('admin.membres.index') }}">Membres</a>
+<a href="{{ route('admin.promotions.index') }}">Promotions</a>
+<a href="{{ route('admin.categories.index') }}">Catégories</a>
+<a href="{{ route('admin.evenements.index') }}">Evénements</a>
+<a href="{{ route('admin.articles.index') }}">Articles</a>
+<a href="{{ route('admin.signalements.index') }}">Signalements</a>
+{{--
 @extends('/partials/layout')
 
 @section('content')
@@ -51,3 +59,4 @@
             </div>
         </div>
         @endsection
+--}}

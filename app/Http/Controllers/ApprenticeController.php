@@ -14,7 +14,8 @@ class ApprenticeController extends Controller
      */
     public function index()
     {
-        //
+        $apprentices = Apprentice::all();
+        return view('apprentices.index', compact('apprentices'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ApprenticeController extends Controller
      */
     public function edit(Apprentice $apprentice)
     {
-        //
+        return view('apprentices.edit', compact('apprentice'));
     }
 
     /**
