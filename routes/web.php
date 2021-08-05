@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\ConversationController;
@@ -31,6 +32,7 @@ Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [PageController::class, 'admin'])->name('admin');
 
+    Route::resource('categories', CategoryController::class);
     Route::resource('promotions', PromotionController::class);
     Route::resource('conversations', ConversationController::class);
     Route::resource('membres', MemberController::class)->parameters(['membres' => 'member']);
