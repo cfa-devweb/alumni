@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             MemberSeeder::class,
             MemberPromotionSeeder::class,
             CategorySeeder::class,
-            PostSeeder::class,
+            //PostSeeder::class,
             EventSeeder::class,
             ConversationSeeder::class,
             MessageSeeder::class,

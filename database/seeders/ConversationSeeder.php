@@ -14,6 +14,16 @@ class ConversationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('conversations')->insert([
+            [
+                'promotion_id' => '3'
+            ],
+            [
+                'promotion_id' => '1'
+            ],
+            [
+                'promotion_id' => '2'
+            ],
+        ]); 
     }
 }

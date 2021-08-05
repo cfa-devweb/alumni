@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 use App\Models\MemberPromotion;
 use App\Models\ConversationMember;
 use App\Models\Promotion;
-use App\Models\Promotion_year;
 use Illuminate\Support\Facades\Auth;
 
 class ConversationController extends Controller
 {
     public function index()
     {
-        $namePromotion = Promotion_year::with(['promotion'])->get();   
+        $namePromotion = Promotion::with(['promotion'])->get();   
         return view('messages',['conversations' => $namePromotion]);
     }
 
