@@ -12,7 +12,7 @@ use App\Models\Promotion;
 use App\Models\Promotion_year;
 use Illuminate\Support\Facades\Auth;
 
-class MessageController extends Controller
+class ConversationController extends Controller
 {
     public function index()
     {

@@ -1,15 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MemberController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\VerifMemberController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromotionController;
-use App\Http\Controllers\DashboardarchiveController;
+use App\Http\Controllers\ApprenticeController;
+use App\Http\Controllers\ConversationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,65 +19,23 @@ use App\Http\Controllers\DashboardarchiveController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// route pour l'accueil
-Route::get('/', function () {
-    return view('home');
-})-> name('home');
-
-Route::get('/dashboard/dashboard_archive', function () {
-    return view('dashboard_archive');
-})->name('dashboard_archive');
-
-
-/* Route::get('/dashboard/create-post', function () {
-    return view('formPost');
-}); */
-
-// Route::get('/dashboard/dashboardArchive', function () {
-//     return view('dashboardArchive');
-// });
-
-
-Route::get('/reports', [ReportController::class,'index']);
-Route::delete('/reports/{report}', [ReportController::class,'destroy']);
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('/', 'home')->name('home');
+Route::view('actualites', 'news')->name('news');
 
-Route::post('/conversations/{id}', [MessageController::class,'create']) -> name('sendMessage');
-Route::get('/messages', [MessageController::class,'index']) -> name('message');
-Route::get('/conversations/{id}', [MessageController::class,'show']) -> name('conversations');
+Route::get('/compte', [PageController::class, 'account'])->name('account');
+Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [PageController::class, 'admin'])->name('admin');
 
-// routes pour les posts d'actualité
-
-Route::resource('articles', PostController::class)->parameters([
-    'articles' => 'post'
-]);
-
-/* Route::get('articles', [PostController::class, 'index']) -> name('articles.index');
-Route::post('articles', [PostController::class, 'store']) -> name('articles.store');
-Route::get('articles/create', [PostController::class, 'create']) -> name('articles.create');
-Route::get('articles/{post}', [PostController::class, 'show']) -> name('articles.show');
-Route::put('articles/{post}', [PostController::class, 'update']) -> name('articles.update');
-Route::delete('articles/{post}', [PostController::class, 'destroy']) -> name('articles.destroy');
-Route::get('articles/{post}/edit', [PostController::class, 'edit']) -> name('articles.edit'); */
-
-// Route vers la vérification avant inscription 
-Route::post('/verifmember', [VerifMemberController::class, 'verify'])->name('verifmember');
-Route::get('/verifmember', [VerifMemberController::class, 'index'])->name('checkmember');
-
-Route::get('/members', [MemberController::class, 'index']);
-Route::get('members/{member}/edit', [MemberController::class, 'edit']);
-Route::put('members/{member}', [PostController::class, 'update']);
-// Route::delete('/membersDelete', [MemberController::class, 'destroy']);
-
-Route::prefix('dashboard')->name('dashboard.')->group(function () {
-    Route::get('/', DashboardController::class)->name('dashboard');
-    Route::get('/compte', [DashboardController::class, 'user'])->name('user');
+    Route::resource('promotions', PromotionController::class);
+    Route::resource('conversations', ConversationController::class);
+    Route::resource('membres', MemberController::class)->parameters(['membres' => 'member']);
+    Route::resource('articles', PostController::class)->parameters(['articles' => 'post']);
+    Route::resource('evenements', EventController::class)->parameters(['evenements' => 'event']);
+    Route::resource('signalements', ReportController::class)->parameters(['signalements' => 'report']);
+    Route::resource('apprentis', ApprenticeController::class)->parameters(['apprentis' => 'apprentice']);
 });
-
-// routes Ressource
-Route::resource('promotions', PromotionController::class);
-
