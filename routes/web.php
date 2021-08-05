@@ -22,8 +22,8 @@ use App\Http\Controllers\ConversationController;
 
 require __DIR__.'/auth.php';
 
-Route::view('/', 'home')->name('home');
-Route::view('actualites', 'news')->name('news');
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/actualites', [PageController::class, 'news'])->name('news');
 
 Route::get('/compte', [PageController::class, 'account'])->name('account');
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');
