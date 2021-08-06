@@ -1,6 +1,5 @@
-@extends('/partials/layout')
-
-@section('content')
+edit
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 <div class="container">
     <form method="post" class="edit-promotion" action="{{route('promotions.update', $promotion->id)}}">
         @csrf
@@ -13,4 +12,3 @@
     </form>
 </div>
 
-@endsection

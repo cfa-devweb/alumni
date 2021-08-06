@@ -10,9 +10,15 @@ use App\Http\Controllers\Controller;
 class PromotionController extends Controller
 {    
 
+    public function index()
+    {
+        $promotions = Promotion::all();
+        return view('promotions.index', compact('promotions'));
+    }
+
     public function create()
     {
-        return view('promotions.create');
+        return view('promotions/create');
     }
 
     public function show()
@@ -45,7 +51,7 @@ class PromotionController extends Controller
             'name' => 'required|max:255',
             'year' => 'required|max:4',
         ]);
-
+            dd($validatedData);
         Promotion::whereId($id)->update($validatedData);
 
         return redirect('/dashboard')->with('success', 'Promotion correctement mise à jour.');
