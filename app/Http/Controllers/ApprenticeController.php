@@ -36,7 +36,23 @@ class ApprenticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required|string|max:255',
+            'birth_date' => 'required',
+            // 'deleted_at' => 'required',
+            // 'created_at' => 'required',
+            // 'updated_at' => 'required'
+        ]);
+
+        $apprentice = Apprentice::create([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'birth_date' => $request->get('birth_date')
+            // 'deleted_at' => $request->get('deleted_at'),
+            // 'created_at' => $request->get('created_at'),
+            // 'updated_at' => $request->get('updated_at')
+        ]);
     }
 
     /**
@@ -70,7 +86,26 @@ class ApprenticeController extends Controller
      */
     public function update(Request $request, Apprentice $apprentice)
     {
-        //
+        // $request->validate([
+        //     'first_name' => 'required',
+        //     'last_name' => 'required|string|max:255',
+        //     'birth_date' => 'required',
+        //     // 'deleted_at' => 'required',
+        //     // 'created_at' => 'required',
+        //     // 'updated_at' => 'required'
+        // ]);
+
+        // $apprentice = Apprentice::update([
+        //     'first_name' => $request->get('first_name'),
+        //     'last_name' => $request->get('last_name'),
+        //     'birth_date' => $request->get('birth_date')
+        //     // 'deleted_at' => $request->get('deleted_at'),
+        //     // 'created_at' => $request->get('created_at'),
+        //     // 'updated_at' => $request->get('updated_at')
+        // ]);
+
+        $apprentice->update($request->all());
+        return redirect(route ('admin.apprentis.index'))->with('success', 'Nouvel article crée avec succès !');
     }
 
     /**

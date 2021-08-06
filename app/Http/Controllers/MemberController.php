@@ -14,12 +14,12 @@ class MemberController extends Controller
     {
         $members = Member::with('user')->get();
 
-        return view('members/index', ['members' => $members]);
+        return view('members.index', ['members' => $members]);
     }
 
     public function edit(Member $member)
     {
-        return view('members/update', compact('member'));
+        return view('members.update', compact('member'));
     }
 
 

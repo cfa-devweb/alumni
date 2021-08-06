@@ -48,7 +48,7 @@
 
                         Accueil
                     </a>
-                    <a href="{{ route('articles.index') }}" class="navbar-item">
+                    <a href="{{ route('admin.articles.index') }}" class="navbar-item">
                         Actualités
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -65,7 +65,7 @@
                                 </div> 
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
-                                        <a href="{{'/members'}}" class="dropdown-item">
+                                        <a href="" class="dropdown-item">
                                             2021
                                         </a>
                                         <a class="dropdown-item">
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                     <div class="dropdown-content">
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{ route ('admin.membres.index') }}" class="dropdown-item">
                                             2021
                                         </a>
                                         <a class="dropdown-item">
