@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('address');
             $table->datetime('start_at');
             $table->datetime('end_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

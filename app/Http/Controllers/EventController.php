@@ -14,7 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('events.index', compact('events'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -35,7 +36,24 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|text',
+            'address' => 'required|string|max:255',
+            'start_at' => 'required',
+            'end_at' => 'required',
+        ]);
+
+        $event = Event::create([
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'address' => $request->get('address'),
+            'start_at' => $request->get('start_at'),
+            'end_at' => $request->get('end_at'),
+        ]);
+
+        $event->save();
+        return redirect()->route('admin.evenements.index');
     }
 
     /**
@@ -46,7 +64,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('events.show', ['event' => $event]);
     }
 
     /**
@@ -56,8 +74,8 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Event $event)
-    {
-        //
+    {   
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -68,8 +86,9 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Event $event)
-    {
-        //
+    {   
+        $event->update();
+        return redirect()->route('admin.evenements.index');
     }
 
     /**
@@ -80,6 +99,6 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        // 
     }
 }
