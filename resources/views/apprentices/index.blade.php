@@ -13,9 +13,17 @@
                 <td>{{ $apprentice->first_name }}</td>
                 <td>{{ $apprentice->last_name }}</td>
                 <td>
-                    <a href="{{ route('admin.apprentis.edit', $apprentice->id) }}">Modifier</a>
+                    <a class="button" href="{{ route('admin.apprentis.edit', $apprentice->id) }}">Modifier</a>
+                    <form method="POST" action="{{ route('admin.apprentis.destroy', $apprentice->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button is-danger">Supprimer</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
-    </tbody>     
+    </tbody>
+    <a class="button" href="{{ route('admin.apprentis.create') }}">Ajouter</a>  
 </table>
+
+

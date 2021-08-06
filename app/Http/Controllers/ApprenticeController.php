@@ -25,7 +25,7 @@ class ApprenticeController extends Controller
      */
     public function create()
     {
-        //
+        return view('apprentices.create');
     }
 
     /**
@@ -36,7 +36,10 @@ class ApprenticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $apprentice = new Apprentice($request->all());
+        $apprentice->save();
+
+        return redirect()->route('admin.apprentis.index');
     }
 
     /**
@@ -70,7 +73,9 @@ class ApprenticeController extends Controller
      */
     public function update(Request $request, Apprentice $apprentice)
     {
-        //
+        $apprentice->update($request->all());
+        
+        return redirect()->route('admin.apprentis.index');
     }
 
     /**
@@ -81,6 +86,9 @@ class ApprenticeController extends Controller
      */
     public function destroy(Apprentice $apprentice)
     {
-        //
+        $apprentice->delete();
+
+        return redirect()->route('admin.apprentis.index');
     }
 }
+
