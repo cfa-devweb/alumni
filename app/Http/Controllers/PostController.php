@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index()
     {  
         $posts = Post::all();
-        return view('articles', compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
@@ -31,18 +31,18 @@ class PostController extends Controller
             'user_id' => 'required',
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'categorie_id' => 'required',
-            'sticky_post' => 'required',
-            'visibility' => 'required'
+            'category_id' => 'required',
+            'promoted' => 'required',
+            'visible' => 'required'
         ]);
 
         $post = Post::create([
             'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
-            'sticky_post' => $request->get('sticky_post'),
+            'promoted' => $request->get('promoted'),
             'content' => $request->get('content'),
-            'categorie_id' => $request->get('categorie_id'),
-            'visibility' => $request->get('visibility')
+            'category_id' => $request->get('category_id'),
+            'visible' => $request->get('visible')
         ]);
 
         $post->save();
@@ -59,24 +59,24 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'sticky_post' => 'required',
-            'visibility' => 'required'
+            'promoted' => 'required',
+            'visible' => 'required'
         ]);
 
         $post->update([
             'title' => $request->get('title'),
-            'sticky_post' => $request->get('sticky_post'),
+            'promoted' => $request->get('promoted'),
             'content' => $request->get('content'),
-            'visibility' => $request->get('visibility')
+            'visible' => $request->get('visible')
         ]);
 
-        return redirect()->route('articles.index')->with('success', 'Article édité avec succès !');
+        return redirect()->route('admin.articles.index')->with('success', 'Article édité avec succès !');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('articles.index')->with('success', 'Article supprimé avec succès !');
+        return redirect()->route('admin.articles.index')->with('success', 'Article supprimé avec succès !');
     }
 }

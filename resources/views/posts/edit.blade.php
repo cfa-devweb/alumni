@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="post" action="{{ route('articles.update', $post->id) }}">
+<form method="post" action="{{ route('admin.articles.update', $post->id) }}">
 
     @csrf
     @method('PUT')
@@ -53,14 +53,14 @@
             </div><br>
 
             <div class="checkbox">
-                <label class="label" for="visibility">Visibilité : Afficher l'article sur la page des actualités ?</label>
-                    <input type="checkbox" name="visibility" value="{{ $post->visibility }}">
+                <label class="label" for="visible">Visibilité : Afficher l'article sur la page des actualités ?</label>
+                    <input type="checkbox" name="visible" value="{{ $post->visible }}">
                     Oui
             </div><br><br>
 
             <div class="checkbox">
-                <label class="label" for="sticky_post">Mettre l'article à la une ?</label>
-                    <input type="checkbox" name="sticky_post" value="{{ $post->sticky_post }}">
+                <label class="label" for="promoted">Mettre l'article à la une ?</label>
+                    <input type="checkbox" name="promoted" value="{{ $post->promoted }}">
                     Oui
             </div><br><br>
 
@@ -81,7 +81,7 @@
 
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="button is-rounded is-primary">Envoyer</button>
+                    <button type="submit" class="button is-rounded is-primary">Envoyer</button>
                 </div>
                 <div class="control">
                     <button class="button is-danger is-rounded">Annuler</button>

@@ -70,7 +70,9 @@ class ApprenticeController extends Controller
      */
     public function update(Request $request, Apprentice $apprentice)
     {
-        //
+        $apprentice->update($request->all());
+
+        return redirect()->route('admin.apprentis.index');
     }
 
     /**

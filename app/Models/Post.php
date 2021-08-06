@@ -20,8 +20,9 @@ class Post extends Model
         'title',
         'content',
         'promoted',
+        'visible',
         'user_id',
-        'categorie_id',
+        'category_id',
     ];
 
     /**

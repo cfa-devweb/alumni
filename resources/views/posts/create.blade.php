@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="post" action="{{ route('articles.store') }}">
+<form method="post" action="{{ route('admin.articles.store') }}">
 
     @csrf <!-- {{ csrf_field() }} -->
 
@@ -38,9 +38,9 @@
             </div>
 
             <div class="field">
-                <label class="label" for="categorie_id">ID Catégorie</label>
+                <label class="label" for="category_id">ID Catégorie</label>
                 <div class="control">
-                    <input class="input" type="number" placeholder="Votre catégorie ici." name="categorie_id" id="categorie_id">
+                    <input class="input" type="number" placeholder="Votre catégorie ici." name="category_id" id="categorie_id">
                 </div>
             </div>
 
@@ -52,25 +52,25 @@
             </div><br>
 
             <div class="control">
-                <label class="label" for="visibility">Visibilité : Afficher l'article sur la page des actualités ?</label>
+                <label class="label" for="visible">Visibilité : Afficher l'article sur la page des actualités ?</label>
                 <label class="radio">
-                    <input type="radio" name="visibility" value=1>
+                    <input type="radio" name="visible" value=1>
                     Oui
                 </label>
                 <label class="radio">
-                    <input type="radio" name="visibility" value=0>
+                    <input type="radio" name="visible" value=0>
                     Non
                 </label>
             </div><br>
 
             <div class="control">
-                <label class="label" for="sticky_post">Mettre l'article à la une ?</label>
+                <label class="label" for="promoted">Mettre l'article à la une ?</label>
                 <label class="radio">
-                    <input type="radio" name="sticky_post" value=1>
+                    <input type="radio" name="promoted" value=1>
                     Oui
                 </label>
                 <label class="radio">
-                    <input type="radio" name="sticky_post" value=0>
+                    <input type="radio" name="promoted" value=0>
                     Non
                 </label>
             </div><br><br>

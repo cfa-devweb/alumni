@@ -48,7 +48,7 @@
 
                         Accueil
                     </a>
-                    <a href="{{ route('articles.index') }}" class="navbar-item">
+                    <a href="{{ route('news') }}" class="navbar-item">
                         Actualités
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">

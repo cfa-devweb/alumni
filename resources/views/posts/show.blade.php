@@ -61,7 +61,7 @@
                             </div>
                             <div class="media-content has-text-centered">
                                 <p class="subtitle is-6 article-subtitle"><br>
-                                    <small>Par <a href="#">{{ $post->user->name }}</a>, le {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d/m/Y') }}</small>
+                                    <small>Par <a href="#">{{ $post->user->email }}</a>, le {{ now() }}</small>
                                 </p>
                             </div>
                         </div>
@@ -72,10 +72,10 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <span class="card-footer-item">Visibilité : {!! $post->visibility === 1 ? "&#10004;" : "&#10006;" !!}</span>
-                        <span class="card-footer-item">A la une : {!! $post->sticky_post === 1 ? "&#10004;" : "&#10006;" !!}</span>
-                        <a class="card-footer-item" href="{{ route('articles.edit',$post->id) }}" class="card-footer-item">Modifier</a>
-                        <form class="card-footer-item" action="{{ route('articles.destroy',$post->id) }}" method="POST">
+                        <span class="card-footer-item">Visibilité : {!! $post->visible === 1 ? "&#10004;" : "&#10006;" !!}</span>
+                        <span class="card-footer-item">A la une : {!! $post->promoted === 1 ? "&#10004;" : "&#10006;" !!}</span>
+                        <a class="card-footer-item" href="{{ route('admin.articles.edit',$post->id) }}" class="card-footer-item">Modifier</a>
+                        <form class="card-footer-item" action="{{ route('admin.articles.destroy',$post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')      
                             <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -84,7 +84,7 @@
                 </div>
             <br>
                 <div style="text-align:end;">
-                    <a class="button is-dark is-right" href="{{ route('articles.index') }}">Retour</a>
+                    <a class="button is-dark is-right" href="{{ route('admin.articles.index') }}">Retour</a>
                 </div>
             </div>
         </section>
