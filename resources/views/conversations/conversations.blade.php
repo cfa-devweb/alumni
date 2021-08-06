@@ -5,7 +5,7 @@
     <div class="box is-4 columns is-flex-direction-column">
         <h2 class="title is-2">discussion avec :  </h2>
         <div class="column is-6">
-            @foreach ($conversations as $item)
+            @foreach ($messages as $item)
 
                 <div class="box is-light p-6 column ">
                     {{ $item ->content }}
@@ -19,14 +19,16 @@
                 </div>
             @endforeach
         </div>
-        {{-- <form method="POST" action=" {{ route('sendMessage', $conversations->id) }} ">
+        <form method="POST" action=" {{ route('admin.conversations.store',$conversation ->id) }} ">
+            @csrf
+            @method('post')
             <div class="field">
                 <div class="control">
                     <textarea class="textarea" placeholder="Ecrivez votre message...." name="content" id="content" cols="30" rows="5"></textarea>
                     <button class="button is-primary" type="submit">Envoyer</button>
                 </div>
             </div>
-        </form> --}}
+        </form>
     </div>
 
     @endsection

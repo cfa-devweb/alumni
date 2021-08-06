@@ -1,4 +1,4 @@
-        <footer class="site-footer columns mt-4 mb-4   has-background-primary has-text-white ">
+        {{-- <footer class="site-footer columns mt-4 mb-4   has-background-primary has-text-white ">
                 <div class="column is-one-fifth is-offset-1 adresse">
                     <span class="icon-text">
                         <span class="icon is-small">
@@ -39,7 +39,7 @@
                 </span>
             </div>
 
-        </footer>
+        </footer> --}}
 
         </div>
         </body>

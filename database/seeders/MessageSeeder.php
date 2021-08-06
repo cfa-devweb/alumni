@@ -21,6 +21,11 @@ class MessageSeeder extends Seeder
                 'member_id' => '1'
             ],
             [
+                'content' => 'Je suis quelquun',
+                'conversation_id' => '1',
+                'member_id' => '1'
+            ],
+            [
                 'content' => 'Je suis charlie',
                 'conversation_id' => '3',
                 'member_id' => '1'

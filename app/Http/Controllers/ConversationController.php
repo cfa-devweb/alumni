@@ -11,9 +11,8 @@ class ConversationController extends Controller
 {
     public function index()
     {
-        $conversations = Conversation::with(['promotion'])->get();  
+         //ne s'appelle jamais
         $messages = Message::with('member')->get(); 
-        
         return view('conversations.conversations',['conversations' => $messages]);
     }
 
@@ -26,8 +25,25 @@ class ConversationController extends Controller
     */
     public function show($id)
     {
+        //get own conversation by id of promotion 
+        $conversation = Conversation::with(['promotion']) -> where('promotion_id',$id)->firstOrFail();
+
+        //get all message for conversation 
         $messages =  Message::with(['member']) -> where('conversation_id',$id) ->get();
-       
-        return view('conversations',['messages' => $messages]);
+        
+        return view('conversations.conversations',['messages' => $messages,'conversation' => $conversation]);
+    }
+    public function store(Request $request)
+    {
+        
+        dd($request);
+        $request -> validate([
+            'content' => 'required'
+        ]);
+        $message = Message::create([
+            'content' => $request ->content,
+            'member_id' => Auth::id(),
+            ''
+        ]);
     }
 }
